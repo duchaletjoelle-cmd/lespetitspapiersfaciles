@@ -29,3 +29,10 @@
 - [x] Intégration dans la navigation (bouton "Prendre RDV")
 - [x] Intégration dans la page Contact
 - [x] Tests vitest pour les procédures tRPC
+
+## Ambiance sonore (v3)
+- [x] Générer une mélodie douce au piano (libre de droits)
+- [x] Uploader l'audio sur le CDN
+- [x] Créer le composant bouton audio discret (coin bas-droite)
+- [x] Lecture en boucle, sans autoplay, mémorisation état
+- [x] Intégrer dans le layout global (App.tsx)

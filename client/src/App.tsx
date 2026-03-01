@@ -11,6 +11,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import CookieBanner from "./components/CookieBanner";
+import AudioPlayer from "./components/AudioPlayer";
 
 // Pages
 import HomePage from "./pages/Home";
@@ -51,6 +52,7 @@ function Router() {
       </main>
       <Footer />
       <CookieBanner />
+      <AudioPlayer />
     </div>
   );
 }

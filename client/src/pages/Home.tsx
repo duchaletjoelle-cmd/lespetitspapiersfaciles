@@ -476,18 +476,19 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="reveal">
-                {/* Photo placeholder avec initiale */}
+                {/* Photo de profil */}
                 <div className="flex justify-center md:justify-start">
                   <div
-                    className="w-48 h-48 rounded-full flex items-center justify-center text-6xl font-bold border-4"
+                    className="w-48 h-48 rounded-full border-4 overflow-hidden shadow-lg"
                     style={{
-                      backgroundColor: "oklch(0.95 0.02 145)",
                       borderColor: "oklch(0.42 0.06 145)",
-                      color: "oklch(0.42 0.06 145)",
-                      fontFamily: "'Cormorant Garamond', Georgia, serif",
                     }}
                   >
-                    S
+                    <img
+                      src="https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/profile-sandra-real_80e9255a.jpg"
+                      alt="Sandra — Les Petits Papiers Faciles"
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                 </div>
               </div>

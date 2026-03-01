@@ -64,18 +64,18 @@ export default function QuiSuisJePage() {
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
               {/* Photo & infos */}
               <div className="lg:col-span-2 flex flex-col items-center text-center reveal">
-                {/* Photo ronde — emplacement pour votre photo */}
+                {/* Photo de profil */}
                 <div
-                  className="w-56 h-56 rounded-full flex items-center justify-center text-8xl font-bold border-4 mb-6 shadow-lg overflow-hidden"
+                  className="w-56 h-56 rounded-full border-4 mb-6 shadow-lg overflow-hidden"
                   style={{
-                    backgroundColor: "oklch(0.95 0.02 145)",
                     borderColor: "oklch(0.42 0.06 145)",
-                    color: "oklch(0.42 0.06 145)",
-                    fontFamily: "'Cormorant Garamond', Georgia, serif",
                   }}
                 >
-                  {/* Remplacez ce contenu par votre photo : <img src="..." alt="Sandra" className="w-full h-full object-cover" /> */}
-                  S
+                  <img
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/profile-sandra-real_80e9255a.jpg"
+                    alt="Sandra — Les Petits Papiers Faciles"
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
 
                 <h2

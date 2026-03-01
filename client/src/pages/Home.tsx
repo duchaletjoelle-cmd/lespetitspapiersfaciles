@@ -15,6 +15,9 @@ import {
   Home,
   Wifi,
   CalendarDays,
+  MessageCircle,
+  MapPin,
+  Star,
 } from "lucide-react";
 
 const HERO_IMG =
@@ -184,7 +187,139 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SERVICES APERÇU ── */}
+      {/* ── CHEMIN RASSURANT ── */}
+      <section className="py-20" style={{ backgroundColor: "oklch(0.98 0.01 80)" }}>
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            {/* En-tête */}
+            <div className="text-center mb-14 reveal">
+              <span
+                className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 tracking-wide uppercase"
+                style={{
+                  backgroundColor: "oklch(0.95 0.02 145)",
+                  color: "oklch(0.35 0.07 145)",
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                Mon approche
+              </span>
+              <h2
+                className="text-4xl md:text-5xl font-semibold mb-4"
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", color: "oklch(0.22 0.04 145)" }}
+              >
+                Comment je vous accompagne
+              </h2>
+              <p
+                className="text-lg max-w-xl mx-auto"
+                style={{ color: "oklch(0.45 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                Trois étapes simples, à votre rythme, sans jugement.
+              </p>
+            </div>
+
+            {/* 3 étapes */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+              {/* Ligne de connexion (desktop) */}
+              <div
+                className="hidden md:block absolute top-10 left-1/6 right-1/6 h-px"
+                style={{ backgroundColor: "oklch(0.85 0.04 145)", zIndex: 0 }}
+              />
+
+              {[
+                {
+                  num: "1",
+                  icon: <MessageCircle size={26} />,
+                  title: "Nous faisons le point ensemble",
+                  desc: "Vous expliquez simplement votre situation. Je vous écoute sans jargon, sans jugement. Rien n'est trop simple ou trop compliqué.",
+                  delay: "0s",
+                },
+                {
+                  num: "2",
+                  icon: <MapPin size={26} />,
+                  title: "Je vous guide pas à pas",
+                  desc: "Chaque démarche est expliquée clairement, à votre rythme. Je suis à vos côtés à chaque étape, jusqu'à ce que ce soit réglé.",
+                  delay: "0.15s",
+                },
+                {
+                  num: "3",
+                  icon: <Star size={26} />,
+                  title: "Vous devenez autonome",
+                  desc: "Vous comprenez, vous agissez, vous gagnez en sérénité. Mon objectif : que vous n'ayez plus besoin de moi.",
+                  delay: "0.30s",
+                },
+              ].map((step, i) => (
+                <div
+                  key={step.num}
+                  className="reveal flex flex-col items-center text-center"
+                  style={{ transitionDelay: step.delay, position: "relative", zIndex: 1 }}
+                >
+                  {/* Numéro + icône */}
+                  <div className="relative mb-6">
+                    {/* Cercle de fond */}
+                    <div
+                      className="w-20 h-20 rounded-full flex items-center justify-center shadow-md"
+                      style={{
+                        backgroundColor: "oklch(0.42 0.06 145)",
+                        color: "oklch(0.97 0.01 80)",
+                      }}
+                    >
+                      {step.icon}
+                    </div>
+                    {/* Numéro en badge */}
+                    <div
+                      className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
+                      style={{
+                        backgroundColor: "oklch(0.94 0.02 80)",
+                        color: "oklch(0.30 0.07 145)",
+                        border: "2px solid oklch(0.42 0.06 145)",
+                        fontFamily: "'Source Sans 3', sans-serif",
+                      }}
+                    >
+                      {step.num}
+                    </div>
+                  </div>
+
+                  {/* Texte */}
+                  <h3
+                    className="text-xl font-semibold mb-3"
+                    style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", color: "oklch(0.22 0.04 145)" }}
+                  >
+                    {step.title}
+                  </h3>
+                  <p
+                    className="text-base leading-relaxed"
+                    style={{ color: "oklch(0.45 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
+                  >
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Phrase de réassurance finale */}
+            <div className="text-center mt-14 reveal" style={{ transitionDelay: "0.45s" }}>
+              <div
+                className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl"
+                style={{
+                  backgroundColor: "oklch(0.95 0.02 145)",
+                  border: "1px solid oklch(0.85 0.04 145)",
+                }}
+              >
+                <CheckCircle size={20} style={{ color: "oklch(0.42 0.06 145)", flexShrink: 0 }} />
+                <p
+                  className="text-base font-medium"
+                  style={{ color: "oklch(0.30 0.07 145)", fontFamily: "'Source Sans 3', sans-serif" }}
+                >
+                  Ce n'est pas compliqué. Vous ne serez pas seul·e. Et vous n'avez pas besoin de tout savoir avant de commencer.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVICES APerçu ── */}
       <section className="section-cream py-20">
         <div className="container">
           <div className="text-center mb-12 reveal">

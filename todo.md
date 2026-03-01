@@ -36,3 +36,6 @@
 - [x] Créer le composant bouton audio discret (coin bas-droite)
 - [x] Lecture en boucle, sans autoplay, mémorisation état
 - [x] Intégrer dans le layout global (App.tsx)
+
+## Bloc "chemin rassurant" (v4)
+- [x] Ajouter bloc 3 étapes "Comment je vous accompagne" juste sous le hero

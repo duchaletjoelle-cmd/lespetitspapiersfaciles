@@ -14,6 +14,7 @@ import {
   Shield,
   Home,
   Wifi,
+  CalendarDays,
 } from "lucide-react";
 
 const HERO_IMG =
@@ -100,9 +101,17 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/contact" className="btn-sage text-base">
-                Prendre contact
-                <ArrowRight size={18} />
+              <Link
+                href="/rendez-vous"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded font-semibold text-base transition-all"
+                style={{
+                  backgroundColor: "oklch(0.94 0.02 80)",
+                  color: "oklch(0.30 0.07 145)",
+                  fontFamily: "'Source Sans 3', sans-serif",
+                }}
+              >
+                <CalendarDays size={18} />
+                Prendre rendez-vous
               </Link>
               <Link href="/services" className="btn-outline-sage text-base"
                 style={{
@@ -548,8 +557,8 @@ export default function HomePage() {
               discute ensemble, sans engagement.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="tel:0750527227"
+              <Link
+                href="/rendez-vous"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-semibold text-lg transition-all"
                 style={{
                   backgroundColor: "oklch(0.97 0.01 80)",
@@ -557,11 +566,11 @@ export default function HomePage() {
                   fontFamily: "'Source Sans 3', sans-serif",
                 }}
               >
-                <Phone size={20} />
-                07 50 52 72 27
-              </a>
-              <Link
-                href="/contact"
+                <CalendarDays size={20} />
+                Prendre rendez-vous
+              </Link>
+              <a
+                href="tel:0750527227"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-semibold text-lg transition-all border-2"
                 style={{
                   borderColor: "oklch(0.97 0.01 80 / 0.50)",
@@ -569,9 +578,9 @@ export default function HomePage() {
                   fontFamily: "'Source Sans 3', sans-serif",
                 }}
               >
-                Envoyer un message
-                <ArrowRight size={18} />
-              </Link>
+                <Phone size={20} />
+                07 50 52 72 27
+              </a>
             </div>
           </div>
         </div>

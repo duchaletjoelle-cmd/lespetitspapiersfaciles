@@ -24,8 +24,11 @@ import MentionsLegalesPage from "./pages/MentionsLegales";
 import ConfidentialitePage from "./pages/Confidentialite";
 import CookiesPage from "./pages/Cookies";
 import NotFound from "./pages/NotFound";
+import RendezVousPage from "./pages/RendezVous";
+import AdminRendezVousPage from "./pages/AdminRendezVous";
 
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
@@ -38,6 +41,8 @@ function Router() {
           <Route path="/secteur" component={SecteurPage} />
           <Route path="/avantage-fiscal" component={AvantageFiscalPage} />
           <Route path="/contact" component={ContactPage} />
+          <Route path="/rendez-vous" component={RendezVousPage} />
+          <Route path="/admin/rendez-vous" component={AdminRendezVousPage} />
           <Route path="/mentions-legales" component={MentionsLegalesPage} />
           <Route path="/confidentialite" component={ConfidentialitePage} />
           <Route path="/cookies" component={CookiesPage} />

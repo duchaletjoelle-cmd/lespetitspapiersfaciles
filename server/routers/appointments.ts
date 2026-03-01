@@ -1,0 +1,190 @@
+/**
+ * Routeur tRPC — Rendez-vous
+ * Les Petits Papiers Faciles
+ */
+
+import { TRPCError } from "@trpc/server";
+import { z } from "zod";
+import { publicProcedure, protectedProcedure, router } from "../_core/trpc";
+import { notifyOwner } from "../_core/notification";
+import {
+  getAvailableSlots,
+  createAppointment,
+  listAppointments,
+  updateAppointmentStatus,
+  deleteAppointment,
+  blockSlot,
+  unblockSlot,
+  listBlockedSlots,
+  isWorkingDay,
+} from "../appointments.db";
+
+// ─── Middleware admin ────────────────────────────────────────────────────────
+
+const adminProcedure = protectedProcedure.use(({ ctx, next }) => {
+  if (ctx.user.role !== "admin") {
+    throw new TRPCError({ code: "FORBIDDEN", message: "Accès réservé à l'administrateur." });
+  }
+  return next({ ctx });
+});
+
+// ─── Labels lisibles ─────────────────────────────────────────────────────────
+
+const SERVICE_LABELS: Record<string, string> = {
+  "aide-administrative": "Aide administrative",
+  "apprentissage-numerique": "Apprentissage numérique",
+  "premiere-seance": "Première séance découverte",
+  "autre": "Autre",
+};
+
+// ─── Routeur ─────────────────────────────────────────────────────────────────
+
+export const appointmentsRouter = router({
+  /**
+   * Créneaux disponibles pour une date donnée (public)
+   */
+  getAvailableSlots: publicProcedure
+    .input(z.object({ date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/) }))
+    .query(async ({ input }) => {
+      const slots = await getAvailableSlots(input.date);
+      return { slots, isWorkingDay: isWorkingDay(input.date) };
+    }),
+
+  /**
+   * Créer un rendez-vous (public — visiteur non connecté)
+   */
+  create: publicProcedure
+    .input(
+      z.object({
+        clientName: z.string().min(2).max(255),
+        clientEmail: z.string().email(),
+        clientPhone: z.string().min(8).max(30),
+        appointmentDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+        appointmentTime: z.string().regex(/^\d{2}:\d{2}$/),
+        serviceType: z.enum([
+          "aide-administrative",
+          "apprentissage-numerique",
+          "premiere-seance",
+          "autre",
+        ]),
+        message: z.string().max(1000).optional(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      // Vérifier que le créneau est encore disponible
+      const available = await getAvailableSlots(input.appointmentDate);
+      if (!available.includes(input.appointmentTime)) {
+        throw new TRPCError({
+          code: "BAD_REQUEST",
+          message: "Ce créneau n'est plus disponible. Veuillez en choisir un autre.",
+        });
+      }
+
+      const appt = await createAppointment({
+        clientName: input.clientName,
+        clientEmail: input.clientEmail,
+        clientPhone: input.clientPhone,
+        appointmentDate: input.appointmentDate as unknown as Date,
+        appointmentTime: input.appointmentTime,
+        serviceType: input.serviceType,
+        message: input.message ?? null,
+        status: "pending",
+      });
+
+      // Notifier la propriétaire
+      const serviceLabel = SERVICE_LABELS[input.serviceType] ?? input.serviceType;
+      await notifyOwner({
+        title: `📅 Nouveau rendez-vous — ${input.clientName}`,
+        content: `**${input.clientName}** a pris rendez-vous.\n\n- **Date :** ${input.appointmentDate} à ${input.appointmentTime}\n- **Service :** ${serviceLabel}\n- **Email :** ${input.clientEmail}\n- **Téléphone :** ${input.clientPhone}${input.message ? `\n- **Message :** ${input.message}` : ""}`,
+      });
+
+      return { success: true, appointmentId: appt.id };
+    }),
+
+  // ── Admin procedures ──────────────────────────────────────────────────────
+
+  /**
+   * Lister tous les rendez-vous (admin)
+   */
+  list: adminProcedure
+    .input(
+      z.object({
+        status: z.enum(["pending", "confirmed", "cancelled"]).optional(),
+        from: z.string().optional(),
+        to: z.string().optional(),
+      }).optional()
+    )
+    .query(async ({ input }) => {
+      return listAppointments(input);
+    }),
+
+  /**
+   * Mettre à jour le statut d'un RDV (admin)
+   */
+  updateStatus: adminProcedure
+    .input(
+      z.object({
+        id: z.number().int().positive(),
+        status: z.enum(["pending", "confirmed", "cancelled"]),
+        adminNotes: z.string().max(1000).optional(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      await updateAppointmentStatus(input.id, input.status, input.adminNotes);
+      return { success: true };
+    }),
+
+  /**
+   * Supprimer un RDV (admin)
+   */
+  delete: adminProcedure
+    .input(z.object({ id: z.number().int().positive() }))
+    .mutation(async ({ input }) => {
+      await deleteAppointment(input.id);
+      return { success: true };
+    }),
+
+  /**
+   * Bloquer un créneau (admin)
+   */
+  blockSlot: adminProcedure
+    .input(
+      z.object({
+        date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+        time: z.string().regex(/^\d{2}:\d{2}$/).optional(),
+        reason: z.string().max(255).optional(),
+      })
+    )
+    .mutation(async ({ input }) => {
+      await blockSlot({
+        blockedDate: input.date as unknown as Date,
+        blockedTime: input.time ?? null,
+        reason: input.reason ?? null,
+      });
+      return { success: true };
+    }),
+
+  /**
+   * Débloquer un créneau (admin)
+   */
+  unblockSlot: adminProcedure
+    .input(z.object({ id: z.number().int().positive() }))
+    .mutation(async ({ input }) => {
+      await unblockSlot(input.id);
+      return { success: true };
+    }),
+
+  /**
+   * Lister les créneaux bloqués (admin)
+   */
+  listBlockedSlots: adminProcedure
+    .input(
+      z.object({
+        from: z.string().optional(),
+        to: z.string().optional(),
+      }).optional()
+    )
+    .query(async ({ input }) => {
+      return listBlockedSlots(input?.from, input?.to);
+    }),
+});

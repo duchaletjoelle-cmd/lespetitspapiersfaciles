@@ -5,7 +5,7 @@
 
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, CalendarDays } from "lucide-react";
 
 const navLinks = [
   { href: "/", label: "Accueil" },
@@ -104,25 +104,45 @@ export default function Navigation() {
             ))}
           </nav>
 
-          {/* Phone CTA */}
-          <a
-            href="tel:0750527227"
-            className="hidden lg:flex items-center gap-2 px-4 py-2 rounded text-sm font-semibold transition-all duration-200"
-            style={{
-              fontFamily: "'Source Sans 3', sans-serif",
-              backgroundColor: "oklch(0.94 0.02 80)",
-              color: "oklch(0.30 0.07 145)",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = "oklch(0.88 0.04 145)";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.backgroundColor = "oklch(0.94 0.02 80)";
-            }}
-          >
-            <Phone size={14} />
-            07 50 52 72 27
-          </a>
+          {/* RDV + Phone CTA */}
+          <div className="hidden lg:flex items-center gap-2">
+            <Link
+              href="/rendez-vous"
+              className="flex items-center gap-2 px-4 py-2 rounded text-sm font-semibold transition-all duration-200"
+              style={{
+                fontFamily: "'Source Sans 3', sans-serif",
+                backgroundColor: "oklch(0.94 0.02 80)",
+                color: "oklch(0.30 0.07 145)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = "oklch(0.88 0.04 145)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = "oklch(0.94 0.02 80)";
+              }}
+            >
+              <CalendarDays size={14} />
+              Prendre RDV
+            </Link>
+            <a
+              href="tel:0750527227"
+              className="flex items-center gap-2 px-4 py-2 rounded text-sm font-semibold transition-all duration-200"
+              style={{
+                fontFamily: "'Source Sans 3', sans-serif",
+                backgroundColor: "oklch(0.50 0.07 145)",
+                color: "oklch(0.94 0.02 80)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = "oklch(0.55 0.07 145)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.backgroundColor = "oklch(0.50 0.07 145)";
+              }}
+            >
+              <Phone size={14} />
+              07 50 52 72 27
+            </a>
+          </div>
 
           {/* Mobile menu button */}
           <button
@@ -167,13 +187,25 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href="tel:0750527227"
+            <Link
+              href="/rendez-vous"
               className="flex items-center gap-2 mt-3 px-4 py-3 rounded font-semibold"
               style={{
                 fontFamily: "'Source Sans 3', sans-serif",
                 backgroundColor: "oklch(0.94 0.02 80)",
                 color: "oklch(0.30 0.07 145)",
+              }}
+            >
+              <CalendarDays size={16} />
+              Prendre rendez-vous
+            </Link>
+            <a
+              href="tel:0750527227"
+              className="flex items-center gap-2 px-4 py-3 rounded font-semibold"
+              style={{
+                fontFamily: "'Source Sans 3', sans-serif",
+                backgroundColor: "oklch(0.50 0.07 145)",
+                color: "oklch(0.94 0.02 80)",
               }}
             >
               <Phone size={16} />

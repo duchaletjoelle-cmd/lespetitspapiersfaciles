@@ -77,6 +77,7 @@ export default function Footer() {
                 { href: "/secteur", label: "Secteur d'intervention" },
                 { href: "/avantage-fiscal", label: "Avantage fiscal" },
                 { href: "/contact", label: "Contact" },
+                { href: "/rendez-vous", label: "Prendre rendez-vous" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link

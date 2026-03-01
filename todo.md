@@ -1,0 +1,31 @@
+# Les Petits Papiers Faciles — TODO
+
+## Site initial (v1)
+- [x] Analyse du flyer et charte graphique Clarté Provençale
+- [x] Page Accueil (hero, services, tarif, processus, qui suis-je, CTA)
+- [x] Page Services (aide administrative + apprentissage numérique)
+- [x] Page Comment ça fonctionne (4 étapes)
+- [x] Page Qui suis-je (présentation, valeurs, photo ronde)
+- [x] Page Secteur d'intervention (carte Google Maps)
+- [x] Page Avantage fiscal (crédit d'impôt)
+- [x] Page Contact (formulaire + coordonnées)
+- [x] Mentions légales
+- [x] Politique de confidentialité RGPD
+- [x] Gestion des cookies
+- [x] Navigation responsive
+- [x] Footer complet
+- [x] Bandeau cookies RGPD
+
+## Système de prise de rendez-vous (v2)
+- [x] Schéma BDD : table appointments
+- [x] API backend tRPC : créer, lire, annuler rendez-vous
+- [x] API backend : créneaux disponibles par jour
+- [x] Notification propriétaire à chaque nouveau RDV
+- [x] Page /rendez-vous : calendrier interactif
+- [x] Sélection du créneau horaire
+- [x] Formulaire de réservation (nom, email, téléphone, service, message)
+- [x] Confirmation visuelle après réservation
+- [x] Page /admin/rendez-vous : tableau de bord de gestion
+- [x] Intégration dans la navigation (bouton "Prendre RDV")
+- [x] Intégration dans la page Contact
+- [x] Tests vitest pour les procédures tRPC

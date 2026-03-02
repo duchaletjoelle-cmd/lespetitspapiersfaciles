@@ -39,3 +39,10 @@
 
 ## Bloc "chemin rassurant" (v4)
 - [x] Ajouter bloc 3 étapes "Comment je vous accompagne" juste sous le hero
+
+## Mise à jour présentation Sandra (v5)
+- [x] Traiter et uploader la nouvelle photo professionnelle
+- [x] Mettre à jour le nom complet (Sandra Duchalet)
+- [x] Ajouter le sous-titre (Ancienne gestionnaire comptable)
+- [x] Remplacer le texte de présentation
+- [x] Augmenter la taille de la photo et du titre

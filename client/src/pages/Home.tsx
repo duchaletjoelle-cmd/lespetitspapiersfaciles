@@ -614,14 +614,14 @@ export default function HomePage() {
                 {/* Photo de profil */}
                 <div className="flex justify-center md:justify-start">
                   <div
-                    className="w-48 h-48 rounded-full border-4 overflow-hidden shadow-lg"
+                    className="w-64 h-64 rounded-full border-4 overflow-hidden shadow-lg"
                     style={{
                       borderColor: "oklch(0.42 0.06 145)",
                     }}
                   >
                     <img
-                      src="https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/profile-sandra-real_80e9255a.jpg"
-                      alt="Sandra — Les Petits Papiers Faciles"
+                      src="https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/photo-sandra-duchalet_324383da.jpg"
+                      alt="Sandra Duchalet — Les Petits Papiers Faciles"
                       className="w-full h-full object-cover object-top"
                     />
                   </div>
@@ -629,36 +629,37 @@ export default function HomePage() {
               </div>
               <div className="reveal" style={{ transitionDelay: "0.15s" }}>
                 <h2
-                  className="text-4xl font-semibold mb-2"
+                  className="text-5xl font-semibold mb-1"
                   style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
                 >
-                  Sandra
+                  Sandra Duchalet
                 </h2>
                 <p
-                  className="text-base font-medium mb-4"
+                  className="text-base font-medium mb-6"
                   style={{ color: "oklch(0.42 0.06 145)", fontFamily: "'Source Sans 3', sans-serif" }}
                 >
-                  Ancienne gestionnaire comptable · +20 ans d'expérience
+                  Ancienne gestionnaire comptable – plus de 20 ans d'expérience
                 </p>
                 <div className="section-divider" />
                 <p
                   className="text-lg leading-relaxed mb-4"
                   style={{ color: "oklch(0.35 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
                 >
-                  Spécialiste des démarches administratives et numériques du
-                  quotidien, j'accompagne les particuliers avec pédagogie,
-                  patience et bienveillance — sans jamais faire à votre place.
+                  Spécialiste des démarches administratives et numériques du quotidien, j'accompagne les particuliers avec pédagogie, patience et bienveillance.
                 </p>
-                <blockquote
-                  className="italic text-xl pl-4 border-l-4 mb-6"
-                  style={{
-                    fontFamily: "'Cormorant Garamond', Georgia, serif",
-                    borderColor: "oklch(0.42 0.06 145)",
-                    color: "oklch(0.30 0.07 145)",
-                  }}
+                <p
+                  className="text-lg leading-relaxed mb-4"
+                  style={{ color: "oklch(0.35 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
                 >
-                  « Je fais avec vous, jamais à votre place. »
-                </blockquote>
+                  Mon objectif est de vous rendre autonome en vous expliquant simplement chaque étape, sans jargon et sans stress.
+                </p>
+                <p
+                  className="text-lg leading-relaxed mb-4"
+                  style={{ color: "oklch(0.35 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
+                >
+                  Je fais avec vous, jamais à votre place.
+                </p>
+
                 <Link href="/qui-suis-je" className="btn-sage">
                   Me connaître
                   <ArrowRight size={16} />

@@ -46,3 +46,7 @@
 - [x] Ajouter le sous-titre (Ancienne gestionnaire comptable)
 - [x] Remplacer le texte de présentation
 - [x] Augmenter la taille de la photo et du titre
+
+## Logo/Nom du site (v6)
+- [x] Agrandir le nom "Les Petits Papiers Faciles" dans le header
+- [x] Ajouter des petites notes de musique avant/après le nom

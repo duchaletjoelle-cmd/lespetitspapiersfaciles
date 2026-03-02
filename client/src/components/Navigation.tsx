@@ -45,18 +45,38 @@ export default function Navigation() {
         <div className="flex items-center justify-between py-3">
           {/* Logo */}
           <Link href="/" className="flex flex-col leading-tight group">
+            <div className="flex items-center gap-2">
+              <span
+                className="text-sm"
+                style={{
+                  color: "oklch(0.94 0.02 80)",
+                  fontSize: "1.2rem",
+                }}
+              >
+                ♪
+              </span>
+              <span
+                className="text-2xl md:text-3xl font-semibold tracking-wide transition-opacity group-hover:opacity-80"
+                style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  color: "oklch(0.94 0.02 80)",
+                  fontStyle: "italic",
+                }}
+              >
+                Les Petits Papiers
+              </span>
+              <span
+                className="text-sm"
+                style={{
+                  color: "oklch(0.94 0.02 80)",
+                  fontSize: "1.2rem",
+                }}
+              >
+                ♪
+              </span>
+            </div>
             <span
-              className="text-xl font-semibold tracking-wide transition-opacity group-hover:opacity-80"
-              style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                color: "oklch(0.94 0.02 80)",
-                fontStyle: "italic",
-              }}
-            >
-              Les Petits Papiers
-            </span>
-            <span
-              className="text-xs font-semibold tracking-widest uppercase"
+              className="text-xs font-semibold tracking-widest uppercase text-center mt-1"
               style={{
                 fontFamily: "'Source Sans 3', sans-serif",
                 color: "oklch(0.80 0.04 145)",

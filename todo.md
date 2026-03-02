@@ -50,3 +50,7 @@
 ## Logo/Nom du site (v6)
 - [x] Agrandir le nom "Les Petits Papiers Faciles" dans le header
 - [x] Ajouter des petites notes de musique avant/après le nom
+
+## SEO (v7)
+- [x] Corriger le titre (30-60 caractères)
+- [x] Corriger la description (50-160 caractères)

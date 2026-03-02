@@ -27,6 +27,11 @@ export default function HomePage() {
   const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Définir le titre de la page
+    document.title = "Aide administrative à Hyères | Les Petits Papiers Faciles";
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

@@ -60,7 +60,7 @@ export default function Navigation() {
                 style={{
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                   color: "oklch(0.94 0.02 80)",
-                  fontStyle: "italic",
+                  fontStyle: "italic", fontSize: '41px',
                 }}
               >
                 Les Petits Papiers

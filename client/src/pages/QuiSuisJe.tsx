@@ -72,9 +72,9 @@ export default function QuiSuisJePage() {
                   }}
                 >
                   <img
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/profile-sandra-real_80e9255a.jpg"
-                    alt="Sandra — Les Petits Papiers Faciles"
-                    className="w-full h-full object-cover object-top"
+                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/profile-sandra-final_c6dc3ff0.jpg"
+                    alt="Sandra Duchalet — Les Petits Papiers Faciles"
+                    className="w-full h-full object-cover object-center"
                   />
                 </div>
 

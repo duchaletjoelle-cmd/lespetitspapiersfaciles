@@ -6,8 +6,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const AUDIO_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/piano-ambient-lpp_3c6a8adb.mp3";
+const AUDIO_URL = "/audio/background_music.mp3";
 
 const STORAGE_KEY = "lpp-audio-enabled";
 

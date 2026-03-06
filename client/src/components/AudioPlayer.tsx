@@ -6,7 +6,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const AUDIO_URL = "/audio/background_music.mp3";
+const AUDIO_URL =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/musique-petits-papiers_6a517e1f.mp3";
 
 const STORAGE_KEY = "lpp-audio-enabled";
 
@@ -20,7 +21,7 @@ export default function AudioPlayer() {
   useEffect(() => {
     const audio = new Audio(AUDIO_URL);
     audio.loop = true;
-    audio.volume = 0.35;
+    audio.volume = 0.50;
     audio.preload = "none"; // Ne pas précharger automatiquement
     audioRef.current = audio;
 
@@ -51,7 +52,7 @@ export default function AudioPlayer() {
           audio.volume = Math.max(0, audio.volume - 0.05);
         } else {
           audio.pause();
-          audio.volume = 0.35;
+          audio.volume = 0.50;
           clearInterval(fadeOut);
         }
       }, 80);
@@ -64,8 +65,8 @@ export default function AudioPlayer() {
         setPlaying(true);
         sessionStorage.setItem(STORAGE_KEY, "true");
         const fadeIn = setInterval(() => {
-          if (audio.volume < 0.33) {
-            audio.volume = Math.min(0.35, audio.volume + 0.03);
+          if (audio.volume < 0.48) {
+            audio.volume = Math.min(0.50, audio.volume + 0.03);
           } else {
             clearInterval(fadeIn);
           }

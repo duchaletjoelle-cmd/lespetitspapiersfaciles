@@ -1,6 +1,6 @@
 /* ============================================================
-   Page Accueil — Les Petits Papiers Faciles
-   Style : Clarté Provençale — hero pleine largeur, sections alternées
+   Page Accueil — Les Petits Papiers Faciles (v2 améliorée)
+   Structure claire : aide administrative + accompagnement numérique
    ============================================================ */
 
 import { Link } from "wouter";
@@ -17,17 +17,24 @@ import {
   CalendarDays,
   MessageCircle,
   MapPin,
-  Star,
+  Users,
+  BookOpen,
+  Smartphone,
+  Mail,
+  FileCheck,
+  GraduationCap,
 } from "lucide-react";
 
 const HERO_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/hero-lpp-2vxh93BzmXMTqLfzS9LorK.webp";
 
+const PROFILE_IMG =
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/sandra-photo-final_a5568277.jpg";
+
 export default function HomePage() {
   const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Définir le titre de la page
     document.title = "Aide administrative à Hyères | Les Petits Papiers Faciles";
   }, []);
 
@@ -55,12 +62,10 @@ export default function HomePage() {
         className="relative min-h-screen flex items-center"
         style={{ paddingTop: "80px" }}
       >
-        {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${HERO_IMG})` }}
         />
-        {/* Overlay */}
         <div
           className="absolute inset-0"
           style={{
@@ -71,7 +76,6 @@ export default function HomePage() {
 
         <div className="container relative z-10 py-20">
           <div className="max-w-2xl">
-            {/* Badge */}
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-8"
               style={{
@@ -86,7 +90,7 @@ export default function HomePage() {
             </div>
 
             <h1
-              className="text-5xl md:text-6xl font-semibold leading-tight mb-6"
+              className="text-5xl md:text-6xl font-semibold leading-tight mb-3"
               style={{
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
                 color: "oklch(0.97 0.01 80)",
@@ -95,6 +99,17 @@ export default function HomePage() {
               Vos démarches administratives et numériques expliquées simplement,{" "}
               <em>pas à pas.</em>
             </h1>
+
+            {/* Sous-titre clair */}
+            <p
+              className="text-2xl font-semibold mb-6"
+              style={{
+                fontFamily: "'Source Sans 3', sans-serif",
+                color: "oklch(0.94 0.02 80)",
+              }}
+            >
+              Aide administrative et accompagnement numérique à domicile
+            </p>
 
             <p
               className="text-xl leading-relaxed mb-10"
@@ -121,18 +136,21 @@ export default function HomePage() {
                 <CalendarDays size={18} />
                 Prendre rendez-vous
               </Link>
-              <Link href="/services" className="btn-outline-sage text-base"
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded font-semibold text-base transition-all"
                 style={{
                   borderColor: "oklch(0.94 0.02 80 / 0.80)",
                   color: "oklch(0.97 0.01 80)",
                   backgroundColor: "oklch(0.94 0.02 80 / 0.12)",
+                  border: "2px solid oklch(0.94 0.02 80 / 0.80)",
+                  fontFamily: "'Source Sans 3', sans-serif",
                 }}
               >
                 Découvrir les services
               </Link>
             </div>
 
-            {/* Trust badges */}
             <div className="flex flex-wrap gap-6 mt-12">
               {[
                 { icon: <Home size={16} />, label: "À votre domicile" },
@@ -142,591 +160,473 @@ export default function HomePage() {
                 <div
                   key={badge.label}
                   className="flex items-center gap-2 text-sm"
-                  style={{ color: "oklch(0.88 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}
+                  style={{
+                    color: "oklch(0.88 0.03 80)",
+                    fontFamily: "'Source Sans 3', sans-serif",
+                  }}
                 >
-                  <span style={{ color: "oklch(0.80 0.05 145)" }}>{badge.icon}</span>
+                  <span style={{ color: "oklch(0.80 0.05 145)" }}>
+                    {badge.icon}
+                  </span>
                   {badge.label}
                 </div>
               ))}
             </div>
           </div>
         </div>
-
-        {/* Bottom wave */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 80L1440 80L1440 30C1200 70 960 10 720 40C480 70 240 10 0 30L0 80Z"
-              fill="oklch(0.94 0.02 80)"
-            />
-          </svg>
-        </div>
       </section>
 
-      {/* ── ACCROCHE ── */}
-      <section className="section-beige py-16">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center reveal">
-            <p
-              className="text-2xl md:text-3xl font-medium leading-relaxed"
-              style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                color: "oklch(0.30 0.07 145)",
-              }}
-            >
-              « Perdus avec les nouvelles technologies ? Internet et les
-              démarches deviendront enfin simples. »
-            </p>
-            <div className="section-divider-center mt-6" />
-            <p
-              className="text-lg mt-4"
-              style={{
-                fontFamily: "'Source Sans 3', sans-serif",
-                color: "oklch(0.42 0.02 65)",
-              }}
-            >
-              Je vous accompagne pas à pas pour apprendre à gérer vos démarches
-              et votre ordinateur en toute confiance.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CHEMIN RASSURANT ── */}
-      <section className="py-20" style={{ backgroundColor: "oklch(0.98 0.01 80)" }}>
-        <div className="container">
-          <div className="max-w-4xl mx-auto">
-            {/* En-tête */}
-            <div className="text-center mb-14 reveal">
-              <span
-                className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-4 tracking-wide uppercase"
-                style={{
-                  backgroundColor: "oklch(0.95 0.02 145)",
-                  color: "oklch(0.35 0.07 145)",
-                  fontFamily: "'Source Sans 3', sans-serif",
-                  letterSpacing: "0.08em",
-                }}
-              >
-                Mon approche
-              </span>
-              <h2
-                className="text-4xl md:text-5xl font-semibold mb-4"
-                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", color: "oklch(0.22 0.04 145)" }}
-              >
-                Comment je vous accompagne
-              </h2>
-              <p
-                className="text-lg max-w-xl mx-auto"
-                style={{ color: "oklch(0.45 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-              >
-                Trois étapes simples, à votre rythme, sans jugement.
-              </p>
-            </div>
-
-            {/* 3 étapes */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-              {/* Ligne de connexion (desktop) */}
-              <div
-                className="hidden md:block absolute top-10 left-1/6 right-1/6 h-px"
-                style={{ backgroundColor: "oklch(0.85 0.04 145)", zIndex: 0 }}
-              />
-
-              {[
-                {
-                  num: "1",
-                  icon: <MessageCircle size={26} />,
-                  title: "Nous faisons le point ensemble",
-                  desc: "Vous expliquez simplement votre situation. Je vous écoute sans jargon, sans jugement. Rien n'est trop simple ou trop compliqué.",
-                  delay: "0s",
-                },
-                {
-                  num: "2",
-                  icon: <MapPin size={26} />,
-                  title: "Je vous guide pas à pas",
-                  desc: "Chaque démarche est expliquée clairement, à votre rythme. Je suis à vos côtés à chaque étape, jusqu'à ce que ce soit réglé.",
-                  delay: "0.15s",
-                },
-                {
-                  num: "3",
-                  icon: <Star size={26} />,
-                  title: "Vous devenez autonome",
-                  desc: "Vous comprenez, vous agissez, vous gagnez en sérénité. Mon objectif : que vous n'ayez plus besoin de moi.",
-                  delay: "0.30s",
-                },
-              ].map((step, i) => (
-                <div
-                  key={step.num}
-                  className="reveal flex flex-col items-center text-center"
-                  style={{ transitionDelay: step.delay, position: "relative", zIndex: 1 }}
-                >
-                  {/* Numéro + icône */}
-                  <div className="relative mb-6">
-                    {/* Cercle de fond */}
-                    <div
-                      className="w-20 h-20 rounded-full flex items-center justify-center shadow-md"
-                      style={{
-                        backgroundColor: "oklch(0.42 0.06 145)",
-                        color: "oklch(0.97 0.01 80)",
-                      }}
-                    >
-                      {step.icon}
-                    </div>
-                    {/* Numéro en badge */}
-                    <div
-                      className="absolute -top-1 -right-1 w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
-                      style={{
-                        backgroundColor: "oklch(0.94 0.02 80)",
-                        color: "oklch(0.30 0.07 145)",
-                        border: "2px solid oklch(0.42 0.06 145)",
-                        fontFamily: "'Source Sans 3', sans-serif",
-                      }}
-                    >
-                      {step.num}
-                    </div>
-                  </div>
-
-                  {/* Texte */}
-                  <h3
-                    className="text-xl font-semibold mb-3"
-                    style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", color: "oklch(0.22 0.04 145)" }}
-                  >
-                    {step.title}
-                  </h3>
-                  <p
-                    className="text-base leading-relaxed"
-                    style={{ color: "oklch(0.45 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-                  >
-                    {step.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Phrase de réassurance finale */}
-            <div className="text-center mt-14 reveal" style={{ transitionDelay: "0.45s" }}>
-              <div
-                className="inline-flex items-center gap-3 px-6 py-4 rounded-2xl"
-                style={{
-                  backgroundColor: "oklch(0.95 0.02 145)",
-                  border: "1px solid oklch(0.85 0.04 145)",
-                }}
-              >
-                <CheckCircle size={20} style={{ color: "oklch(0.42 0.06 145)", flexShrink: 0 }} />
-                <p
-                  className="text-base font-medium"
-                  style={{ color: "oklch(0.30 0.07 145)", fontFamily: "'Source Sans 3', sans-serif" }}
-                >
-                  Ce n'est pas compliqué. Vous ne serez pas seul·e. Et vous n'avez pas besoin de tout savoir avant de commencer.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── SERVICES APerçu ── */}
-      <section className="section-cream py-20">
-        <div className="container">
-          <div className="text-center mb-12 reveal">
-            <h2
-              className="text-4xl font-semibold mb-3"
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-            >
-              Ce que je fais avec vous
-            </h2>
-            <div className="section-divider-center" />
-            <p
-              className="text-lg max-w-xl mx-auto"
-              style={{ color: "oklch(0.42 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-            >
-              Deux domaines d'intervention complémentaires, toujours à votre
-              rythme et sans jargon.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Aide administrative */}
-            <div className="card-service reveal" style={{ transitionDelay: "0.1s" }}>
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                style={{ backgroundColor: "oklch(0.95 0.02 145)" }}
-              >
-                <FileText size={24} style={{ color: "oklch(0.42 0.06 145)" }} />
-              </div>
-              <h3
-                className="text-2xl font-semibold mb-3"
-                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-              >
-                Aide administrative
-              </h3>
-              <p
-                className="mb-5"
-                style={{ color: "oklch(0.42 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-              >
-                Impôts, retraite, courriers, factures, espaces en ligne… Je
-                vous aide à comprendre et à agir sur chaque document.
-              </p>
-              <ul className="space-y-2 mb-6">
-                {[
-                  "Impôts et déclarations",
-                  "Retraite et dossiers administratifs",
-                  "Courriers et formulaires",
-                  "Gestion des factures",
-                  "Création d'espaces en ligne",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-2 text-sm"
-                    style={{ color: "oklch(0.35 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-                  >
-                    <CheckCircle size={15} style={{ color: "oklch(0.42 0.06 145)" }} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/services"
-                className="text-sm font-semibold flex items-center gap-1 transition-colors"
-                style={{ color: "oklch(0.42 0.06 145)", fontFamily: "'Source Sans 3', sans-serif" }}
-              >
-                En savoir plus <ArrowRight size={14} />
-              </Link>
-            </div>
-
-            {/* Apprentissage numérique */}
-            <div className="card-service reveal" style={{ transitionDelay: "0.2s" }}>
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
-                style={{ backgroundColor: "oklch(0.95 0.02 145)" }}
-              >
-                <Monitor size={24} style={{ color: "oklch(0.42 0.06 145)" }} />
-              </div>
-              <h3
-                className="text-2xl font-semibold mb-3"
-                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-              >
-                Apprentissage numérique
-              </h3>
-              <p
-                className="mb-5"
-                style={{ color: "oklch(0.42 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-              >
-                Téléphone, tablette, ordinateur, internet… À votre niveau, à
-                votre rythme, pour gagner en autonomie.
-              </p>
-              <ul className="space-y-2 mb-6">
-                {[
-                  "Utiliser internet simplement",
-                  "Démarches en ligne",
-                  "Envoyer documents et emails",
-                  "Scanner et organiser ses papiers",
-                  "Gagner en autonomie",
-                ].map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-center gap-2 text-sm"
-                    style={{ color: "oklch(0.35 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-                  >
-                    <CheckCircle size={15} style={{ color: "oklch(0.42 0.06 145)" }} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/services"
-                className="text-sm font-semibold flex items-center gap-1 transition-colors"
-                style={{ color: "oklch(0.42 0.06 145)", fontFamily: "'Source Sans 3', sans-serif" }}
-              >
-                En savoir plus <ArrowRight size={14} />
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── TARIF & CRÉDIT D'IMPÔT ── */}
+      {/* ── SECTION : DEUX TYPES D'AIDE (AIDE ADMINISTRATIVE + ACCOMPAGNEMENT NUMÉRIQUE) ── */}
       <section
-        className="py-16"
-        style={{ backgroundColor: "oklch(0.95 0.02 145)" }}
+        className="py-20 reveal"
+        style={{
+          backgroundColor: "oklch(0.97 0.01 80)",
+        }}
       >
         <div className="container">
-          <div className="max-w-3xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div className="reveal">
-                <h2
-                  className="text-3xl font-semibold mb-4"
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                >
-                  Un tarif transparent, un avantage fiscal réel
-                </h2>
-                <div className="section-divider" />
-                <p
-                  className="mb-6"
-                  style={{ color: "oklch(0.42 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-                >
-                  En tant qu'activité déclarée Services à la Personne, vous
-                  bénéficiez d'un crédit d'impôt de 50 % sur les sommes
-                  engagées.
-                </p>
-                <Link href="/avantage-fiscal" className="btn-sage">
-                  Comprendre le crédit d'impôt
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
-              <div className="reveal" style={{ transitionDelay: "0.15s" }}>
-                <div
-                  className="rounded-2xl p-8 text-center"
-                  style={{ backgroundColor: "oklch(0.98 0.01 80)", border: "1px solid oklch(0.88 0.03 80)" }}
-                >
-                  <div className="flex items-center justify-center gap-6 mb-4">
-                    <div>
-                      <div
-                        className="text-4xl font-bold"
-                        style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", color: "oklch(0.45 0.02 65)" }}
-                      >
-                        42 €
-                        <span className="text-xl font-normal">/h</span>
-                      </div>
-                      <div
-                        className="text-xs uppercase tracking-wider mt-1"
-                        style={{ color: "oklch(0.55 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-                      >
-                        Tarif affiché
-                      </div>
-                    </div>
-                    <ArrowRight size={24} style={{ color: "oklch(0.42 0.06 145)" }} />
-                    <div>
-                      <div
-                        className="text-4xl font-bold"
-                        style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", color: "oklch(0.42 0.06 145)" }}
-                      >
-                        21 €
-                        <span className="text-xl font-normal">/h</span>
-                      </div>
-                      <div
-                        className="text-xs uppercase tracking-wider mt-1"
-                        style={{ color: "oklch(0.42 0.06 145)", fontFamily: "'Source Sans 3', sans-serif" }}
-                      >
-                        Coût réel
-                      </div>
-                    </div>
-                  </div>
-                  <p
-                    className="text-sm"
-                    style={{ color: "oklch(0.50 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-                  >
-                    Après crédit d'impôt 50 % remboursé par l'État
-                  </p>
-                  <div
-                    className="mt-4 pt-4 border-t text-sm font-semibold"
-                    style={{
-                      borderColor: "oklch(0.88 0.03 80)",
-                      color: "oklch(0.42 0.06 145)",
-                      fontFamily: "'Source Sans 3', sans-serif",
-                    }}
-                  >
-                    ✦ Première séance découverte offerte
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+          <h2
+            className="text-4xl md:text-5xl font-semibold text-center mb-16"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              color: "oklch(0.30 0.07 145)",
+            }}
+          >
+            Deux types d'accompagnement
+          </h2>
 
-      {/* ── COMMENT ÇA FONCTIONNE APERÇU ── */}
-      <section className="section-beige py-20">
-        <div className="container">
-          <div className="text-center mb-12 reveal">
-            <h2
-              className="text-4xl font-semibold mb-3"
-              style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* AIDE ADMINISTRATIVE */}
+            <div
+              className="p-8 rounded-lg reveal"
+              style={{
+                backgroundColor: "oklch(0.94 0.02 80 / 0.08)",
+                border: "2px solid oklch(0.30 0.07 145 / 0.15)",
+              }}
             >
-              Comment ça fonctionne
-            </h2>
-            <div className="section-divider-center" />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-            {[
-              {
-                step: "01",
-                title: "Prise de contact",
-                desc: "Un simple appel ou un message pour se présenter et expliquer votre situation.",
-              },
-              {
-                step: "02",
-                title: "Analyse du besoin",
-                desc: "Ensemble, nous identifions vos besoins précis et définissons comment je peux vous aider.",
-              },
-              {
-                step: "03",
-                title: "Accompagnement personnalisé",
-                desc: "Je me déplace à votre domicile et travaille avec vous, à votre rythme, sans jargon.",
-              },
-              {
-                step: "04",
-                title: "Suivi si nécessaire",
-                desc: "Si besoin, je reste disponible pour un suivi ou des séances complémentaires.",
-              },
-            ].map((item, i) => (
               <div
-                key={item.step}
-                className="reveal text-center"
-                style={{ transitionDelay: `${i * 0.1}s` }}
+                className="flex items-center gap-3 mb-6"
+                style={{ color: "oklch(0.30 0.07 145)" }}
               >
-                <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold"
+                <FileText size={28} />
+                <h3
+                  className="text-2xl font-semibold"
                   style={{
-                    backgroundColor: "oklch(0.42 0.06 145)",
-                    color: "oklch(0.97 0.01 80)",
                     fontFamily: "'Cormorant Garamond', Georgia, serif",
                   }}
                 >
-                  {item.step}
-                </div>
-                <h3
-                  className="text-lg font-semibold mb-2"
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                >
-                  {item.title}
+                  Aide administrative
                 </h3>
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: "oklch(0.42 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-                >
-                  {item.desc}
-                </p>
               </div>
-            ))}
-          </div>
 
-          <div className="text-center mt-10 reveal">
-            <Link href="/comment-ca-fonctionne" className="btn-outline-sage">
-              En savoir plus
-              <ArrowRight size={16} />
+              <ul
+                className="space-y-3"
+                style={{
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  color: "oklch(0.30 0.07 145 / 0.85)",
+                }}
+              >
+                <li className="flex items-start gap-3">
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <span>Aide pour les démarches administratives en ligne (CAF, impôts, Ameli, retraite)</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <span>Compréhension ou rédaction de courriers</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <span>Organisation et classement de documents</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <span>Accompagnement dans certaines démarches importantes</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <span>Aide après un décès (prévenir les organismes, banques, administrations)</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* ACCOMPAGNEMENT NUMÉRIQUE */}
+            <div
+              className="p-8 rounded-lg reveal"
+              style={{
+                backgroundColor: "oklch(0.94 0.02 80 / 0.08)",
+                border: "2px solid oklch(0.30 0.07 145 / 0.15)",
+              }}
+            >
+              <div
+                className="flex items-center gap-3 mb-6"
+                style={{ color: "oklch(0.30 0.07 145)" }}
+              >
+                <Monitor size={28} />
+                <h3
+                  className="text-2xl font-semibold"
+                  style={{
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  }}
+                >
+                  Accompagnement numérique
+                </h3>
+              </div>
+
+              <ul
+                className="space-y-3"
+                style={{
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  color: "oklch(0.30 0.07 145 / 0.85)",
+                }}
+              >
+                <li className="flex items-start gap-3">
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <span>Apprendre à utiliser un smartphone ou une tablette</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <span>Envoyer des photos ou des documents</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <span>Comprendre Internet et les démarches en ligne</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <span>Apprendre les bases de l'informatique simplement</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <span>Être plus à l'aise avec les outils numériques au quotidien</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION : ATELIERS NUMÉRIQUES ── */}
+      <section
+        className="py-20 reveal"
+        style={{
+          backgroundColor: "oklch(0.94 0.02 80 / 0.05)",
+        }}
+      >
+        <div className="container">
+          <div
+            className="max-w-3xl mx-auto p-10 rounded-lg"
+            style={{
+              backgroundColor: "oklch(0.97 0.01 80)",
+              border: "2px solid oklch(0.30 0.07 145 / 0.20)",
+            }}
+          >
+            <div
+              className="flex items-center gap-3 mb-6"
+              style={{ color: "oklch(0.30 0.07 145)" }}
+            >
+              <Users size={32} />
+              <h3
+                className="text-3xl font-semibold"
+                style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                }}
+              >
+                Ateliers numériques
+              </h3>
+            </div>
+
+            <p
+              className="text-lg mb-6"
+              style={{
+                fontFamily: "'Source Sans 3', sans-serif",
+                color: "oklch(0.30 0.07 145 / 0.85)",
+              }}
+            >
+              Je propose d'organiser des ateliers simples et accessibles pour :
+            </p>
+
+            <ul
+              className="space-y-3 mb-8"
+              style={{
+                fontFamily: "'Source Sans 3', sans-serif",
+                color: "oklch(0.30 0.07 145 / 0.85)",
+              }}
+            >
+              <li className="flex items-start gap-3">
+                <GraduationCap size={20} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                <span>Associations et groupes</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Users size={20} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                <span>Groupes de seniors</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <BookOpen size={20} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                <span>Structures locales (médiathèques, centres sociaux, résidences seniors)</span>
+              </li>
+            </ul>
+
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold"
+              style={{
+                backgroundColor: "oklch(0.30 0.07 145)",
+                color: "oklch(0.97 0.01 80)",
+                fontFamily: "'Source Sans 3', sans-serif",
+              }}
+            >
+              <MessageCircle size={18} />
+              Me contacter pour un atelier
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── QUI SUIS-JE APERÇU ── */}
-      <section className="section-cream py-20">
+      {/* ── SECTION : COMMENT ÇA FONCTIONNE ── */}
+      <section
+        className="py-20 reveal"
+        style={{
+          backgroundColor: "oklch(0.97 0.01 80)",
+        }}
+      >
         <div className="container">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="reveal">
-                {/* Photo de profil */}
-                <div className="flex justify-center md:justify-start">
-                  <div
-                    className="w-64 h-64 rounded-full border-4 overflow-hidden shadow-lg"
-                    style={{
-                      borderColor: "oklch(0.42 0.06 145)",
-                    }}
-                  >
-                    <img
-                      src="https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/profile-sandra-final_c6dc3ff0.jpg"
-                      alt="Sandra Duchalet — Les Petits Papiers Faciles"
-                      className="w-full h-full object-cover object-center"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="reveal" style={{ transitionDelay: "0.15s" }}>
-                <h2
-                  className="text-5xl font-semibold mb-1"
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
-                >
-                  Sandra Duchalet
-                </h2>
-                <p
-                  className="text-base font-medium mb-6"
-                  style={{ color: "oklch(0.42 0.06 145)", fontFamily: "'Source Sans 3', sans-serif" }}
-                >
-                  Ancienne gestionnaire comptable – plus de 20 ans d'expérience
-                </p>
-                <div className="section-divider" />
-                <p
-                  className="text-lg leading-relaxed mb-4"
-                  style={{ color: "oklch(0.35 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-                >
-                  Spécialiste des démarches administratives et numériques du quotidien, j'accompagne les particuliers avec pédagogie, patience et bienveillance.
-                </p>
-                <p
-                  className="text-lg leading-relaxed mb-4"
-                  style={{ color: "oklch(0.35 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-                >
-                  Mon objectif est de vous rendre autonome en vous expliquant simplement chaque étape, sans jargon et sans stress.
-                </p>
-                <p
-                  className="text-lg leading-relaxed mb-4"
-                  style={{ color: "oklch(0.35 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-                >
-                  Je fais avec vous, jamais à votre place.
-                </p>
+          <h2
+            className="text-4xl md:text-5xl font-semibold text-center mb-16"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              color: "oklch(0.30 0.07 145)",
+            }}
+          >
+            Comment je vous accompagne
+          </h2>
 
-                <Link href="/qui-suis-je" className="btn-sage">
-                  Me connaître
-                  <ArrowRight size={16} />
-                </Link>
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {[
+              {
+                num: "1",
+                title: "Nous faisons le point ensemble",
+                desc: "Vous expliquez simplement votre situation.",
+              },
+              {
+                num: "2",
+                title: "Je vous guide pas à pas",
+                desc: "Chaque démarche est expliquée clairement.",
+              },
+              {
+                num: "3",
+                title: "Vous devenez autonome",
+                desc: "Vous comprenez et gagnez en sérénité.",
+              },
+            ].map((step) => (
+              <div key={step.num} className="text-center reveal">
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"
+                  style={{
+                    backgroundColor: "oklch(0.30 0.07 145)",
+                    color: "oklch(0.97 0.01 80)",
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  }}
+                >
+                  {step.num}
+                </div>
+                <h3
+                  className="text-xl font-semibold mb-2"
+                  style={{
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    color: "oklch(0.30 0.07 145)",
+                  }}
+                >
+                  {step.title}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "'Source Sans 3', sans-serif",
+                    color: "oklch(0.30 0.07 145 / 0.75)",
+                  }}
+                >
+                  {step.desc}
+                </p>
               </div>
-            </div>
+            ))}
+          </div>
+
+          <div
+            className="mt-12 p-6 rounded-lg text-center"
+            style={{
+              backgroundColor: "oklch(0.94 0.02 80 / 0.12)",
+              border: "2px solid oklch(0.30 0.07 145 / 0.15)",
+            }}
+          >
+            <p
+              className="text-lg font-semibold"
+              style={{
+                fontFamily: "'Source Sans 3', sans-serif",
+                color: "oklch(0.30 0.07 145)",
+              }}
+            >
+              Ce n'est pas compliqué. Vous ne serez pas seul·e.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ── CTA FINAL ── */}
+      {/* ── SECTION : QUI SUIS-JE ── */}
       <section
-        className="py-20"
-        style={{ backgroundColor: "oklch(0.42 0.06 145)" }}
+        className="py-20 reveal"
+        style={{
+          backgroundColor: "oklch(0.94 0.02 80 / 0.05)",
+        }}
       >
-        <div className="container text-center">
-          <div className="max-w-2xl mx-auto reveal">
-            <h2
-              className="text-4xl font-semibold mb-4"
-              style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                color: "oklch(0.97 0.01 80)",
-              }}
-            >
-              Prêt à simplifier vos démarches ?
-            </h2>
-            <p
-              className="text-lg mb-8"
-              style={{ color: "oklch(0.88 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}
-            >
-              La première séance est offerte. Contactez-moi pour qu'on en
-              discute ensemble, sans engagement.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/rendez-vous"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-semibold text-lg transition-all"
+        <div className="container">
+          <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+            <div className="flex justify-center">
+              <img
+                src={PROFILE_IMG}
+                alt="Sandra Duchalet"
+                className="w-80 h-80 rounded-full object-cover shadow-lg"
                 style={{
-                  backgroundColor: "oklch(0.97 0.01 80)",
+                  border: "4px solid oklch(0.30 0.07 145)",
+                }}
+              />
+            </div>
+
+            <div>
+              <h2
+                className="text-4xl md:text-5xl font-semibold mb-2"
+                style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
                   color: "oklch(0.30 0.07 145)",
-                  fontFamily: "'Source Sans 3', sans-serif",
                 }}
               >
-                <CalendarDays size={20} />
-                Prendre rendez-vous
-              </Link>
-              <a
-                href="tel:0750527227"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-semibold text-lg transition-all border-2"
+                Sandra Duchalet
+              </h2>
+
+              <p
+                className="text-xl font-semibold mb-6"
                 style={{
-                  borderColor: "oklch(0.97 0.01 80 / 0.50)",
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  color: "oklch(0.30 0.07 145 / 0.75)",
+                }}
+              >
+                Ancienne gestionnaire comptable – plus de 20 ans d'expérience.
+              </p>
+
+              <div
+                className="space-y-4 mb-8"
+                style={{
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  color: "oklch(0.30 0.07 145 / 0.85)",
+                  lineHeight: "1.8",
+                }}
+              >
+                <p>
+                  Spécialiste des démarches administratives et numériques du quotidien, j'accompagne les particuliers avec pédagogie, patience et bienveillance.
+                </p>
+                <p>
+                  Mon objectif est de vous rendre autonome en vous expliquant simplement chaque étape, sans jargon et sans stress.
+                </p>
+                <p>
+                  <strong>Je fais avec vous, jamais à votre place.</strong>
+                </p>
+              </div>
+
+              <Link
+                href="/qui-suis-je"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold"
+                style={{
+                  backgroundColor: "oklch(0.30 0.07 145)",
                   color: "oklch(0.97 0.01 80)",
                   fontFamily: "'Source Sans 3', sans-serif",
                 }}
               >
-                <Phone size={20} />
-                07 50 52 72 27
-              </a>
+                En savoir plus
+                <ArrowRight size={18} />
+              </Link>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ── SECTION : CTA FINAL ── */}
+      <section
+        className="py-20 reveal"
+        style={{
+          backgroundColor: "oklch(0.30 0.07 145)",
+        }}
+      >
+        <div className="container text-center">
+          <h2
+            className="text-4xl md:text-5xl font-semibold mb-6"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              color: "oklch(0.97 0.01 80)",
+            }}
+          >
+            Prêt à simplifier vos démarches ?
+          </h2>
+
+          <p
+            className="text-xl mb-10 max-w-2xl mx-auto"
+            style={{
+              fontFamily: "'Source Sans 3', sans-serif",
+              color: "oklch(0.94 0.02 80)",
+            }}
+          >
+            Un premier échange permet déjà d'y voir plus clair. Vous pouvez me contacter librement, sans engagement.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/rendez-vous"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-semibold text-lg"
+              style={{
+                backgroundColor: "oklch(0.94 0.02 80)",
+                color: "oklch(0.30 0.07 145)",
+                fontFamily: "'Source Sans 3', sans-serif",
+              }}
+            >
+              <CalendarDays size={20} />
+              Prendre rendez-vous
+            </Link>
+
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-semibold text-lg"
+              style={{
+                backgroundColor: "oklch(0.94 0.02 80 / 0.20)",
+                color: "oklch(0.94 0.02 80)",
+                border: "2px solid oklch(0.94 0.02 80)",
+                fontFamily: "'Source Sans 3', sans-serif",
+              }}
+            >
+              <Mail size={20} />
+              Me contacter
+            </Link>
+          </div>
+
+          <div className="mt-12 flex flex-col sm:flex-row justify-center gap-8">
+            <div className="flex items-center gap-3" style={{ color: "oklch(0.94 0.02 80)" }}>
+              <Phone size={20} />
+              <span style={{ fontFamily: "'Source Sans 3', sans-serif" }}>07 50 52 72 27</span>
+            </div>
+            <div className="flex items-center gap-3" style={{ color: "oklch(0.94 0.02 80)" }}>
+              <Mail size={20} />
+              <span style={{ fontFamily: "'Source Sans 3', sans-serif" }}>lespetitspapiersfaciles@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        .reveal {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
     </div>
   );
 }

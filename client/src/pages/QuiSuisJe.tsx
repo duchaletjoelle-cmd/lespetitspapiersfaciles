@@ -72,7 +72,7 @@ export default function QuiSuisJePage() {
                   }}
                 >
                   <img
-                    src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663409785356/pjJXdSkoiwINljsn.png?Expires=1804360552&Signature=DfE6qeTAWVAcx4rg423n2cyO5vFErxMWgLv26uoIQluLKJPbSesbbDqyZ5ARoEHyOOJUWn3392hCfFE32L1FilYNwgYXQ8Li1SHS5ZsXp3irVU4J6Mopp6hPohmjNjLuFFVm5W5Xzd2MqZo2hubJuaRe2KOUZX7PqxntLUAVgnVeqnnQhhBCe8vyFeQrBu0teUhfSWtnJa3a3NZVSCXIV5Ih~66SM-mZQEG72PC~ZzJKlRjQ7eQLfW61C0detgZ4S~YLdGGIH~6o9DXfD88VbNDiJxnyUpS8duCLdU2KjzttBKB-fT5qefJDi3pBrWPX12GXlEzfNXd1FClODdH3nQ__&Key-Pair-Id=K2HSFNDJXOU9YS"
+                    src="https:///facebook_photo_profil;png-1.manuscdn.com/user_upload_by_module/session_file/310519663409785356/pjJXdSkoiwINljsn.png?Expires=1804360552&Signature=DfE6qeTAWVAcx4rg423n2cyO5vFErxMWgLv26uoIQluLKJPbSesbbDqyZ5ARoEHyOOJUWn3392hCfFE32L1FilYNwgYXQ8Li1SHS5ZsXp3irVU4J6Mopp6hPohmjNjLuFFVm5W5Xzd2MqZo2hubJuaRe2KOUZX7PqxntLUAVgnVeqnnQhhBCe8vyFeQrBu0teUhfSWtnJa3a3NZVSCXIV5Ih~66SM-mZQEG72PC~ZzJKlRjQ7eQLfW61C0detgZ4S~YLdGGIH~6o9DXfD88VbNDiJxnyUpS8duCLdU2KjzttBKB-fT5qefJDi3pBrWPX12GXlEzfNXd1FClODdH3nQ__&Key-Pair-Id=K2HSFNDJXOU9YS"
                     alt="Sandra Duchalet — Les Petits Papiers Faciles"
                     className="w-full h-full object-cover object-center"
                   />

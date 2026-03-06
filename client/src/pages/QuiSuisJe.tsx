@@ -72,7 +72,7 @@ export default function QuiSuisJePage() {
                   }}
                 >
                   <img
-                    src="https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/profile-sandra-final_c6dc3ff0.jpg"
+                    src="https://private-us-east-1.manuscdn.com/user_upload_by_module/session_file/310519663409785356/dMzqSWAfcFwRGysx.png?Expires=1804357631&Signature=vUSqACBPYJ8pnovAtegiafplT49OYWYl~ltgOQBgss6Gfj7jf-c45wqCJ0LeDQ~5HqBOgJmGrMlpjlEIVueBnWPW~AKjm2HivDybMuokKgjag8s19p61LRfcrHFG1RviFUf58UsjP7AsPG9xveyMV9SHAvsgjTN1EAAs~HBwiuXa262vI9aODL3t9dpISnEXJIV~0LwV7aAUG-6iZKou~dJ73rwKjFxv2xNS1gDxa6iI9Rd3XW2j~haGjjJFZOdiFP6WNBk4AEvbluKh52tyGwRLOubw17jnzFeD9hT~wXvg0Z4awm44So4BuM79WCCfCf9-FfFVRKXxUs5PIZgTGA__&Key-Pair-Id=K2HSFNDJXOU9YS"
                     alt="Sandra Duchalet — Les Petits Papiers Faciles"
                     className="w-full h-full object-cover object-center"
                   />
@@ -238,28 +238,7 @@ export default function QuiSuisJePage() {
         </div>
       </section>
 
-      {/* ── NOTE SUR LA PHOTO ── */}
-      <section
-        className="py-8"
-        style={{ backgroundColor: "oklch(0.95 0.02 145)" }}
-      >
-        <div className="container">
-          <div
-            className="max-w-2xl mx-auto rounded-xl p-6 text-center"
-            style={{
-              backgroundColor: "oklch(0.98 0.01 80)",
-              border: "1px dashed oklch(0.72 0.05 145)",
-            }}
-          >
-            <p
-              className="text-sm"
-              style={{ color: "oklch(0.50 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-            >
-              <strong>Note :</strong> L'emplacement de la photo ronde ci-dessus est réservé à votre portrait. Transmettez-moi votre photo pour que je l'intègre au site.
-            </p>
-          </div>
-        </div>
-      </section>
+
 
       {/* ── CTA ── */}
       <section

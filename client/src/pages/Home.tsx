@@ -29,7 +29,7 @@ const HERO_IMG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/hero-lpp-2vxh93BzmXMTqLfzS9LorK.webp";
 
 const PROFILE_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/sandra-photo-final_a5568277.jpg";
+  "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/sandra-profile-new_9df37d2d.png";
 
 export default function HomePage() {
   const pageRef = useRef<HTMLDivElement>(null);

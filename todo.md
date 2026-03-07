@@ -54,3 +54,10 @@
 ## SEO (v7)
 - [x] Corriger le titre (30-60 caractères)
 - [x] Corriger la description (50-160 caractères)
+
+## Blog (v8)
+- [x] Rédiger le premier article sur l'autonomie numérique pour les seniors
+- [x] Créer la page blog
+- [x] Intégrer l'article sur la page blog
+- [x] Ajouter la navigation vers le blog
+- [x] Optimiser le SEO du blog

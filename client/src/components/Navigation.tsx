@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/qui-suis-je", label: "Qui suis-je" },
   { href: "/secteur", label: "Secteur" },
   { href: "/avantage-fiscal", label: "Avantage fiscal" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 

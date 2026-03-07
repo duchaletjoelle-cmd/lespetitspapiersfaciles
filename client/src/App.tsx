@@ -27,6 +27,8 @@ import CookiesPage from "./pages/Cookies";
 import NotFound from "./pages/NotFound";
 import RendezVousPage from "./pages/RendezVous";
 import AdminRendezVousPage from "./pages/AdminRendezVous";
+import BlogPage from "./pages/Blog";
+import BlogArticlePage from "./pages/BlogArticle";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -44,6 +46,8 @@ function Router() {
           <Route path="/contact" component={ContactPage} />
           <Route path="/rendez-vous" component={RendezVousPage} />
           <Route path="/admin/rendez-vous" component={AdminRendezVousPage} />
+          <Route path="/blog" component={BlogPage} />
+          <Route path="/blog/:id" component={BlogArticlePage} />
           <Route path="/mentions-legales" component={MentionsLegalesPage} />
           <Route path="/confidentialite" component={ConfidentialitePage} />
           <Route path="/cookies" component={CookiesPage} />

@@ -70,3 +70,8 @@
 - [x] Rédiger 30 questions-réponses sur le numérique pour les seniors
 - [x] Créer la page FAQ avec accordéon interactif et barre de recherche
 - [x] Ajouter le lien FAQ dans la navigation
+
+## Témoignages Clients (v11)
+- [x] Extraire les témoignages du document PDF
+- [x] Créer le composant Témoignages avec 6 avis clients
+- [x] Intégrer la section Témoignages sur la page d'accueil

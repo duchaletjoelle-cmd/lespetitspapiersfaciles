@@ -5,6 +5,7 @@
 
 import { Link } from "wouter";
 import { useEffect, useRef } from "react";
+import Testimonials from "../components/Testimonials";
 import {
   FileText,
   Monitor,
@@ -545,6 +546,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── SECTION : TESTIMONIALS ── */}
+      <Testimonials />
 
       {/* ── SECTION : CTA FINAL ── */}
       <section

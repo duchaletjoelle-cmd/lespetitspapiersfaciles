@@ -44,10 +44,32 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulation d'envoi (le formulaire redirige vers mailto en fallback)
-    await new Promise((resolve) => setTimeout(resolve, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const response = await fetch("https://formspree.io/f/xyzaabcd", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nom: formState.nom,
+          email: formState.email,
+          telephone: formState.telephone,
+          sujet: formState.sujet,
+          message: formState.message,
+        }),
+      });
+      if (response.ok) {
+        setLoading(false);
+        setSubmitted(true);
+      } else {
+        alert("Une erreur est survenue. Veuillez réessayer.");
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'envoi:", error);
+      alert("Une erreur est survenue. Veuillez réessayer.");
+      setLoading(false);
+    }
   };
 
   const inputStyle = {

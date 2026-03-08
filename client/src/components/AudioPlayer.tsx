@@ -7,7 +7,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const AUDIO_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/musique-petits-papiers_6a517e1f.mp3";
+  "https://cdn.pixabay.com/download/audio/2024/03/15/audio_490623_lofi-jazz.mp3";
 
 const STORAGE_KEY = "lpp-audio-enabled";
 

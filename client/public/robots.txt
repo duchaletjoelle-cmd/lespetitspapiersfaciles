@@ -1,0 +1,14 @@
+# robots.txt for Les Petits Papiers Faciles
+# Permet aux moteurs de recherche d'explorer le site
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://lespetitspapiersfaciles.fr/sitemap.xml
+
+# Crawl delay (délai entre les requêtes)
+Crawl-delay: 1

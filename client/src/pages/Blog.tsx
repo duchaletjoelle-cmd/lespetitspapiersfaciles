@@ -6,6 +6,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
+import { useSEOHead } from "../components/SEOHead";
 
 // Articles du blog
 const BLOG_ARTICLES = [
@@ -260,9 +261,14 @@ Chez **Les Petits Papiers Faciles**, nous croyons fermement que chacun peut deve
 export default function BlogPage() {
   const pageRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    document.title = "Blog | Les Petits Papiers Faciles";
-  }, []);
+  useSEOHead({
+    title: "Blog | Les Petits Papiers Faciles",
+    description: "Decouvrez nos articles sur l'autonomie numerique, la securite en ligne et les demarches administratives pour les seniors.",
+    url: "https://lespetitspapiersfaciles.fr/blog",
+    keywords: "blog, autonomie numerique, securite en ligne, seniors, demarches administratives",
+  });
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

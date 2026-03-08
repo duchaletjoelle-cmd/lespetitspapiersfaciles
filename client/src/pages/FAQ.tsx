@@ -6,6 +6,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { ChevronDown, Search } from "lucide-react";
+import { useSEOHead } from "../components/SEOHead";
 
 // Données FAQ
 const FAQ_CATEGORIES = [
@@ -306,6 +307,13 @@ function FAQItem({
 }
 
 export default function FAQPage() {
+  useSEOHead({
+    title: "FAQ | Les Petits Papiers Faciles",
+    description: "Questions frequentes sur le numerique pour les seniors. Trouvez les reponses a vos questions sur internet, la securite en ligne, les emails et les demarches administratives.",
+    url: "https://lespetitspapiersfaciles.fr/faq",
+    keywords: "FAQ, questions frequentes, numerique, seniors, internet, securite en ligne, demarches administratives",
+  });
+
   const [openItems, setOpenItems] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
 

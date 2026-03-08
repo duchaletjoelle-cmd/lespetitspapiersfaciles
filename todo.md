@@ -80,3 +80,11 @@
 - [x] Remplacer le vert sauge foncé par vert eucalyptus clair
 - [x] Mettre à jour les variables CSS et tous les composants
 - [x] Éclaircir l'ambiance générale du site
+
+## SEO et Référencement Google (v13)
+- [x] Créer le fichier sitemap.xml avec toutes les pages
+- [x] Créer le fichier robots.txt
+- [x] Ajouter les métadonnées SEO complètes dans index.html
+- [x] Créer le composant SEOHead pour la gestion des métadonnées par page
+- [x] Ajouter le SEO sur la page Blog
+- [x] Ajouter le SEO sur la page FAQ

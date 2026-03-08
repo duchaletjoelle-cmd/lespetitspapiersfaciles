@@ -286,7 +286,7 @@ export default function BlogPage() {
       {/* ── HEADER ── */}
       <section
         className="py-16"
-        style={{ backgroundColor: "oklch(0.30 0.07 145)" }}
+        style={{ backgroundColor: "oklch(0.45 0.08 145)" }}
       >
         <div className="container text-center">
           <h1
@@ -381,7 +381,7 @@ export default function BlogPage() {
                           className="text-3xl font-semibold mb-4 group-hover:text-opacity-80 transition-colors"
                           style={{
                             fontFamily: "'Cormorant Garamond', Georgia, serif",
-                            color: "oklch(0.30 0.07 145)",
+                            color: "oklch(0.45 0.08 145)",
                           }}
                         >
                           {article.title}
@@ -428,7 +428,7 @@ export default function BlogPage() {
         className="py-16"
         style={{
           background:
-            "linear-gradient(135deg, oklch(0.30 0.07 145) 0%, oklch(0.35 0.08 145) 100%)",
+            "linear-gradient(135deg, oklch(0.45 0.08 145) 0%, oklch(0.35 0.08 145) 100%)",
         }}
       >
         <div className="container text-center">
@@ -456,7 +456,7 @@ export default function BlogPage() {
               className="px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
               style={{
                 backgroundColor: "oklch(0.94 0.02 80)",
-                color: "oklch(0.30 0.07 145)",
+                color: "oklch(0.45 0.08 145)",
                 fontFamily: "'Source Sans 3', sans-serif",
               }}
             >

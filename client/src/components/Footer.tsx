@@ -172,7 +172,7 @@ export default function Footer() {
             </h3>
             <div
               className="rounded-lg p-4 mb-4"
-              style={{ backgroundColor: "oklch(0.30 0.07 145)" }}
+              style={{ backgroundColor: "oklch(0.45 0.08 145)" }}
             >
               <p className="text-sm font-semibold mb-1" style={{ color: "oklch(0.94 0.02 80)" }}>
                 ✦ Première séance offerte
@@ -183,7 +183,7 @@ export default function Footer() {
             </div>
             <div
               className="rounded-lg p-4"
-              style={{ backgroundColor: "oklch(0.30 0.07 145)" }}
+              style={{ backgroundColor: "oklch(0.45 0.08 145)" }}
             >
               <p className="text-sm font-semibold mb-1" style={{ color: "oklch(0.94 0.02 80)" }}>
                 42 €/h → 21 € réels
@@ -199,7 +199,7 @@ export default function Footer() {
       {/* Legal footer */}
       <div
         className="border-t"
-        style={{ borderColor: "oklch(0.30 0.07 145)" }}
+        style={{ borderColor: "oklch(0.45 0.08 145)" }}
       >
         <div className="container py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs" style={{ color: "oklch(0.60 0.03 80)" }}>

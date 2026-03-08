@@ -194,7 +194,7 @@ export default function RendezVous() {
                           : "oklch(0.55 0.04 145)",
                       color:
                         step === n
-                          ? "oklch(0.30 0.07 145)"
+                          ? "oklch(0.45 0.08 145)"
                           : "oklch(0.97 0.01 80)",
                       fontFamily: "'Source Sans 3', sans-serif",
                     }}
@@ -416,7 +416,7 @@ export default function RendezVous() {
                 <div>
                   <p
                     className="text-sm font-semibold"
-                    style={{ color: "oklch(0.30 0.07 145)", fontFamily: "'Source Sans 3', sans-serif" }}
+                    style={{ color: "oklch(0.45 0.08 145)", fontFamily: "'Source Sans 3', sans-serif" }}
                   >
                     {selectedDate && (
                       <>
@@ -568,7 +568,7 @@ export default function RendezVous() {
                             style={{
                               color:
                                 form.serviceType === opt.value
-                                  ? "oklch(0.30 0.07 145)"
+                                  ? "oklch(0.45 0.08 145)"
                                   : "oklch(0.35 0.02 65)",
                               fontFamily: "'Source Sans 3', sans-serif",
                             }}
@@ -716,7 +716,7 @@ export default function RendezVous() {
                   <CalendarDays size={18} style={{ color: "oklch(0.42 0.06 145)" }} />
                   <span
                     className="font-semibold"
-                    style={{ color: "oklch(0.30 0.07 145)", fontFamily: "'Source Sans 3', sans-serif" }}
+                    style={{ color: "oklch(0.45 0.08 145)", fontFamily: "'Source Sans 3', sans-serif" }}
                   >
                     {formatDateFr(selectedDate).charAt(0).toUpperCase() + formatDateFr(selectedDate).slice(1)}
                     {" "}à{" "}{selectedTime}

@@ -153,7 +153,7 @@ export default function BlogArticlePage() {
               className="text-4xl font-semibold mb-4"
               style={{
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
-                color: "oklch(0.30 0.07 145)",
+                color: "oklch(0.45 0.08 145)",
               }}
             >
               Article non trouvé
@@ -162,7 +162,7 @@ export default function BlogArticlePage() {
               <button
                 className="px-6 py-2 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
                 style={{
-                  backgroundColor: "oklch(0.30 0.07 145)",
+                  backgroundColor: "oklch(0.45 0.08 145)",
                   color: "oklch(0.97 0.01 80)",
                   fontFamily: "'Source Sans 3', sans-serif",
                 }}
@@ -204,7 +204,7 @@ export default function BlogArticlePage() {
       {/* ── HEADER ── */}
       <section
         className="py-12"
-        style={{ backgroundColor: "oklch(0.30 0.07 145)" }}
+        style={{ backgroundColor: "oklch(0.45 0.08 145)" }}
       >
         <div className="container">
           <h1
@@ -273,7 +273,7 @@ export default function BlogArticlePage() {
             className="prose prose-lg"
             style={{
               fontFamily: "'Source Sans 3', sans-serif",
-              color: "oklch(0.30 0.07 145)",
+              color: "oklch(0.45 0.08 145)",
               lineHeight: "1.8",
             }}
           >
@@ -287,7 +287,7 @@ export default function BlogArticlePage() {
         className="py-16"
         style={{
           background:
-            "linear-gradient(135deg, oklch(0.30 0.07 145) 0%, oklch(0.35 0.08 145) 100%)",
+            "linear-gradient(135deg, oklch(0.45 0.08 145) 0%, oklch(0.35 0.08 145) 100%)",
         }}
       >
         <div className="container text-center">
@@ -315,7 +315,7 @@ export default function BlogArticlePage() {
               className="px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
               style={{
                 backgroundColor: "oklch(0.94 0.02 80)",
-                color: "oklch(0.30 0.07 145)",
+                color: "oklch(0.45 0.08 145)",
                 fontFamily: "'Source Sans 3', sans-serif",
               }}
             >

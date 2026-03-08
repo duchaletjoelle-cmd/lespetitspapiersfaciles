@@ -130,7 +130,7 @@ export default function HomePage() {
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded font-semibold text-base transition-all"
                 style={{
                   backgroundColor: "oklch(0.94 0.02 80)",
-                  color: "oklch(0.30 0.07 145)",
+                  color: "oklch(0.45 0.08 145)",
                   fontFamily: "'Source Sans 3', sans-serif",
                 }}
               >
@@ -189,7 +189,7 @@ export default function HomePage() {
             className="text-4xl md:text-5xl font-semibold text-center mb-16"
             style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
-              color: "oklch(0.30 0.07 145)",
+              color: "oklch(0.45 0.08 145)",
             }}
           >
             Deux types d'accompagnement
@@ -206,7 +206,7 @@ export default function HomePage() {
             >
               <div
                 className="flex items-center gap-3 mb-6"
-                style={{ color: "oklch(0.30 0.07 145)" }}
+                style={{ color: "oklch(0.45 0.08 145)" }}
               >
                 <FileText size={28} />
                 <h3
@@ -227,23 +227,23 @@ export default function HomePage() {
                 }}
               >
                 <li className="flex items-start gap-3">
-                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                   <span>Aide pour les démarches administratives en ligne (CAF, impôts, Ameli, retraite)</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                   <span>Compréhension ou rédaction de courriers</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                   <span>Organisation et classement de documents</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                   <span>Accompagnement dans certaines démarches importantes</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                   <span>Aide après un décès (prévenir les organismes, banques, administrations)</span>
                 </li>
               </ul>
@@ -259,7 +259,7 @@ export default function HomePage() {
             >
               <div
                 className="flex items-center gap-3 mb-6"
-                style={{ color: "oklch(0.30 0.07 145)" }}
+                style={{ color: "oklch(0.45 0.08 145)" }}
               >
                 <Monitor size={28} />
                 <h3
@@ -280,23 +280,23 @@ export default function HomePage() {
                 }}
               >
                 <li className="flex items-start gap-3">
-                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                   <span>Apprendre à utiliser un smartphone ou une tablette</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                   <span>Envoyer des photos ou des documents</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                   <span>Comprendre Internet et les démarches en ligne</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                   <span>Apprendre les bases de l'informatique simplement</span>
                 </li>
                 <li className="flex items-start gap-3">
-                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                  <CheckCircle size={18} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                   <span>Être plus à l'aise avec les outils numériques au quotidien</span>
                 </li>
               </ul>
@@ -322,7 +322,7 @@ export default function HomePage() {
           >
             <div
               className="flex items-center gap-3 mb-6"
-              style={{ color: "oklch(0.30 0.07 145)" }}
+              style={{ color: "oklch(0.45 0.08 145)" }}
             >
               <Users size={32} />
               <h3
@@ -353,15 +353,15 @@ export default function HomePage() {
               }}
             >
               <li className="flex items-start gap-3">
-                <GraduationCap size={20} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                <GraduationCap size={20} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                 <span>Associations et groupes</span>
               </li>
               <li className="flex items-start gap-3">
-                <Users size={20} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                <Users size={20} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                 <span>Groupes de seniors</span>
               </li>
               <li className="flex items-start gap-3">
-                <BookOpen size={20} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.30 0.07 145)" }} />
+                <BookOpen size={20} className="mt-1 flex-shrink-0" style={{ color: "oklch(0.45 0.08 145)" }} />
                 <span>Structures locales (médiathèques, centres sociaux, résidences seniors)</span>
               </li>
             </ul>
@@ -370,7 +370,7 @@ export default function HomePage() {
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold"
               style={{
-                backgroundColor: "oklch(0.30 0.07 145)",
+                backgroundColor: "oklch(0.45 0.08 145)",
                 color: "oklch(0.97 0.01 80)",
                 fontFamily: "'Source Sans 3', sans-serif",
               }}
@@ -394,7 +394,7 @@ export default function HomePage() {
             className="text-4xl md:text-5xl font-semibold text-center mb-16"
             style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
-              color: "oklch(0.30 0.07 145)",
+              color: "oklch(0.45 0.08 145)",
             }}
           >
             Comment je vous accompagne
@@ -422,7 +422,7 @@ export default function HomePage() {
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold"
                   style={{
-                    backgroundColor: "oklch(0.30 0.07 145)",
+                    backgroundColor: "oklch(0.45 0.08 145)",
                     color: "oklch(0.97 0.01 80)",
                     fontFamily: "'Cormorant Garamond', Georgia, serif",
                   }}
@@ -433,7 +433,7 @@ export default function HomePage() {
                   className="text-xl font-semibold mb-2"
                   style={{
                     fontFamily: "'Cormorant Garamond', Georgia, serif",
-                    color: "oklch(0.30 0.07 145)",
+                    color: "oklch(0.45 0.08 145)",
                   }}
                 >
                   {step.title}
@@ -461,7 +461,7 @@ export default function HomePage() {
               className="text-lg font-semibold"
               style={{
                 fontFamily: "'Source Sans 3', sans-serif",
-                color: "oklch(0.30 0.07 145)",
+                color: "oklch(0.45 0.08 145)",
               }}
             >
               Ce n'est pas compliqué. Vous ne serez pas seul·e.
@@ -485,7 +485,7 @@ export default function HomePage() {
                 alt="Sandra Duchalet"
                 className="w-80 h-80 rounded-full object-cover shadow-lg"
                 style={{
-                  border: "4px solid oklch(0.30 0.07 145)",
+                  border: "4px solid oklch(0.45 0.08 145)",
                 }}
               />
             </div>
@@ -495,7 +495,7 @@ export default function HomePage() {
                 className="text-4xl md:text-5xl font-semibold mb-2"
                 style={{
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  color: "oklch(0.30 0.07 145)",
+                  color: "oklch(0.45 0.08 145)",
                 }}
               >
                 Sandra Duchalet
@@ -534,7 +534,7 @@ export default function HomePage() {
                 href="/qui-suis-je"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded font-semibold"
                 style={{
-                  backgroundColor: "oklch(0.30 0.07 145)",
+                  backgroundColor: "oklch(0.45 0.08 145)",
                   color: "oklch(0.97 0.01 80)",
                   fontFamily: "'Source Sans 3', sans-serif",
                 }}
@@ -554,7 +554,7 @@ export default function HomePage() {
       <section
         className="py-20 reveal"
         style={{
-          backgroundColor: "oklch(0.30 0.07 145)",
+          backgroundColor: "oklch(0.45 0.08 145)",
         }}
       >
         <div className="container text-center">
@@ -584,7 +584,7 @@ export default function HomePage() {
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-semibold text-lg"
               style={{
                 backgroundColor: "oklch(0.94 0.02 80)",
-                color: "oklch(0.30 0.07 145)",
+                color: "oklch(0.45 0.08 145)",
                 fontFamily: "'Source Sans 3', sans-serif",
               }}
             >

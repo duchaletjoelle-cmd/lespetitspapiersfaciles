@@ -75,3 +75,8 @@
 - [x] Extraire les témoignages du document PDF
 - [x] Créer le composant Témoignages avec 6 avis clients
 - [x] Intégrer la section Témoignages sur la page d'accueil
+
+## Mise à jour Palette Couleur (v12)
+- [x] Remplacer le vert sauge foncé par vert eucalyptus clair
+- [x] Mettre à jour les variables CSS et tous les composants
+- [x] Éclaircir l'ambiance générale du site

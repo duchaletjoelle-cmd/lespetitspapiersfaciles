@@ -77,7 +77,7 @@ export default function ContactPage() {
       {/* ── HEADER ── */}
       <section
         className="py-16"
-        style={{ backgroundColor: "oklch(0.30 0.07 145)" }}
+        style={{ backgroundColor: "oklch(0.45 0.08 145)" }}
       >
         <div className="container text-center">
           <h1

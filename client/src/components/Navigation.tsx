@@ -39,7 +39,7 @@ export default function Navigation() {
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: "oklch(0.30 0.07 145)",
+        backgroundColor: "oklch(0.55 0.08 145)",
         boxShadow: scrolled ? "0 2px 20px oklch(0.22 0.02 65 / 0.25)" : "none",
       }}
     >
@@ -134,7 +134,7 @@ export default function Navigation() {
               style={{
                 fontFamily: "'Source Sans 3', sans-serif",
                 backgroundColor: "oklch(0.94 0.02 80)",
-                color: "oklch(0.30 0.07 145)",
+                color: "oklch(0.45 0.08 145)",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.backgroundColor = "oklch(0.88 0.04 145)";
@@ -215,7 +215,7 @@ export default function Navigation() {
               style={{
                 fontFamily: "'Source Sans 3', sans-serif",
                 backgroundColor: "oklch(0.94 0.02 80)",
-                color: "oklch(0.30 0.07 145)",
+                color: "oklch(0.45 0.08 145)",
               }}
             >
               <CalendarDays size={16} />

@@ -49,10 +49,10 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   /* Custom LPP tokens */
-  --color-sage: oklch(0.42 0.06 145);
-  --color-sage-dark: oklch(0.30 0.07 145);
-  --color-sage-light: oklch(0.88 0.04 145);
-  --color-sage-xlight: oklch(0.95 0.02 145);
+  --color-sage: oklch(0.55 0.08 145);
+  --color-sage-dark: oklch(0.45 0.08 145);
+  --color-sage-light: oklch(0.92 0.04 145);
+  --color-sage-xlight: oklch(0.97 0.02 145);
   --color-beige: oklch(0.94 0.02 80);
   --color-beige-dark: oklch(0.88 0.03 80);
   --color-cream: oklch(0.98 0.01 80);
@@ -64,9 +64,9 @@
 :root {
   --radius: 0.5rem;
   /* LPP Color System */
-  --primary: oklch(0.42 0.06 145);           /* Vert sauge */
+  --primary: oklch(0.55 0.08 145);           /* Vert eucalyptus */
   --primary-foreground: oklch(0.98 0.01 80); /* Crème */
-  --secondary: oklch(0.88 0.04 145);          /* Vert sauge clair */
+  --secondary: oklch(0.92 0.04 145);          /* Vert eucalyptus clair */
   --secondary-foreground: oklch(0.22 0.02 65);
   --background: oklch(0.94 0.02 80);          /* Beige lin */
   --foreground: oklch(0.22 0.02 65);          /* Texte foncé */

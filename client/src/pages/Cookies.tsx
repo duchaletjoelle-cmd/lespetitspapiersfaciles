@@ -23,7 +23,7 @@ export default function CookiesPage() {
     fontFamily: "'Cormorant Garamond', Georgia, serif",
     fontSize: "1.5rem",
     fontWeight: "600",
-    color: "oklch(0.30 0.07 145)",
+    color: "oklch(0.45 0.08 145)",
     marginBottom: "0.75rem",
     marginTop: "0",
   };
@@ -40,7 +40,7 @@ export default function CookiesPage() {
     <div style={{ paddingTop: "72px" }}>
       <section
         className="py-12"
-        style={{ backgroundColor: "oklch(0.30 0.07 145)" }}
+        style={{ backgroundColor: "oklch(0.45 0.08 145)" }}
       >
         <div className="container text-center">
           <h1

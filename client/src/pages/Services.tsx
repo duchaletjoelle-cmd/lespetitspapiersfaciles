@@ -107,7 +107,7 @@ export default function ServicesPage() {
       {/* ── HEADER ── */}
       <section
         className="py-16"
-        style={{ backgroundColor: "oklch(0.30 0.07 145)" }}
+        style={{ backgroundColor: "oklch(0.45 0.08 145)" }}
       >
         <div className="container text-center">
           <h1
@@ -304,7 +304,7 @@ export default function ServicesPage() {
             className="inline-flex items-center gap-2 px-8 py-4 rounded font-semibold text-lg transition-all"
             style={{
               backgroundColor: "oklch(0.97 0.01 80)",
-              color: "oklch(0.30 0.07 145)",
+              color: "oklch(0.45 0.08 145)",
               fontFamily: "'Source Sans 3', sans-serif",
             }}
           >

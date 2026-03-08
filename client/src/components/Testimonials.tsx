@@ -110,7 +110,7 @@ function TestimonialCard({
           className="font-semibold text-sm"
           style={{
             fontFamily: "'Source Sans 3', sans-serif",
-            color: "oklch(0.30 0.07 145)",
+            color: "oklch(0.45 0.08 145)",
           }}
         >
           {name}
@@ -143,7 +143,7 @@ export default function Testimonials() {
             className="text-4xl md:text-5xl font-semibold mb-4"
             style={{
               fontFamily: "'Cormorant Garamond', Georgia, serif",
-              color: "oklch(0.30 0.07 145)",
+              color: "oklch(0.45 0.08 145)",
             }}
           >
             Ce que disent mes clients
@@ -190,7 +190,7 @@ export default function Testimonials() {
               className="text-sm font-semibold"
               style={{
                 fontFamily: "'Source Sans 3', sans-serif",
-                color: "oklch(0.30 0.07 145)",
+                color: "oklch(0.45 0.08 145)",
               }}
             >
               ✓ Tous les avis sont des retours authentiques de clients réels

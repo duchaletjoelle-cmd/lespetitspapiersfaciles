@@ -274,7 +274,7 @@ function FAQItem({
           className="text-lg font-semibold text-left"
           style={{
             fontFamily: "'Cormorant Garamond', Georgia, serif",
-            color: "oklch(0.30 0.07 145)",
+            color: "oklch(0.45 0.08 145)",
           }}
         >
           {question}
@@ -330,7 +330,7 @@ export default function FAQPage() {
       {/* ── HEADER ── */}
       <section
         className="py-16"
-        style={{ backgroundColor: "oklch(0.30 0.07 145)" }}
+        style={{ backgroundColor: "oklch(0.45 0.08 145)" }}
       >
         <div className="container text-center">
           <h1
@@ -377,7 +377,7 @@ export default function FAQPage() {
               style={{
                 borderColor: "oklch(0.85 0.03 145)",
                 backgroundColor: "oklch(0.97 0.01 80)",
-                color: "oklch(0.30 0.07 145)",
+                color: "oklch(0.45 0.08 145)",
                 fontFamily: "'Source Sans 3', sans-serif",
               }}
               onFocus={(e) => {
@@ -401,7 +401,7 @@ export default function FAQPage() {
                   className="text-3xl font-semibold mb-6"
                   style={{
                     fontFamily: "'Cormorant Garamond', Georgia, serif",
-                    color: "oklch(0.30 0.07 145)",
+                    color: "oklch(0.45 0.08 145)",
                   }}
                 >
                   {category.category}
@@ -447,7 +447,7 @@ export default function FAQPage() {
         className="py-16"
         style={{
           background:
-            "linear-gradient(135deg, oklch(0.30 0.07 145) 0%, oklch(0.35 0.08 145) 100%)",
+            "linear-gradient(135deg, oklch(0.45 0.08 145) 0%, oklch(0.35 0.08 145) 100%)",
         }}
       >
         <div className="container text-center">
@@ -475,7 +475,7 @@ export default function FAQPage() {
               className="px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105"
               style={{
                 backgroundColor: "oklch(0.94 0.02 80)",
-                color: "oklch(0.30 0.07 145)",
+                color: "oklch(0.45 0.08 145)",
                 fontFamily: "'Source Sans 3', sans-serif",
               }}
             >

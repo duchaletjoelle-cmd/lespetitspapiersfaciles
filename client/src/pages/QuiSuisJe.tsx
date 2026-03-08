@@ -72,7 +72,7 @@ export default function QuiSuisJePage() {
                   }}
                 >
                   <img
-                    src="https://via.placeholder.com/224x224?text=Sandra+Duchalet"
+                    src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663393734130/EdvMhkTmQDfUvIvX.png"
                     alt="Sandra Duchalet — Les Petits Papiers Faciles"
                     className="w-full h-full object-cover object-center"
                   />

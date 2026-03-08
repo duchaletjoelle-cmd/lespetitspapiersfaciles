@@ -61,3 +61,12 @@
 - [x] Intégrer l'article sur la page blog
 - [x] Ajouter la navigation vers le blog
 - [x] Optimiser le SEO du blog
+
+## Articles de Blog Supplémentaires (v9)
+- [x] Rédiger le deuxième article sur la sécurité numérique pour les seniors
+- [x] Intégrer l'article sécurité au blog
+
+## FAQ (v10)
+- [x] Rédiger 30 questions-réponses sur le numérique pour les seniors
+- [x] Créer la page FAQ avec accordéon interactif et barre de recherche
+- [x] Ajouter le lien FAQ dans la navigation

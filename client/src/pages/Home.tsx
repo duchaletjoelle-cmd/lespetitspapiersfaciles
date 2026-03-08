@@ -95,6 +95,7 @@ export default function HomePage() {
               style={{
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
                 color: "oklch(0.97 0.01 80)",
+                fontSize: "clamp(2.5rem, 8vw, 4.5rem)",
               }}
             >
               Vos démarches administratives et numériques expliquées simplement,{" "}

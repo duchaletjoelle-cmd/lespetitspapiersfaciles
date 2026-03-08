@@ -88,3 +88,7 @@
 - [x] Créer le composant SEOHead pour la gestion des métadonnées par page
 - [x] Ajouter le SEO sur la page Blog
 - [x] Ajouter le SEO sur la page FAQ
+
+## Amélioration Typographie (v14)
+- [x] Augmenter la taille du titre dans la navigation (41px → 52px)
+- [x] Augmenter la taille du titre h1 du hero avec responsive sizing

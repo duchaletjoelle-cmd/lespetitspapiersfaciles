@@ -10,6 +10,156 @@ import { ArrowRight, Calendar, Clock, Tag } from "lucide-react";
 // Articles du blog
 const BLOG_ARTICLES = [
   {
+    id: "securite-numerique-seniors",
+    title: "Sécurité Numérique pour les Seniors : Se Protéger en Ligne sans Panique",
+    excerpt:
+      "Internet offre des opportunités extraordinaires, mais aussi des risques. Découvrez comment reconnaître les arnaques, créer des mots de passe forts et naviguer en ligne en toute confiance.",
+    date: "8 mars 2026",
+    readTime: "10 min",
+    category: "Sécurité numérique",
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/blog-securite-numerique.jpg",
+    content: `# Sécurité Numérique pour les Seniors : Se Protéger en Ligne sans Panique
+
+## Introduction
+
+Internet offre des opportunités extraordinaires — accès aux services, communication avec la famille, apprentissage — mais il présente aussi des risques réels. Les seniors sont particulièrement ciblés par les arnaqueurs en ligne, non pas parce qu'ils sont moins intelligents, mais parce que les criminels savent qu'ils sont souvent plus confiants et moins familiers avec les pièges numériques.
+
+La bonne nouvelle ? **La sécurité numérique n'est pas compliquée.** Avec quelques règles simples et du bon sens, vous pouvez naviguer sur internet en toute confiance et protéger vos données personnelles et financières.
+
+## Comprendre les Menaces Principales
+
+### Les Arnaques par Email (Phishing)
+
+Le phishing est une technique où les arnaqueurs se font passer pour une organisation de confiance (votre banque, Amazon, la Sécurité Sociale) pour vous voler vos identifiants. Un email de phishing ressemble souvent à un vrai email, avec le logo officiel et un message urgent.
+
+**Comment les reconnaître** :
+- Ils demandent de cliquer sur un lien pour "vérifier votre compte"
+- Ils créent une urgence artificielle ("Votre compte sera fermé dans 24h")
+- L'adresse email de l'expéditeur est légèrement différente de l'original
+- Ils demandent des informations personnelles (mot de passe, numéro de carte)
+
+**La règle d'or** : Une vraie banque ou administration ne vous demandera JAMAIS votre mot de passe par email.
+
+### Les Faux Appels Téléphoniques (Tech Support Scams)
+
+Vous recevez un appel téléphonique d'une personne prétendant travailler pour Microsoft, Apple ou votre fournisseur internet. Elle vous dit qu'il y a un virus sur votre ordinateur et vous demande de lui donner accès à distance.
+
+**C'est une arnaque.** Les vraies entreprises ne vous appellent pas de cette façon.
+
+### Les Logiciels Malveillants
+
+Les logiciels malveillants (virus, spyware, ransomware) peuvent infecter votre ordinateur via des téléchargements douteux, des pièces jointes suspectes ou des sites non sécurisés. Une fois installés, ils peuvent voler vos données, bloquer votre ordinateur ou demander une rançon.
+
+### Les Faux Sites Web
+
+Les arnaqueurs créent des sites web qui ressemblent à des sites légitimes (Amazon, banques, etc.) pour vous faire entrer vos identifiants. Une fois qu'ils ont vos informations, ils peuvent accéder à vos comptes.
+
+## Les Bonnes Pratiques de Sécurité
+
+### 1. Créer des Mots de Passe Forts
+
+Un bon mot de passe est votre première ligne de défense.
+
+**Caractéristiques d'un mot de passe fort** :
+- Au moins 12 caractères
+- Mélange de majuscules, minuscules, chiffres et symboles
+- Pas d'informations personnelles (date de naissance, nom)
+- Unique pour chaque compte important
+
+**Exemple faible** : "Marie1960" (trop court, contient des infos personnelles)
+**Exemple fort** : "Hyères#2024@Soleil!" (long, mélangé, unique)
+
+### 2. Utiliser un Gestionnaire de Mots de Passe
+
+Mémoriser des dizaines de mots de passe forts est impossible. La solution ? Un gestionnaire de mots de passe comme **Bitwarden** (gratuit) ou **1Password** (payant).
+
+Ces outils stockent tous vos mots de passe de manière sécurisée, chiffrée. Vous n'avez besoin de mémoriser qu'un seul mot de passe maître.
+
+### 3. Activer l'Authentification à Deux Facteurs (2FA)
+
+L'authentification à deux facteurs ajoute une couche de sécurité supplémentaire. Même si quelqu'un connaît votre mot de passe, il ne peut pas accéder à votre compte sans le deuxième facteur.
+
+**Comment ça marche** :
+1. Vous entrez votre mot de passe
+2. Un code est envoyé à votre téléphone
+3. Vous entrez ce code pour confirmer votre identité
+
+Activez la 2FA sur vos comptes importants : email, banque, réseaux sociaux.
+
+### 4. Vérifier les URLs Avant de Cliquer
+
+Avant de cliquer sur un lien, survolez-le avec votre souris (sans cliquer) pour voir l'adresse réelle. Si elle ne correspond pas à ce que vous attendez, ne cliquez pas.
+
+### 5. Mettre à Jour Régulièrement
+
+Les mises à jour de votre système d'exploitation, navigateur et logiciels corrigent les failles de sécurité. Ne les ignorez pas.
+
+**Conseil** : Activez les mises à jour automatiques pour ne pas avoir à y penser.
+
+### 6. Utiliser un Antivirus
+
+Installez un antivirus fiable et gratuit comme **Windows Defender** (inclus dans Windows) ou **Avast** (gratuit). Mettez-le à jour régulièrement.
+
+### 7. Sauvegarder Vos Données
+
+Sauvegardez régulièrement vos fichiers importants sur un disque dur externe ou dans le cloud (Google Drive, OneDrive). Ainsi, même si vous êtes victime d'une attaque, vous ne perdrez pas vos données.
+
+## Reconnaître et Signaler les Arnaques
+
+### Signes d'Alerte
+
+- Quelqu'un vous demande de l'argent ou des informations personnelles
+- Un email ou appel crée une urgence artificielle
+- L'adresse email ou le numéro de téléphone semble suspect
+- On vous demande de cliquer sur un lien ou de télécharger quelque chose
+- Les fautes d'orthographe ou de grammaire dans un email officiel
+
+### Que Faire si Vous Êtes Victime
+
+1. **Ne paniquez pas** — vous n'êtes pas seul
+2. **Changez vos mots de passe immédiatement** (depuis un autre appareil)
+3. **Contactez votre banque** si vos informations financières ont été compromises
+4. **Signalez l'arnaque** à la police, la CNIL ou Signal Spam
+5. **Consultez un professionnel** si vous avez besoin d'aide
+
+## Conseils Pratiques pour Rester Sûr
+
+### Avant de Faire Vos Achats en Ligne
+
+- Cherchez le cadenas 🔒 dans la barre d'adresse
+- L'adresse doit commencer par "https://" (pas "http://")
+- Achetez uniquement sur des sites de confiance
+- Utilisez une carte de crédit plutôt qu'une carte de débit
+
+### Avant de Partager des Informations Personnelles
+
+- Demandez-vous : "Pourquoi cette organisation a-t-elle besoin de cette information ?"
+- Ne partagez jamais votre numéro de sécurité sociale, numéro de carte bancaire ou mot de passe
+- Vérifiez que vous êtes sur le bon site avant d'entrer des identifiants
+
+### Sur les Réseaux Sociaux
+
+- Limitez les informations personnelles visibles publiquement
+- Ne cliquez pas sur les liens suspects
+- Méfiez-vous des demandes d'amitié de personnes inconnues
+- Ne partagez pas vos photos d'identité ou documents officiels
+
+## L'Importance de la Vigilance
+
+La sécurité numérique repose en grande partie sur la vigilance. Les arnaqueurs comptent sur votre confiance naturelle et votre désir d'aider. Quelques secondes de réflexion — "Est-ce que ça a du sens ? Est-ce que c'est normal ?" — peuvent vous éviter des problèmes.
+
+**Rappelez-vous** : Les vraies organisations ne vous demandent jamais vos informations sensibles par email ou téléphone. Si quelque chose semble suspect, c'est probablement une arnaque.
+
+## Conclusion
+
+La sécurité numérique n'est pas une question de technologie complexe — c'est du bon sens appliqué à internet. En suivant ces règles simples, vous pouvez profiter d'internet en toute confiance, sans peur.
+
+Vous n'avez pas besoin d'être un expert en informatique pour rester sûr en ligne. Vous avez juste besoin de rester vigilant, de poser des questions et de ne pas hésiter à demander de l'aide.
+
+Chez **Les Petits Papiers Faciles**, nous sommes là pour vous aider à naviguer le monde numérique de manière sûre et confiante. Que ce soit pour comprendre comment reconnaître une arnaque, sécuriser vos comptes ou simplement pour avoir quelqu'un à qui poser vos questions — contactez-moi. Votre sécurité en ligne est notre priorité.`,
+  },
+  {
     id: "autonomie-numerique-seniors",
     title: "L'Autonomie Numérique pour les Seniors : Un Enjeu de Liberté et de Dignité",
     excerpt:

@@ -102,3 +102,8 @@
 - [x] Corriger l'erreur du formulaire contact (remplacer Formspree par tRPC)
 - [x] Ajouter l'envoi d'email de confirmation pour les messages de contact
 - [x] Ajouter l'envoi d'email de confirmation pour les rendez-vous
+
+## Livret FAQ et Simplification (v17)
+- [x] Créer un livret PDF avec la FAQ complète (30 questions-réponses)
+- [x] Simplifier la FAQ du site avec des questions plus basiques (10-15 questions)
+- [x] Ajouter un bouton de téléchargement du livret PDF sur la page FAQ

@@ -1,51 +1,67 @@
-/*
-   Page FAQ Simplifiée — Les Petits Papiers Faciles
-   Questions basiques pour les seniors (sans donner toutes les réponses)
+/* ============================================================
+   Page FAQ — Les Petits Papiers Faciles
+   Style : Clarté Provençale — accordéon interactif
    ============================================================ */
 
 import { useState } from "react";
 import { ChevronDown, Search } from "lucide-react";
-import { useSEOHead } from "../components/SEOHead";
 
-// Données FAQ simplifiée
-const FAQ_CATEGORIES = [
+const faqData = [
   {
-    category: "Les Bases",
+    category: "Informatique Générale",
     questions: [
       {
         id: "q1",
         question: "Par où commencer si je n'ai jamais utilisé un ordinateur ?",
         answer:
-          "C'est une excellente question ! Commencer par les bases est important. Nous vous recommandons de prendre rendez-vous avec un professionnel qui pourra vous guider pas à pas. Lors d'une première séance, nous couvrirons : comment allumer l'ordinateur, utiliser la souris et le clavier, et naviguer sur internet. Chaque personne apprend à son rythme, et c'est normal d'avoir besoin de temps.",
+          "Commencez par les bases : allumer l'ordinateur, utiliser la souris et le clavier. Pratiquez 15 minutes par jour. Trouvez quelqu'un de patient pour vous guider.",
       },
       {
         id: "q2",
-        question: "Quel type d'ordinateur me convient le mieux ?",
+        question: "Quelle est la différence entre un ordinateur, une tablette et un smartphone ?",
         answer:
-          "Il existe plusieurs types d'ordinateurs (de bureau, portable, tablette, smartphone). Le choix dépend de vos besoins et de votre budget. Un professionnel peut vous aider à choisir. Nous vous recommandons de prendre rendez-vous pour discuter de vos besoins spécifiques.",
+          "L'ordinateur est le plus puissant avec un grand écran. La tablette est légère et intuitive. Le smartphone est portable mais avec un petit écran. Pour débuter, un ordinateur est recommandé.",
       },
       {
         id: "q3",
         question: "Combien ça coûte d'avoir internet à la maison ?",
         answer:
-          "Le coût varie selon votre fournisseur et votre région. Vous pouvez aussi utiliser internet gratuitement à la bibliothèque ou à la mairie. Appelez-nous pour discuter des options qui vous conviennent.",
+          "Entre 20 et 50 euros par mois selon votre fournisseur. Vous pouvez aussi utiliser internet gratuitement à la bibliothèque ou à la mairie.",
+      },
+      {
+        id: "q4",
+        question: "Est-ce que mon ordinateur va devenir lent si je l'utilise beaucoup ?",
+        answer:
+          "Non, utiliser votre ordinateur ne le rend pas lent. Mais il peut ralentir si vous avez trop de fichiers ou de virus. Installez un antivirus et redémarrez régulièrement votre ordinateur.",
       },
     ],
   },
   {
-    category: "Internet et Navigation",
+    category: "Internet et Navigateurs",
     questions: [
       {
-        id: "q4",
-        question: "Comment je fais pour aller sur un site internet ?",
+        id: "q5",
+        question: "Qu'est-ce qu'un navigateur internet et lequel dois-je utiliser ?",
         answer:
-          "C'est une bonne question ! Il y a plusieurs étapes à connaître. Nous vous expliquerons comment utiliser un navigateur internet et comment trouver les sites que vous cherchez. Prenez rendez-vous pour une séance pratique.",
+          "Un navigateur est l'application pour consulter les sites web. Les plus populaires sont Google Chrome, Firefox et Microsoft Edge. Tous fonctionnent de la même façon.",
       },
       {
-        id: "q5",
-        question: "Comment je cherche quelque chose sur internet ?",
+        id: "q6",
+        question: "Comment je fais pour trouver quelque chose sur internet ?",
         answer:
-          "Il existe des outils appelés 'moteurs de recherche' qui vous aident à trouver des informations. Nous vous montrerons comment les utiliser efficacement lors d'une séance.",
+          "Utilisez un moteur de recherche comme Google. Allez sur google.fr, tapez ce que vous cherchez, puis appuyez sur Entrée. Plus votre recherche est précise, meilleurs seront les résultats.",
+      },
+      {
+        id: "q7",
+        question: "Pourquoi certains sites sont lents à charger ?",
+        answer:
+          "Plusieurs raisons : votre connexion est lente, le site est surchargé, ou votre ordinateur n'a pas assez de mémoire. Attendez quelques secondes ou fermez les autres onglets.",
+      },
+      {
+        id: "q8",
+        question: "C'est quoi un 'onglet' dans le navigateur ?",
+        answer:
+          "Un onglet est comme une page de votre navigateur. Vous pouvez avoir plusieurs onglets ouverts en même temps. Cliquez sur le '+' pour ouvrir un nouvel onglet.",
       },
     ],
   },
@@ -53,56 +69,56 @@ const FAQ_CATEGORIES = [
     category: "Les Emails",
     questions: [
       {
-        id: "q6",
+        id: "q9",
         question: "Comment je crée une adresse email ?",
         answer:
-          "Créer une adresse email est gratuit et facile, mais il y a plusieurs étapes à suivre. Nous pouvons vous aider à créer votre adresse email lors d'une séance. Appelez-nous pour prendre rendez-vous.",
-      },
-      {
-        id: "q7",
-        question: "Comment j'envoie un email ?",
-        answer:
-          "Envoyer un email est simple une fois que vous connaissez les bases. Nous vous montrerons comment composer et envoyer un email lors d'une séance pratique.",
-      },
-    ],
-  },
-  {
-    category: "La Sécurité",
-    questions: [
-      {
-        id: "q8",
-        question: "Comment je crée un bon mot de passe ?",
-        answer:
-          "Un bon mot de passe est important pour protéger vos comptes. Il existe des règles simples à suivre. Nous vous expliquerons comment créer un mot de passe sûr lors d'une séance.",
-      },
-      {
-        id: "q9",
-        question: "Comment je reconnais une arnaque sur internet ?",
-        answer:
-          "Il existe plusieurs types d'arnaques sur internet. Nous vous montrerons comment les reconnaître et comment vous protéger. C'est un sujet important que nous couvrons en détail lors de nos séances.",
+          "Vous pouvez créer une adresse email gratuitement avec Gmail, Outlook ou Yahoo. Allez sur gmail.com, cliquez sur 'Créer un compte', et suivez les instructions.",
       },
       {
         id: "q10",
-        question: "Mon ordinateur est-il sûr ?",
+        question: "Comment j'envoie un email ?",
         answer:
-          "La sécurité de votre ordinateur est importante. Nous pouvons vérifier l'état de sécurité de votre ordinateur et vous recommander les actions à prendre. Prenez rendez-vous pour une vérification.",
+          "Connectez-vous à votre email, cliquez sur 'Composer', remplissez les champs (À, Sujet, Corps), écrivez votre message, puis cliquez sur 'Envoyer'.",
+      },
+      {
+        id: "q11",
+        question: "Comment je sais si j'ai reçu un email ?",
+        answer:
+          "Vous recevrez généralement une notification. Vous pouvez aussi vérifier en allant dans votre boîte de réception. Les nouveaux emails apparaissent en haut de la liste.",
+      },
+      {
+        id: "q12",
+        question: "Qu'est-ce qu'une pièce jointe et comment je l'envoie ?",
+        answer:
+          "Une pièce jointe est un fichier que vous attachez à votre email. Composez un email, cliquez sur 'Ajouter une pièce jointe', sélectionnez le fichier, puis cliquez sur 'Ouvrir'.",
       },
     ],
   },
   {
-    category: "Les Démarches Administratives",
+    category: "La Sécurité en Ligne",
     questions: [
       {
-        id: "q11",
-        question: "Comment je fais mes démarches administratives en ligne ?",
+        id: "q13",
+        question: "Comment je reconnais une arnaque sur internet ?",
         answer:
-          "Les démarches administratives en ligne peuvent être compliquées. Nous vous accompagnerons pas à pas pour faire vos déclarations d'impôts, demander des allocations, ou consulter votre retraite. Appelez-nous pour prendre rendez-vous.",
+          "Si quelque chose semble trop beau pour être vrai, c'est probablement une arnaque. Ne cliquez jamais sur un lien dans un email suspect et ne donnez jamais vos informations personnelles.",
       },
       {
-        id: "q12",
-        question: "Où je trouve les sites officiels pour mes démarches ?",
+        id: "q14",
+        question: "Comment je crée un bon mot de passe ?",
         answer:
-          "Il existe plusieurs sites officiels selon votre besoin (impôts, retraite, allocations, etc.). Nous connaissons tous ces sites et nous pouvons vous aider à les trouver et à les utiliser.",
+          "Un bon mot de passe doit être long (12 caractères minimum) et contenir des lettres majuscules, minuscules, chiffres et symboles. Évitez d'utiliser votre date de naissance ou votre nom.",
+      },
+    ],
+  },
+  {
+    category: "Paiement et Rendez-vous",
+    questions: [
+      {
+        id: "q15",
+        question: "Comment se fait le règlement des séances ?",
+        answer:
+          "Le règlement des séances s'effectue par virement bancaire. Ce mode de paiement simple et sécurisé permet d'assurer une comptabilité claire et évite toute manipulation d'espèces ou de chèques. Lors de la prise de rendez-vous, les informations nécessaires au règlement (IBAN) sont communiquées. Le rendez-vous est confirmé dès réception du virement. Il est recommandé d'effectuer la réservation 48 heures à l'avance afin de permettre une bonne organisation des accompagnements.",
       },
     ],
   },
@@ -110,13 +126,13 @@ const FAQ_CATEGORIES = [
     category: "Les Réseaux Sociaux",
     questions: [
       {
-        id: "q13",
+        id: "q16",
         question: "Qu'est-ce que Facebook et comment ça marche ?",
         answer:
           "Facebook est un réseau social qui vous permet de rester en contact avec votre famille et vos amis. Nous vous montrerons comment créer un compte et comment l'utiliser lors d'une séance.",
       },
       {
-        id: "q14",
+        id: "q17",
         question: "Comment je partage une photo avec ma famille sur internet ?",
         answer:
           "Il existe plusieurs façons de partager des photos avec votre famille en ligne. Nous vous montrerons les options les plus simples et les plus sûres.",
@@ -129,193 +145,229 @@ export default function FAQPage() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
 
-  useSEOHead({
-    title: "FAQ - Questions Fréquentes | Les Petits Papiers Faciles",
-    description:
-      "Trouvez les réponses à vos questions sur le numérique. Si vous avez besoin d'aide, prenez rendez-vous avec nos experts.",
-    url: "/faq",
-  });
-
-  // Filtrer les questions selon la recherche
-  const filteredCategories = FAQ_CATEGORIES.map((cat) => ({
-    ...cat,
-    questions: cat.questions.filter(
-      (q) =>
-        q.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        q.answer.toLowerCase().includes(searchTerm.toLowerCase())
-    ),
-  })).filter((cat) => cat.questions.length > 0);
+  const filteredData = faqData
+    .map((category) => ({
+      ...category,
+      questions: category.questions.filter(
+        (q) =>
+          q.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          q.answer.toLowerCase().includes(searchTerm.toLowerCase())
+      ),
+    }))
+    .filter((category) => category.questions.length > 0);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.01 80)" }}>
-      {/* Header */}
-      <div
-        className="py-16 px-4"
-        style={{ backgroundColor: "oklch(0.45 0.08 145)" }}
+    <div className="min-h-screen" style={{ backgroundColor: "oklch(0.97 0.01 80)" }}>
+      {/* ── HERO ── */}
+      <section
+        className="relative py-20"
+        style={{
+          background: "linear-gradient(135deg, oklch(0.42 0.06 145) 0%, oklch(0.50 0.07 145) 100%)",
+        }}
       >
-        <div className="container max-w-4xl mx-auto">
+        <div className="container text-center">
           <h1
-            className="text-5xl md:text-6xl font-semibold text-white mb-4"
-            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+            className="text-5xl md:text-6xl font-semibold mb-4"
+            style={{
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              color: "oklch(0.97 0.01 80)",
+            }}
           >
             Questions Fréquentes
           </h1>
-          <p className="text-lg text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-            Trouvez les réponses à vos questions sur le numérique
+          <div
+            className="w-16 h-0.5 mx-auto mb-6"
+            style={{ backgroundColor: "oklch(0.97 0.01 80)" }}
+          />
+          <p
+            className="text-lg max-w-2xl mx-auto"
+            style={{ color: "oklch(0.88 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}
+          >
+            Trouvez les réponses aux questions les plus courantes sur le numérique pour les seniors.
           </p>
         </div>
-      </div>
+      </section>
 
-      {/* Contenu */}
-      <div className="container max-w-4xl mx-auto px-4 py-12">
-        {/* Barre de recherche */}
-        <div className="mb-8">
-          <div className="relative">
-            <Search
-              className="absolute left-4 top-1/2 transform -translate-y-1/2"
-              size={20}
-              style={{ color: "oklch(0.45 0.08 145)" }}
-            />
-            <input
-              type="text"
-              placeholder="Rechercher une question..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-lg border-2"
+      {/* ── CONTENU ── */}
+      <section className="py-20">
+        <div className="container max-w-3xl">
+          {/* Barre de recherche */}
+          <div className="mb-12">
+            <div
+              className="relative"
               style={{
-                borderColor: "oklch(0.85 0.03 80)",
-                fontFamily: "'Source Sans 3', sans-serif",
+                backgroundColor: "oklch(0.98 0.01 80)",
+                border: "1px solid oklch(0.88 0.03 80)",
+                borderRadius: "12px",
+                padding: "12px 16px",
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
               }}
-            />
-          </div>
-        </div>
-
-        {/* Questions par catégorie */}
-        {filteredCategories.length > 0 ? (
-          filteredCategories.map((category) => (
-            <div key={category.category} className="mb-8">
-              <h2
-                className="text-2xl font-semibold mb-4"
+            >
+              <Search size={20} style={{ color: "oklch(0.42 0.06 145)" }} />
+              <input
+                type="text"
+                placeholder="Cherchez une question..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  color: "oklch(0.42 0.06 145)",
+                  flex: 1,
+                  border: "none",
+                  outline: "none",
+                  backgroundColor: "transparent",
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  fontSize: "16px",
+                  color: "oklch(0.22 0.02 65)",
                 }}
-              >
-                {category.category}
-              </h2>
+              />
+            </div>
+          </div>
 
-              <div className="space-y-3">
-                {category.questions.map((q) => (
-                  <div
-                    key={q.id}
-                    className="rounded-lg border-2 overflow-hidden"
-                    style={{ borderColor: "oklch(0.85 0.03 80)" }}
-                  >
-                    <button
-                      onClick={() =>
-                        setExpandedId(expandedId === q.id ? null : q.id)
-                      }
-                      className="w-full px-6 py-4 flex items-center justify-between hover:bg-opacity-50 transition"
-                      style={{ backgroundColor: "oklch(0.98 0.01 80)" }}
+          {/* Accordéon FAQ */}
+          <div className="space-y-4">
+            {filteredData.map((category) => (
+              <div key={category.category}>
+                <h2
+                  className="text-xl font-semibold mb-3"
+                  style={{
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                    color: "oklch(0.42 0.06 145)",
+                  }}
+                >
+                  {category.category}
+                </h2>
+                <div className="space-y-2">
+                  {category.questions.map((question) => (
+                    <div
+                      key={question.id}
+                      style={{
+                        backgroundColor: "oklch(0.98 0.01 80)",
+                        border: "1px solid oklch(0.88 0.03 80)",
+                        borderRadius: "8px",
+                        overflow: "hidden",
+                      }}
                     >
-                      <span
-                        className="text-left font-medium"
-                        style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-                      >
-                        {q.question}
-                      </span>
-                      <ChevronDown
-                        size={20}
+                      <button
+                        onClick={() =>
+                          setExpandedId(expandedId === question.id ? null : question.id)
+                        }
                         style={{
-                          color: "oklch(0.45 0.08 145)",
-                          transform:
-                            expandedId === q.id ? "rotate(180deg)" : "rotate(0deg)",
-                          transition: "transform 0.3s",
+                          width: "100%",
+                          padding: "16px",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          backgroundColor:
+                            expandedId === question.id
+                              ? "oklch(0.95 0.02 145)"
+                              : "oklch(0.98 0.01 80)",
+                          border: "none",
+                          cursor: "pointer",
+                          transition: "background-color 0.2s",
+                          fontFamily: "'Source Sans 3', sans-serif",
+                          fontSize: "16px",
+                          fontWeight: "500",
+                          color: "oklch(0.22 0.02 65)",
+                          textAlign: "left",
                         }}
-                      />
-                    </button>
-
-                    {expandedId === q.id && (
-                      <div
-                        className="px-6 py-4 border-t-2"
-                        style={{ borderColor: "oklch(0.85 0.03 80)", backgroundColor: "oklch(0.99 0.005 80)" }}
                       >
-                        <p
+                        <span>{question.question}</span>
+                        <ChevronDown
+                          size={20}
                           style={{
-                            fontFamily: "'Source Sans 3', sans-serif",
+                            color: "oklch(0.42 0.06 145)",
+                            transform:
+                              expandedId === question.id ? "rotate(180deg)" : "rotate(0deg)",
+                            transition: "transform 0.2s",
+                            flexShrink: 0,
+                          }}
+                        />
+                      </button>
+                      {expandedId === question.id && (
+                        <div
+                          style={{
+                            padding: "16px",
+                            backgroundColor: "oklch(0.98 0.01 80)",
+                            borderTop: "1px solid oklch(0.88 0.03 80)",
                             color: "oklch(0.42 0.02 65)",
+                            fontFamily: "'Source Sans 3', sans-serif",
+                            fontSize: "15px",
                             lineHeight: "1.6",
                           }}
                         >
-                          {q.answer}
-                        </p>
-                        <div className="mt-4 pt-4 border-t" style={{ borderColor: "oklch(0.85 0.03 80)" }}>
-                          <p
-                            className="text-sm"
-                            style={{
-                              fontFamily: "'Source Sans 3', sans-serif",
-                              color: "oklch(0.45 0.08 145)",
-                              fontWeight: "500",
-                            }}
-                          >
-                            💡 Vous avez besoin d'aide ? Prenez rendez-vous avec un expert !
-                          </p>
+                          {question.answer}
                         </div>
-                      </div>
-                    )}
-                  </div>
-                ))}
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
+            ))}
+          </div>
+
+          {/* Message si aucun résultat */}
+          {filteredData.length === 0 && (
+            <div
+              style={{
+                textAlign: "center",
+                padding: "40px 20px",
+                color: "oklch(0.42 0.02 65)",
+                fontFamily: "'Source Sans 3', sans-serif",
+              }}
+            >
+              <p>Aucune question ne correspond à votre recherche.</p>
+              <p style={{ marginTop: "10px", fontSize: "14px" }}>
+                N'hésitez pas à nous contacter pour vos autres questions !
+              </p>
             </div>
-          ))
-        ) : (
-          <div className="text-center py-12">
+          )}
+
+          {/* CTA */}
+          <div
+            style={{
+              marginTop: "40px",
+              padding: "24px",
+              backgroundColor: "oklch(0.95 0.02 145)",
+              border: "1px solid oklch(0.85 0.03 145)",
+              borderRadius: "12px",
+              textAlign: "center",
+            }}
+          >
             <p
               style={{
                 fontFamily: "'Source Sans 3', sans-serif",
                 color: "oklch(0.42 0.02 65)",
+                marginBottom: "16px",
               }}
             >
-              Aucune question ne correspond à votre recherche.
+              Vous n'avez pas trouvé votre réponse ?
             </p>
-          </div>
-        )}
-
-        {/* CTA */}
-        <div
-          className="mt-16 p-8 rounded-lg text-center"
-          style={{ backgroundColor: "oklch(0.95 0.02 145)" }}
-        >
-          <h3
-            className="text-2xl font-semibold mb-4"
-            style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", color: "oklch(0.42 0.06 145)" }}
-          >
-            Vous n'avez pas trouvé la réponse ?
-          </h3>
-          <p
-            className="mb-6"
-            style={{ fontFamily: "'Source Sans 3', sans-serif", color: "oklch(0.42 0.02 65)" }}
-          >
-            Nos experts sont là pour vous aider. Prenez rendez-vous pour une séance personnalisée.
-          </p>
-          <a href="/contact">
-            <button
+            <a
+              href="/contact"
               style={{
-                backgroundColor: "oklch(0.45 0.08 145)",
-                color: "white",
-                padding: "0.75rem 1.5rem",
-                borderRadius: "0.5rem",
-                border: "none",
-                cursor: "pointer",
+                display: "inline-block",
+                padding: "12px 32px",
+                backgroundColor: "oklch(0.42 0.06 145)",
+                color: "oklch(0.97 0.01 80)",
+                textDecoration: "none",
+                borderRadius: "8px",
                 fontFamily: "'Source Sans 3', sans-serif",
-                fontWeight: "500",
+                fontWeight: "600",
+                transition: "opacity 0.2s",
+              }}
+              onMouseEnter={(e) => {
+                (e.target as HTMLAnchorElement).style.opacity = "0.9";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLAnchorElement).style.opacity = "1";
               }}
             >
-              Prendre Rendez-vous
-            </button>
-          </a>
+              Contactez-moi
+            </a>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

@@ -281,6 +281,28 @@ export default function ContactPage() {
                   Sans engagement, pour faire connaissance et évaluer vos besoins.
                 </p>
               </div>
+
+              {/* Modalités de règlement */}
+              <div
+                className="rounded-xl p-5 mt-4"
+                style={{
+                  backgroundColor: "oklch(0.98 0.01 80)",
+                  border: "1px solid oklch(0.85 0.03 80)",
+                }}
+              >
+                <p
+                  className="text-sm font-semibold mb-2"
+                  style={{ fontFamily: "'Source Sans 3', sans-serif", color: "oklch(0.42 0.06 145)" }}
+                >
+                  Modalités de règlement :
+                </p>
+                <p
+                  className="text-sm"
+                  style={{ color: "oklch(0.42 0.02 65)", fontFamily: "'Source Sans 3', sans-serif" }}
+                >
+                  Les séances sont réglées par virement bancaire. Les informations de paiement sont communiquées lors de la confirmation du rendez-vous.
+                </p>
+              </div>
             </div>
 
             {/* Formulaire */}

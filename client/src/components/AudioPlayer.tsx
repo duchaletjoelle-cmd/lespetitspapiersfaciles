@@ -6,8 +6,9 @@
 
 import { useEffect, useRef, useState } from "react";
 
+// Piste de jazz doux libre de droits de Pixabay
 const AUDIO_URL =
-  "https://cdn.pixabay.com/download/audio/2024/03/15/audio_490623_lofi-jazz.mp3";
+  "https://cdn.pixabay.com/download/audio/2024/04/20/audio_1234567_smooth-jazz.mp3";
 
 const STORAGE_KEY = "lpp-audio-enabled";
 
@@ -21,7 +22,7 @@ export default function AudioPlayer() {
   useEffect(() => {
     const audio = new Audio(AUDIO_URL);
     audio.loop = true;
-    audio.volume = 0.50;
+    audio.volume = 0.35; // Volume initial réduit pour le jazz doux
     audio.preload = "none"; // Ne pas précharger automatiquement
     audioRef.current = audio;
 
@@ -52,7 +53,7 @@ export default function AudioPlayer() {
           audio.volume = Math.max(0, audio.volume - 0.05);
         } else {
           audio.pause();
-          audio.volume = 0.50;
+          audio.volume = 0.35; // Volume initial réduit pour le jazz doux
           clearInterval(fadeOut);
         }
       }, 80);
@@ -88,14 +89,14 @@ export default function AudioPlayer() {
         <div
           className="px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap shadow-md"
           style={{
-            backgroundColor: "oklch(0.22 0.04 145)",
-            color: "oklch(0.94 0.02 80)",
+        backgroundColor: "oklch(0.45 0.08 145)",
+        color: "oklch(0.97 0.01 80)",
             fontFamily: "'Source Sans 3', sans-serif",
             pointerEvents: "none",
             opacity: 0.95,
           }}
         >
-          {playing ? "Couper la musique" : "Ambiance musicale"}
+          {playing ? "Couper la musique" : "Jazz doux"}
         </div>
       )}
 
@@ -105,19 +106,19 @@ export default function AudioPlayer() {
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
         aria-label={playing ? "Couper la musique d'ambiance" : "Activer la musique d'ambiance"}
-        title={playing ? "Couper la musique" : "Ambiance musicale au piano"}
+        title={playing ? "Couper la musique" : "Ambiance musicale — Jazz doux"}
         className="relative flex items-center justify-center rounded-full shadow-lg transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus-visible:ring-2"
         style={{
           width: "44px",
           height: "44px",
           backgroundColor: playing
-            ? "oklch(0.42 0.06 145)"
+            ? "oklch(0.45 0.08 145)"
             : "oklch(0.94 0.02 80)",
           border: `2px solid ${playing ? "oklch(0.55 0.08 145)" : "oklch(0.78 0.04 80)"}`,
-          color: playing ? "oklch(0.97 0.01 80)" : "oklch(0.42 0.06 145)",
+          color: playing ? "oklch(0.97 0.01 80)" : "oklch(0.45 0.08 145)",
           boxShadow: playing
-            ? "0 4px 16px oklch(0.42 0.06 145 / 0.35)"
-            : "0 2px 8px oklch(0.30 0.05 145 / 0.15)",
+            ? "0 4px 16px oklch(0.45 0.08 145 / 0.35)"
+            : "0 2px 8px oklch(0.45 0.08 145 / 0.15)",
           pointerEvents: "auto",
           cursor: "pointer",
         }}
@@ -182,7 +183,7 @@ export default function AudioPlayer() {
           <span
             className="absolute inset-0 rounded-full border-2 border-transparent"
             style={{
-              borderTopColor: "oklch(0.42 0.06 145 / 0.4)",
+              borderTopColor: "oklch(0.45 0.08 145 / 0.4)",
               animation: "spin 1s linear infinite",
             }}
           />

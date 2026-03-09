@@ -7,6 +7,7 @@ import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { publicProcedure, protectedProcedure, router } from "../_core/trpc";
 import { notifyOwner } from "../_core/notification";
+import { sendEmail, generateAppointmentConfirmationEmail, generateContactConfirmationEmail } from "../_core/email";
 import {
   getAvailableSlots,
   createAppointment,
@@ -40,6 +41,40 @@ const SERVICE_LABELS: Record<string, string> = {
 // ─── Routeur ─────────────────────────────────────────────────────────────────
 
 export const appointmentsRouter = router({
+  /**
+   * Envoyer un message de contact (public)
+   */
+  sendContactMessage: publicProcedure
+    .input(
+      z.object({
+        clientName: z.string().min(2).max(255),
+        clientEmail: z.string().email(),
+        clientPhone: z.string().min(8).max(30),
+        subject: z.string().min(5).max(255),
+        message: z.string().min(10).max(2000),
+      })
+    )
+    .mutation(async ({ input }) => {
+      // Notifier la propriétaire
+      await notifyOwner({
+        title: `Nouveau message de contact — ${input.clientName}`,
+        content: `**${input.clientName}** a envoyé un message.\n\n- **Sujet :** ${input.subject}\n- **Email :** ${input.clientEmail}\n- **Téléphone :** ${input.clientPhone}\n\n**Message :**\n${input.message}`,
+      });
+
+      // Envoyer un email de confirmation au client
+      const confirmationEmail = generateContactConfirmationEmail({
+        clientName: input.clientName,
+        subject: input.subject,
+      });
+      await sendEmail({
+        to: input.clientEmail,
+        subject: `Nous avons bien reçu votre message - Les Petits Papiers Faciles`,
+        htmlContent: confirmationEmail,
+      });
+
+      return { success: true };
+    }),
+
   /**
    * Créneaux disponibles pour une date donnée (public)
    */
@@ -96,6 +131,19 @@ export const appointmentsRouter = router({
       await notifyOwner({
         title: `📅 Nouveau rendez-vous — ${input.clientName}`,
         content: `**${input.clientName}** a pris rendez-vous.\n\n- **Date :** ${input.appointmentDate} à ${input.appointmentTime}\n- **Service :** ${serviceLabel}\n- **Email :** ${input.clientEmail}\n- **Téléphone :** ${input.clientPhone}${input.message ? `\n- **Message :** ${input.message}` : ""}`,
+      });
+
+      // Envoyer un email de confirmation au client
+      const confirmationEmail = generateAppointmentConfirmationEmail({
+        clientName: input.clientName,
+        appointmentDate: input.appointmentDate,
+        appointmentTime: input.appointmentTime,
+        serviceType: serviceLabel,
+      });
+      await sendEmail({
+        to: input.clientEmail,
+        subject: `Confirmation de votre rendez-vous - Les Petits Papiers Faciles`,
+        htmlContent: confirmationEmail,
       });
 
       return { success: true, appointmentId: appt.id };

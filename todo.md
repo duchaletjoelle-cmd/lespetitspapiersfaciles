@@ -92,3 +92,13 @@
 ## Amélioration Typographie (v14)
 - [x] Augmenter la taille du titre dans la navigation (41px → 52px)
 - [x] Augmenter la taille du titre h1 du hero avec responsive sizing
+
+## Bugs à Corriger (v15)
+- [ ] Corriger l'erreur du formulaire contact ("Un problème est survenu" au clic Envoyer)
+- [ ] Ajouter la sélection d'horaires au calendrier de prise de rendez-vous
+- [ ] Implémenter l'envoi d'email de confirmation après prise de rendez-vous
+
+## Bugs Corriges (v16)
+- [x] Corriger l'erreur du formulaire contact (remplacer Formspree par tRPC)
+- [x] Ajouter l'envoi d'email de confirmation pour les messages de contact
+- [x] Ajouter l'envoi d'email de confirmation pour les rendez-vous

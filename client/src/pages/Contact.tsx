@@ -5,6 +5,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
+import { trpc } from "../lib/trpc";
 
 export default function ContactPage() {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -41,33 +42,29 @@ export default function ContactPage() {
     setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const sendContactMutation = trpc.appointments.sendContactMessage.useMutation();
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("https://formspree.io/f/lespetitspapiersfaciles-gmail-com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          nom: formState.nom,
-          email: formState.email,
-          telephone: formState.telephone,
-          sujet: formState.sujet,
-          message: formState.message,
-        }),
+      await sendContactMutation.mutateAsync({
+        clientName: formState.nom,
+        clientEmail: formState.email,
+        clientPhone: formState.telephone,
+        subject: formState.sujet,
+        message: formState.message,
       });
-      if (response.ok) {
-        setLoading(false);
-        setSubmitted(true);
-      } else {
-        alert("Une erreur est survenue. Veuillez réessayer.");
-        setLoading(false);
-      }
+      setLoading(false);
+      setSubmitted(true);
+      // Reinitialiser le formulaire apres 3 secondes
+      setTimeout(() => {
+        setFormState({ nom: "", email: "", telephone: "", sujet: "", message: "" });
+        setSubmitted(false);
+      }, 3000);
     } catch (error) {
       console.error("Erreur lors de l'envoi:", error);
-      alert("Une erreur est survenue. Veuillez réessayer.");
+      alert("Une erreur est survenue. Veuillez reessayer.");
       setLoading(false);
     }
   };

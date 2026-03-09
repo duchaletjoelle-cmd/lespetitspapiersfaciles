@@ -4,9 +4,8 @@
    ============================================================ */
 
 import { useState } from "react";
-import { ChevronDown, Search, Download } from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
 import { useSEOHead } from "../components/SEOHead";
-import { Button } from "@/components/ui/button";
 
 // Données FAQ simplifiée
 const FAQ_CATEGORIES = [
@@ -191,8 +190,6 @@ export default function FAQPage() {
           </div>
         </div>
 
-
-
         {/* Questions par catégorie */}
         {filteredCategories.length > 0 ? (
           filteredCategories.map((category) => (
@@ -302,14 +299,20 @@ export default function FAQPage() {
             Nos experts sont là pour vous aider. Prenez rendez-vous pour une séance personnalisée.
           </p>
           <a href="/contact">
-            <Button
+            <button
               style={{
                 backgroundColor: "oklch(0.45 0.08 145)",
                 color: "white",
+                padding: "0.75rem 1.5rem",
+                borderRadius: "0.5rem",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: "'Source Sans 3', sans-serif",
+                fontWeight: "500",
               }}
             >
               Prendre Rendez-vous
-            </Button>
+            </button>
           </a>
         </div>
       </div>

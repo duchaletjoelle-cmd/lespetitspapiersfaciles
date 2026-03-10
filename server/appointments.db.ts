@@ -15,16 +15,24 @@ import {
 
 // ─── Créneaux horaires disponibles ──────────────────────────────────────────
 
-/** Créneaux proposés du lundi au samedi, 9h–17h30 */
+/** Créneaux proposés du lundi au samedi, 9h–17h (toutes les heures) */
 export const ALL_SLOTS: string[] = [
   "09:00",
   "10:00",
   "11:00",
+  "12:00",
+  "13:00",
   "14:00",
   "15:00",
   "16:00",
   "17:00",
 ];
+
+/** Durée standard d'un rendez-vous en minutes */
+export const APPOINTMENT_DURATION_MINUTES = 60;
+
+/** Temps de battement obligatoire entre deux rendez-vous en minutes */
+export const BUFFER_TIME_MINUTES = 60;
 
 /** Jours ouvrés : 1 (lundi) à 6 (samedi) — dimanche exclu */
 export function isWorkingDay(dateStr: string): boolean {
@@ -54,6 +62,17 @@ export async function getAvailableSlots(dateStr: string): Promise<string[]> {
 
   const bookedTimes = new Set(booked.map((r) => r.time));
 
+  // Ajouter les créneaux de battement (1 heure après chaque RDV)
+  const bufferedTimes = new Set(bookedTimes);
+  bookedTimes.forEach((time) => {
+    const [hours, minutes] = time.split(":").map(Number);
+    const nextHour = String(hours + 1).padStart(2, "0");
+    const nextTime = `${nextHour}:${String(minutes).padStart(2, "0")}`;
+    if (ALL_SLOTS.includes(nextTime)) {
+      bufferedTimes.add(nextTime);
+    }
+  });
+
   // Récupérer les créneaux bloqués pour ce jour
   const blocked = await db
     .select({ time: blockedSlots.blockedTime })
@@ -66,7 +85,7 @@ export async function getAvailableSlots(dateStr: string): Promise<string[]> {
   const blockedTimes = new Set(blocked.map((b) => b.time).filter(Boolean));
 
   return ALL_SLOTS.filter(
-    (slot) => !bookedTimes.has(slot) && !blockedTimes.has(slot)
+    (slot) => !bufferedTimes.has(slot) && !blockedTimes.has(slot)
   );
 }
 

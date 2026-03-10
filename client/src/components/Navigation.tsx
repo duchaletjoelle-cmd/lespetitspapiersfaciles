@@ -78,21 +78,17 @@ export default function Navigation() {
               </span>
             </div>
             <span
-              className="font-bold tracking-widest uppercase mt-1"
+              className="font-semibold tracking-wide transition-opacity group-hover:opacity-80 mt-0"
               style={{
-                fontFamily: "'Source Sans 3', sans-serif",
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
                 color: "oklch(0.94 0.02 80)",
-                letterSpacing: "0.35em",
-                fontSize: "1.35rem",
-                fontWeight: "900",
                 fontStyle: "italic",
-                textShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
-                lineHeight: "1.1",
+                fontSize: "52px",
                 textAlign: "left",
-                marginLeft: "0.2rem",
+                marginLeft: "0",
               }}
             >
-              FACILES
+              Faciles
             </span>
           </Link>
 

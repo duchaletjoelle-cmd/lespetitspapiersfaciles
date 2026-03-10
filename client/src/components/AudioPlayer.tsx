@@ -22,7 +22,7 @@ export default function AudioPlayer() {
   useEffect(() => {
     const audio = new Audio(AUDIO_URL);
     audio.loop = true;
-    audio.volume = 0.85; // Volume initial augmenté pour le jazz doux
+    audio.volume = 0.95; // Volume initial très élevé pour le jazz doux
     audio.preload = "none"; // Ne pas précharger automatiquement
     audioRef.current = audio;
 
@@ -52,9 +52,9 @@ export default function AudioPlayer() {
         if (audio.volume > 0.05) {
           audio.volume = Math.max(0, audio.volume - 0.05);
         } else {
-          audio.pause();
-          audio.volume = 0.85; // Volume initial augmenté pour le jazz doux
-          clearInterval(fadeOut);
+      audio.pause();
+      audio.volume = 0.95; // Volume initial très élevé pour le jazz doux
+      clearInterval(fadeOut);
         }
       }, 80);
       setPlaying(false);
@@ -66,8 +66,8 @@ export default function AudioPlayer() {
         setPlaying(true);
         sessionStorage.setItem(STORAGE_KEY, "true");
         const fadeIn = setInterval(() => {
-          if (audio.volume < 0.82) {
-            audio.volume = Math.min(0.85, audio.volume + 0.03);
+          if (audio.volume < 0.92) {
+            audio.volume = Math.min(0.95, audio.volume + 0.03);
           } else {
             clearInterval(fadeIn);
           }

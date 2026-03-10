@@ -5,6 +5,7 @@
 
 import { useEffect, useRef } from "react";
 import { Link } from "wouter";
+import { useSEOHead } from "../components/SEOHead";
 import {
   FileText,
   Monitor,
@@ -84,6 +85,14 @@ const numeriqueServices = [
 
 export default function ServicesPage() {
   const pageRef = useRef<HTMLDivElement>(null);
+
+  useSEOHead({
+    title: "Mes services : aide administrative et accompagnement numérique à Hyères",
+    description: "Découvrez mes services d'aide administrative (impôts, retraite, courriers) et d'accompagnement numérique (internet, emails, sécurité en ligne) pour seniors à Hyères et Carqueiranne.",
+    url: "https://lespetitspapiersfaciles.fr/services",
+    keywords: "aide administrative Hyères, accompagnement numérique, services administratifs, démarches en ligne, formation numérique seniors",
+    type: "website",
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -169,7 +178,7 @@ export default function ServicesPage() {
             <div className="reveal" style={{ transitionDelay: "0.15s" }}>
               <img
                 src={ADMIN_IMG}
-                alt="Documents administratifs organisés"
+                alt="Aide administrative - Documents organisés et classement de papiers à Hyères"
                 className="rounded-2xl w-full object-cover shadow-lg"
                 style={{ maxHeight: "380px" }}
               />
@@ -214,7 +223,7 @@ export default function ServicesPage() {
             <div className="reveal order-2 lg:order-1">
               <img
                 src={NUMERIQUE_IMG}
-                alt="Apprentissage numérique avec tablette"
+                alt="Accompagnement numérique - Formation internet et sécurité en ligne pour seniors"
                 className="rounded-2xl w-full object-cover shadow-lg"
                 style={{ maxHeight: "380px" }}
               />

@@ -198,7 +198,7 @@ export default function BlogPage() {
                     <div className="md:w-1/3 overflow-hidden bg-gray-200 h-64 md:h-auto">
                       <img
                         src={article.image}
-                        alt={article.title}
+                        alt={`${article.title} - Article blog Les Petits Papiers Faciles`}
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                       />
                     </div>

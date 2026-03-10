@@ -5,10 +5,19 @@
 
 import { useEffect, useRef } from "react";
 import { Link } from "wouter";
+import { useSEOHead } from "../components/SEOHead";
 import { ArrowRight, Heart, BookOpen, Award, Target } from "lucide-react";
 
 export default function QuiSuisJePage() {
   const pageRef = useRef<HTMLDivElement>(null);
+
+  useSEOHead({
+    title: "Qui suis-je ? Sandra Duchalet — Aide administrative et accompagnement numérique",
+    description: "Sandra Duchalet, fondatrice des Petits Papiers Faciles. Ancienne gestionnaire comptable avec 20+ ans d'expérience. Spécialiste de l'aide administrative et l'accompagnement numérique pour seniors à Hyères.",
+    url: "https://lespetitspapiersfaciles.fr/qui-suis-je",
+    keywords: "Sandra Duchalet, Hyères, aide administrative, accompagnement numérique, gestionnaire comptable, services à la personne",
+    type: "website",
+  });
 
   useEffect(() => {
     const observer = new IntersectionObserver(

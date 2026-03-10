@@ -6,6 +6,8 @@
 import { Link } from "wouter";
 import { useEffect, useRef } from "react";
 import Testimonials from "../components/Testimonials";
+import { useSEOHead } from "../components/SEOHead";
+import { useStructuredData, organizationSchema } from "../components/StructuredData";
 import {
   FileText,
   Monitor,
@@ -35,9 +37,17 @@ const PROFILE_IMG =
 export default function HomePage() {
   const pageRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    document.title = "Aide administrative à Hyères | Les Petits Papiers Faciles";
-  }, []);
+  useSEOHead({
+    title: "Aide administrative & accompagnement numérique à Hyères | Les Petits Papiers Faciles",
+    description: "Aide administrative et accompagnement numérique à domicile à Hyères, Carqueiranne et communes environnantes. Démarches administratives, sécurité en ligne, autonomie numérique pour seniors.",
+    url: "https://lespetitspapiersfaciles.fr",
+    keywords: "aide administrative Hyères, accompagnement numérique seniors, démarches administratives Var, assistance papiers Carqueiranne, autonomie numérique, sécurité en ligne",
+    type: "website",
+  });
+
+  useStructuredData(organizationSchema);
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

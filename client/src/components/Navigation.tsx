@@ -151,11 +151,12 @@ export default function Navigation() {
             </Link>
             <a
               href="tel:0750527227"
-              className="flex items-center gap-2 px-4 py-2 rounded text-sm font-semibold transition-all duration-200"
+              className="flex items-center gap-2 px-3 py-2 rounded text-xs font-semibold transition-all duration-200 whitespace-nowrap"
               style={{
                 fontFamily: "'Source Sans 3', sans-serif",
                 backgroundColor: "oklch(0.50 0.07 145)",
                 color: "oklch(0.94 0.02 80)",
+                fontSize: "0.75rem",
               }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.backgroundColor = "oklch(0.55 0.07 145)";

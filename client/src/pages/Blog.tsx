@@ -18,8 +18,7 @@ const BLOG_ARTICLES = [
     date: "8 mars 2026",
     readTime: "10 min",
     category: "Sécurité numérique",
-    image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/blog-securite-numerique.jpg",
+    image: "/images/blog/securite-numerique.jpg",
     content: `# Sécurité Numérique pour les Seniors : Se Protéger en Ligne sans Panique
 
 ## Introduction
@@ -168,8 +167,7 @@ Chez **Les Petits Papiers Faciles**, nous sommes là pour vous aider à naviguer
     date: "7 mars 2026",
     readTime: "8 min",
     category: "Accompagnement numérique",
-    image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/blog-autonomie-numerique.jpg",
+    image: "/images/blog/autonomie-numerique.jpg",
     content: `# L'Autonomie Numérique pour les Seniors : Un Enjeu de Liberté et de Dignité
 
 ## Introduction

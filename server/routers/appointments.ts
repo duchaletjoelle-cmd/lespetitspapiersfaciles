@@ -56,9 +56,17 @@ export const appointmentsRouter = router({
     )
     .mutation(async ({ input }) => {
       // Notifier la propriétaire
+      const notificationContent = `**${input.clientName}** a envoyé un message.\n\n- **Sujet :** ${input.subject}\n- **Email :** ${input.clientEmail}\n- **Téléphone :** ${input.clientPhone}\n\n**Message :**\n${input.message}`;
       await notifyOwner({
         title: `Nouveau message de contact — ${input.clientName}`,
-        content: `**${input.clientName}** a envoyé un message.\n\n- **Sujet :** ${input.subject}\n- **Email :** ${input.clientEmail}\n- **Téléphone :** ${input.clientPhone}\n\n**Message :**\n${input.message}`,
+        content: notificationContent,
+      });
+
+      // Envoyer un email de notification à la propriétaire
+      await sendEmail({
+        to: "lespetitspapiersfaciles@gmail.com",
+        subject: `Nouveau message de contact : ${input.subject}`,
+        htmlContent: `<p>${notificationContent.replace(/\n/g, "<br>")}</p>`,
       });
 
       // Envoyer un email de confirmation au client
@@ -128,9 +136,17 @@ export const appointmentsRouter = router({
 
       // Notifier la propriétaire
       const serviceLabel = SERVICE_LABELS[input.serviceType] ?? input.serviceType;
+      const apptNotificationContent = `**${input.clientName}** a pris rendez-vous.\n\n- **Date :** ${input.appointmentDate} à ${input.appointmentTime}\n- **Service :** ${serviceLabel}\n- **Email :** ${input.clientEmail}\n- **Téléphone :** ${input.clientPhone}${input.message ? `\n- **Message :** ${input.message}` : ""}`;
       await notifyOwner({
         title: `📅 Nouveau rendez-vous — ${input.clientName}`,
-        content: `**${input.clientName}** a pris rendez-vous.\n\n- **Date :** ${input.appointmentDate} à ${input.appointmentTime}\n- **Service :** ${serviceLabel}\n- **Email :** ${input.clientEmail}\n- **Téléphone :** ${input.clientPhone}${input.message ? `\n- **Message :** ${input.message}` : ""}`,
+        content: apptNotificationContent,
+      });
+
+      // Envoyer un email de notification à la propriétaire
+      await sendEmail({
+        to: "lespetitspapiersfaciles@gmail.com",
+        subject: `Nouveau rendez-vous : ${input.clientName} - ${input.appointmentDate}`,
+        htmlContent: `<p>${apptNotificationContent.replace(/\n/g, "<br>")}</p>`,
       });
 
       // Envoyer un email de confirmation au client

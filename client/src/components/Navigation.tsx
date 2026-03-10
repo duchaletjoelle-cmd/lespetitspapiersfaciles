@@ -78,11 +78,12 @@ export default function Navigation() {
               </span>
             </div>
             <span
-              className="text-xs font-semibold tracking-widest uppercase text-center mt-1"
+              className="text-sm font-bold tracking-widest uppercase text-center mt-1"
               style={{
                 fontFamily: "'Source Sans 3', sans-serif",
-                color: "oklch(0.80 0.04 145)",
-                letterSpacing: "0.15em",
+                color: "oklch(0.94 0.02 80)",
+                letterSpacing: "0.25em",
+                fontSize: "1rem",
               }}
             >
               Faciles

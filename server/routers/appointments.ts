@@ -7,7 +7,8 @@ import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { publicProcedure, protectedProcedure, router } from "../_core/trpc";
 import { notifyOwner } from "../_core/notification";
-import { sendEmail, generateAppointmentConfirmationEmail, generateContactConfirmationEmail } from "../_core/email";
+import { sendEmail, sendEmailWithAttachments, generateAppointmentConfirmationEmail, generateContactConfirmationEmail } from "../_core/email";
+import { generateCalendarInvite, generateClientCalendarInvite } from "../_core/calendar";
 import {
   getAvailableSlots,
   createAppointment,
@@ -142,24 +143,56 @@ export const appointmentsRouter = router({
         content: apptNotificationContent,
       });
 
-      // Envoyer un email de notification à la propriétaire
-      await sendEmail({
+      // Générer les invitations de calendrier
+      const ownerCalendarInvite = generateCalendarInvite({
+        clientName: input.clientName,
+        clientEmail: input.clientEmail,
+        appointmentDate: input.appointmentDate,
+        appointmentTime: input.appointmentTime,
+        serviceType: serviceLabel,
+        message: input.message,
+      });
+
+      const clientCalendarInvite = generateClientCalendarInvite({
+        clientName: input.clientName,
+        clientEmail: input.clientEmail,
+        appointmentDate: input.appointmentDate,
+        appointmentTime: input.appointmentTime,
+        serviceType: serviceLabel,
+      });
+
+      // Envoyer un email de notification à la propriétaire avec invitation calendrier
+      await sendEmailWithAttachments({
         to: "lespetitspapiersfaciles@gmail.com",
         subject: `Nouveau rendez-vous : ${input.clientName} - ${input.appointmentDate}`,
         htmlContent: `<p>${apptNotificationContent.replace(/\n/g, "<br>")}</p>`,
+        attachments: [
+          {
+            filename: "rendez-vous.ics",
+            content: Buffer.from(ownerCalendarInvite).toString("base64"),
+            contentType: "text/calendar",
+          },
+        ],
       });
 
-      // Envoyer un email de confirmation au client
+      // Envoyer un email de confirmation au client avec invitation calendrier
       const confirmationEmail = generateAppointmentConfirmationEmail({
         clientName: input.clientName,
         appointmentDate: input.appointmentDate,
         appointmentTime: input.appointmentTime,
         serviceType: serviceLabel,
       });
-      await sendEmail({
+      await sendEmailWithAttachments({
         to: input.clientEmail,
         subject: `Confirmation de votre rendez-vous - Les Petits Papiers Faciles`,
         htmlContent: confirmationEmail,
+        attachments: [
+          {
+            filename: "rendez-vous.ics",
+            content: Buffer.from(clientCalendarInvite).toString("base64"),
+            contentType: "text/calendar",
+          },
+        ],
       });
 
       return { success: true, appointmentId: appt.id };

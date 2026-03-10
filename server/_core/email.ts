@@ -7,6 +7,16 @@ export type EmailPayload = {
   htmlContent: string;
 };
 
+export type EmailAttachment = {
+  filename: string;
+  content: string; // Base64 encoded
+  contentType: string;
+};
+
+export type EmailPayloadWithAttachment = EmailPayload & {
+  attachments?: EmailAttachment[];
+};
+
 /**
  * Envoie un email via le service Manus
  * Utilisé pour les confirmations de rendez-vous et les messages de contact
@@ -203,4 +213,65 @@ export function generateContactConfirmationEmail(data: {
       </body>
     </html>
   `;
+}
+
+/**
+ * Envoie un email avec pièces jointes via le service Manus
+ */
+export async function sendEmailWithAttachments(
+  payload: EmailPayloadWithAttachment
+): Promise<boolean> {
+  const { to, subject, htmlContent, attachments } = payload;
+
+  if (!ENV.forgeApiUrl) {
+    throw new TRPCError({
+      code: "INTERNAL_SERVER_ERROR",
+      message: "Email service URL is not configured.",
+    });
+  }
+
+  if (!ENV.forgeApiKey) {
+    throw new TRPCError({
+      code: "INTERNAL_SERVER_ERROR",
+      message: "Email service API key is not configured.",
+    });
+  }
+
+  const endpoint = new URL(
+    "webdevtoken.v1.WebDevService/SendEmail",
+    ENV.forgeApiUrl.endsWith("/") ? ENV.forgeApiUrl : `${ENV.forgeApiUrl}/`
+  ).toString();
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        authorization: `Bearer ${ENV.forgeApiKey}`,
+        "content-type": "application/json",
+        "connect-protocol-version": "1",
+      },
+      body: JSON.stringify({
+        to,
+        subject,
+        htmlContent,
+        attachments: attachments || [],
+      }),
+    });
+
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      console.warn(
+        `[Email] Failed to send email with attachments to ${to} (${response.status} ${response.statusText})${
+          detail ? `: ${detail}` : ""
+        }`
+      );
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    console.warn("[Email] Error sending email with attachments:", error);
+    return false;
+  }
 }

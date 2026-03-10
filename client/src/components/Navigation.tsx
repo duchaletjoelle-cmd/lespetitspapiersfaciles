@@ -78,7 +78,7 @@ export default function Navigation() {
               </span>
             </div>
             <span
-              className="font-bold tracking-widest uppercase text-center mt-1"
+              className="font-bold tracking-widest uppercase mt-1"
               style={{
                 fontFamily: "'Source Sans 3', sans-serif",
                 color: "oklch(0.94 0.02 80)",
@@ -88,6 +88,8 @@ export default function Navigation() {
                 fontStyle: "italic",
                 textShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
                 lineHeight: "1.1",
+                textAlign: "left",
+                marginLeft: "0.2rem",
               }}
             >
               FACILES

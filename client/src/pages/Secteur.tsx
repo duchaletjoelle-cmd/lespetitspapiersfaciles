@@ -6,7 +6,6 @@
 import { useEffect, useRef } from "react";
 import { Link } from "wouter";
 import { MapPin, Home, Wifi, ArrowRight } from "lucide-react";
-import { MapView } from "@/components/Map";
 
 const communes = [
   { name: "Hyères", principal: true },
@@ -39,46 +38,7 @@ export default function SecteurPage() {
     return () => observer.disconnect();
   }, []);
 
-  const handleMapReady = (map: google.maps.Map) => {
-    // Centre sur Hyères
-    map.setCenter({ lat: 43.1204, lng: 6.1286 });
-    map.setZoom(11);
 
-    // Marqueurs des communes principales
-    const mainCommunes = [
-      { lat: 43.1204, lng: 6.1286, name: "Hyères" },
-      { lat: 43.1003, lng: 6.0831, name: "Carqueiranne" },
-      { lat: 43.1378, lng: 6.0200, name: "Le Pradet" },
-    ];
-
-    mainCommunes.forEach((commune) => {
-      new google.maps.Marker({
-        position: { lat: commune.lat, lng: commune.lng },
-        map,
-        title: commune.name,
-        icon: {
-          path: google.maps.SymbolPath.CIRCLE,
-          scale: 10,
-          fillColor: "#4A6741",
-          fillOpacity: 1,
-          strokeColor: "#ffffff",
-          strokeWeight: 2,
-        },
-      });
-    });
-
-    // Cercle de zone d'intervention
-    new google.maps.Circle({
-      strokeColor: "#4A6741",
-      strokeOpacity: 0.5,
-      strokeWeight: 2,
-      fillColor: "#4A6741",
-      fillOpacity: 0.08,
-      map,
-      center: { lat: 43.1204, lng: 6.1286 },
-      radius: 18000,
-    });
-  };
 
   return (
     <div ref={pageRef} style={{ paddingTop: "72px" }}>
@@ -214,15 +174,16 @@ export default function SecteurPage() {
               </p>
             </div>
 
-            {/* Carte */}
+            {/* Carte statique */}
             <div className="lg:col-span-2 reveal" style={{ transitionDelay: "0.15s" }}>
               <div
                 className="rounded-2xl overflow-hidden shadow-lg"
                 style={{ height: "480px", border: "1px solid oklch(0.88 0.03 80)" }}
               >
-                <MapView
-                  onMapReady={handleMapReady}
-                  className="w-full h-full"
+                <img
+                  src="/carte-hyeres.webp"
+                  alt="Carte de la zone d'intervention - Hyères, Carqueiranne, Le Pradet et communes environnantes"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <p

@@ -76,7 +76,7 @@ export default function SecteurPage() {
       fillOpacity: 0.08,
       map,
       center: { lat: 43.1204, lng: 6.1286 },
-      radius: 20000,
+      radius: 18000,
     });
   };
 

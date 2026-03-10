@@ -46,7 +46,7 @@ export default function Navigation() {
       <div className="container">
         <div className="flex items-center justify-between py-3">
           {/* Logo */}
-          <Link href="/" className="flex flex-col leading-tight group">
+          <Link href="/" className="flex flex-col leading-none group">
             <div className="flex items-center gap-2">
               <span
                 className="text-sm"
@@ -78,14 +78,16 @@ export default function Navigation() {
               </span>
             </div>
             <span
-              className="font-bold tracking-widest uppercase text-center mt-2"
+              className="font-bold tracking-widest uppercase text-center mt-1"
               style={{
                 fontFamily: "'Source Sans 3', sans-serif",
                 color: "oklch(0.94 0.02 80)",
                 letterSpacing: "0.35em",
-                fontSize: "1.4rem",
+                fontSize: "1.35rem",
                 fontWeight: "900",
+                fontStyle: "italic",
                 textShadow: "0 2px 8px rgba(0, 0, 0, 0.2)",
+                lineHeight: "1.1",
               }}
             >
               FACILES

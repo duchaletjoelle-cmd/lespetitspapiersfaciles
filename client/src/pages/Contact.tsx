@@ -6,6 +6,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Phone, Mail, MapPin, Clock, Send, CheckCircle } from "lucide-react";
 import { trpc } from "../lib/trpc";
+import SEPAPaymentQR from "../components/SEPAPaymentQR";
 
 export default function ContactPage() {
   const pageRef = useRef<HTMLDivElement>(null);
@@ -334,6 +335,7 @@ export default function ContactPage() {
                     >
                       Merci pour votre message. Je vous répondrai dans les plus
                       brefs délais, généralement sous 24 heures.
+                    <SEPAPaymentQR appointmentId={formState.email} amount={42} showLabel={true} />
                     </p>
                   </div>
                 ) : (

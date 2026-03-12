@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 
 // Piste de jazz doux libre de droits de Pixabay
 const AUDIO_URL =
-  "https://cdn.pixabay.com/download/audio/2024/04/20/audio_1234567_smooth-jazz.mp3";
+  "https://cdn.pixabay.com/download/audio/2024/03/15/audio_490623_lofi-jazz.mp3";
 
 const STORAGE_KEY = "lpp-audio-enabled";
 
@@ -52,9 +52,9 @@ export default function AudioPlayer() {
         if (audio.volume > 0.05) {
           audio.volume = Math.max(0, audio.volume - 0.05);
         } else {
-      audio.pause();
-      audio.volume = 0.95; // Volume initial très élevé pour le jazz doux
-      clearInterval(fadeOut);
+          audio.pause();
+          audio.volume = 0.95; // Volume initial très élevé pour le jazz doux
+          clearInterval(fadeOut);
         }
       }, 80);
       setPlaying(false);

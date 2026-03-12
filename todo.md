@@ -107,3 +107,9 @@
 - [x] Créer un livret PDF avec la FAQ complète (30 questions-réponses)
 - [x] Simplifier la FAQ du site avec des questions plus basiques (10-15 questions)
 - [x] Ajouter un bouton de téléchargement du livret PDF sur la page FAQ
+
+## Paiement SEPA et QR Code (v18)
+- [x] Créer le système de paiement SEPA avec QR code dynamique (IBAN: FR7616218000014012110249729, Bénéficiaire: Sandra Duchalet, Montant: 42€)
+- [x] Intégrer le QR code dans la confirmation de rendez-vous
+- [ ] Ajouter le QR code dans l'email de confirmation
+- [x] Corriger le problème de son du lecteur audio (volume augmenté à 95%)

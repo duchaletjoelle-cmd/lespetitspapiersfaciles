@@ -102,7 +102,9 @@ N'oubliez pas : si vous avez besoin d'aide, vous n'êtes pas seul. Les administr
     readTime: "10 min",
     category: "Sécurité numérique",
     image: "/images/blog/securite-numerique.jpg",
-    content: `# Sécurité Numérique pour les Seniors : Se Protéger en Ligne sans Panique
+    content: `![Illustration Sécurité Numérique](/images/blog/securite-numerique.jpg)
+
+# Sécurité Numérique pour les Seniors : Se Protéger en Ligne sans Panique
 
 ## Introduction
 

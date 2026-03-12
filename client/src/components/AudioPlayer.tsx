@@ -6,9 +6,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// Piste de jazz doux libre de droits de Pixabay
-const AUDIO_URL =
-  "https://cdn.pixabay.com/download/audio/2024/03/15/audio_490623_lofi-jazz.mp3";
+// Utiliser le fichier audio local pour une meilleure performance
+const AUDIO_URL = "/audio/background_music.mp3";
 
 const STORAGE_KEY = "lpp-audio-enabled";
 
@@ -20,25 +19,31 @@ export default function AudioPlayer() {
 
   // Initialiser l'élément audio une seule fois
   useEffect(() => {
-    const audio = new Audio(AUDIO_URL);
-    audio.loop = true;
-    audio.volume = 0.95; // Volume initial très élevé pour le jazz doux
-    audio.preload = "none"; // Ne pas précharger automatiquement
-    audioRef.current = audio;
+    if (!audioRef.current) {
+      const audio = new Audio(AUDIO_URL);
+      audio.loop = true;
+      audio.volume = 1.0;
+      audio.preload = "auto";
+      audioRef.current = audio;
 
-    audio.addEventListener("canplaythrough", () => setLoaded(true));
-    audio.addEventListener("error", () => setLoaded(false));
+      // Ajouter l'élément au DOM (caché) pour faciliter le débogage et la gestion
+      audio.id = "lpp-background-audio";
+      audio.style.display = "none";
+      document.body.appendChild(audio);
 
-    // Restaurer l'état de lecture (si l'utilisateur avait activé la musique)
-    const savedState = sessionStorage.getItem(STORAGE_KEY);
-    if (savedState === "true") {
-      // On ne relance pas automatiquement (règle autoplay des navigateurs)
-      // mais on indique visuellement que c'était actif
+      audio.addEventListener("canplaythrough", () => setLoaded(true));
+      audio.addEventListener("error", (e) => {
+        console.error("Erreur lors du chargement audio:", e);
+        setLoaded(false);
+      });
     }
 
     return () => {
-      audio.pause();
-      audio.src = "";
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.remove();
+        audioRef.current = null;
+      }
     };
   }, []);
 
@@ -50,10 +55,10 @@ export default function AudioPlayer() {
       // Fade out doux
       const fadeOut = setInterval(() => {
         if (audio.volume > 0.05) {
-          audio.volume = Math.max(0, audio.volume - 0.05);
+          audio.volume = Math.max(0, audio.volume - 0.08);
         } else {
           audio.pause();
-          audio.volume = 0.95; // Volume initial très élevé pour le jazz doux
+          audio.volume = 1.0; // Volume maximum pour la prochaine lecture
           clearInterval(fadeOut);
         }
       }, 80);
@@ -66,14 +71,16 @@ export default function AudioPlayer() {
         setPlaying(true);
         sessionStorage.setItem(STORAGE_KEY, "true");
         const fadeIn = setInterval(() => {
-          if (audio.volume < 0.92) {
-            audio.volume = Math.min(0.95, audio.volume + 0.03);
+          if (audio.volume < 0.9) {
+            audio.volume = Math.min(1.0, audio.volume + 0.1);
           } else {
+            audio.volume = 1.0;
             clearInterval(fadeIn);
           }
-        }, 80);
-      }).catch(() => {
+        }, 50);
+      }).catch((error) => {
         // Autoplay bloqué par le navigateur — pas grave
+        console.warn("Autoplay bloqué:", error);
         setPlaying(false);
       });
     }
@@ -89,14 +96,14 @@ export default function AudioPlayer() {
         <div
           className="px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap shadow-md"
           style={{
-        backgroundColor: "oklch(0.45 0.08 145)",
-        color: "oklch(0.97 0.01 80)",
+            backgroundColor: "oklch(0.45 0.08 145)",
+            color: "oklch(0.97 0.01 80)",
             fontFamily: "'Source Sans 3', sans-serif",
             pointerEvents: "none",
             opacity: 0.95,
           }}
         >
-          {playing ? "Couper la musique" : "Jazz doux"}
+          {playing ? "Couper la musique" : "Activer la musique"}
         </div>
       )}
 

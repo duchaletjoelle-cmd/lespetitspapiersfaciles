@@ -75,7 +75,7 @@
   --popover: oklch(0.98 0.01 80);
   --popover-foreground: oklch(0.22 0.02 65);
   --muted: oklch(0.95 0.02 145);
-  --muted-foreground: oklch(0.45 0.03 65);
+  --muted-foreground: oklch(0.35 0.03 65); /* Assombri pour meilleur contraste (0.45 → 0.35) */
   --accent: oklch(0.65 0.10 45);             /* Terracotta */
   --accent-foreground: oklch(0.98 0.01 80);
   --destructive: oklch(0.577 0.245 27.325);
@@ -105,13 +105,13 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 1.0625rem;
-    line-height: 1.7;
+    font-size: 1.125rem; /* Augmenté de 1.0625rem à 1.125rem (18px) pour meilleure lisibilité */
+    line-height: 1.8; /* Augmenté de 1.7 à 1.8 pour un meilleur espacement */
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    line-height: 1.2;
+    line-height: 1.3; /* Augmenté de 1.2 à 1.3 pour meilleure lisibilité des titres */
     color: oklch(0.22 0.02 65);
   }
   button:not(:disabled),

@@ -8,7 +8,7 @@ import { Star, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Isabelle Revest",
+    name: "Isabelle R.",
     company: "SUPRANA",
     text: "Je vous remercie pour votre réactivité. Bonne journée.",
     rating: 5,
@@ -16,28 +16,28 @@ const testimonials = [
   },
   {
     id: 2,
-    name: "Olivier Carozzo",
+    name: "Olivier C.",
     text: "Super ! En tous les cas, merci beaucoup pour le temps pris pour m'aider ainsi que votre gentillesse. Ça a peut-être pu me rendre la tâche plus facile, que je pense à remercier chaleureusement les personnes humaines comme vous :)",
     rating: 5,
     context: "Aide administrative - Dossier ENDIS",
   },
   {
     id: 3,
-    name: "David Pierron",
+    name: "David P.",
     text: "Hoooo... ça c'est du rapide ! Grand Merci Sandra ! Je préviens dès que nouveau devis sera fait ..",
     rating: 5,
     context: "Aide administrative - Demande urgente",
   },
   {
     id: 4,
-    name: "Christine Surry",
+    name: "Christine S.",
     text: "Au top Sandra ! merci !",
     rating: 5,
     context: "Aide administrative - Réclamation",
   },
   {
     id: 5,
-    name: "Ludovic Rubino",
+    name: "Ludovic R.",
     text: "Tu gères merci ☺ Bonne journée",
     rating: 5,
     context: "Aide administrative - Dossier urgent",

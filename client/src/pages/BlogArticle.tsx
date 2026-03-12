@@ -20,14 +20,95 @@ const BLOG_ARTICLES: Record<
     content: string;
   }
 > = {
+  "demarches-administratives-en-ligne": {
+    title: "Démarches Administratives en Ligne : Un Guide Pratique pour les Seniors",
+    date: "12 mars 2026",
+    readTime: "12 min",
+    category: "Démarches administratives",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/senior-demarches-administratives-mVEcWQmH4En93N4KYNSVNT.webp",
+    content: `# Démarches Administratives en Ligne : Un Guide Pratique pour les Seniors
+
+## Introduction
+
+Les démarches administratives en ligne sont devenues incontournables en France. Que vous ayez besoin de déclarer vos impôts, de consulter votre dossier retraite ou de demander une allocation, internet offre des solutions pratiques et sécurisées. Cet article vous guide pas à pas pour accomplir les démarches administratives les plus courantes sans stress ni complications.
+
+## 1. Impôts sur le Revenu : Déclarer en Ligne
+
+### Pourquoi déclarer en ligne ?
+
+La déclaration en ligne est devenue obligatoire pour tous les contribuables depuis 2019. Cette méthode offre plusieurs avantages : vous gagnez du temps, vous recevez votre avis d'imposition plus rapidement, et vous pouvez suivre votre dossier en temps réel.
+
+### Étapes pour déclarer vos impôts
+
+**Accéder au service** : Rendez-vous sur le site officiel des impôts (impots.gouv.fr) et connectez-vous avec votre numéro fiscal et votre mot de passe. Si c'est votre première connexion, vous devrez créer un compte en quelques minutes.
+
+**Remplir votre déclaration** : Le formulaire en ligne vous guide étape par étape. Vous devez déclarer tous vos revenus : salaires, pensions de retraite, revenus fonciers, intérêts bancaires, etc.
+
+**Vérifier et corriger** : Avant de valider, relisez attentivement votre déclaration. Vous pouvez corriger les erreurs directement.
+
+**Valider et recevoir votre avis** : Une fois validée, votre déclaration est transmise aux impôts. Vous recevrez votre avis d'imposition par courrier ou par email.
+
+## 2. Retraite : Consulter et Gérer Votre Dossier
+
+### Accéder à votre espace retraite
+
+**Pour les salariés du secteur privé** : Connectez-vous sur lassuranceretraite.fr avec votre numéro de sécurité sociale. Vous accédez à votre espace personnel où vous pouvez consulter votre carrière, vos cotisations et estimer votre retraite.
+
+**Pour les fonctionnaires** : Utilisez le site info-retraite.fr qui regroupe tous les régimes de retraite.
+
+### Estimer votre retraite
+
+Le service « Mes droits retraite » vous permet de simuler le montant de votre pension selon différents scénarios : départ à 62 ans, 64 ans, 65 ans, etc.
+
+## 3. Allocations Familiales et Aides Sociales
+
+### Accéder à votre compte CAF
+
+Connectez-vous sur caf.fr avec votre numéro d'allocataire et votre mot de passe. Vous accédez à votre espace personnel où vous pouvez consulter vos allocations, vos droits, et faire vos déclarations.
+
+### Déclarer vos revenus
+
+La CAF vous demande de déclarer vos revenus chaque année. Cette déclaration détermine le montant de vos allocations. Vous pouvez la faire en ligne directement dans votre espace CAF.
+
+## 4. Sécurité Sociale : Consulter Votre Dossier Médical
+
+### Accéder à votre espace Ameli
+
+Rendez-vous sur ameli.fr et connectez-vous avec votre numéro de sécurité sociale. Vous accédez à votre espace personnel où vous pouvez consulter vos remboursements, vos droits, et vos documents.
+
+### Consulter vos remboursements
+
+Dans votre espace Ameli, vous pouvez voir tous vos remboursements des trois derniers mois. Vous visualisez le montant remboursé pour chaque soin.
+
+## 5. Conseils Pratiques pour Réussir Vos Démarches en Ligne
+
+### Préparez vos documents
+
+Avant de commencer une démarche en ligne, rassemblez tous les documents dont vous aurez besoin : justificatif d'identité, relevé d'identité bancaire, avis d'imposition précédent, etc.
+
+### Utilisez un mot de passe sécurisé
+
+Pour protéger vos données personnelles, utilisez un mot de passe fort : au moins 12 caractères, avec des majuscules, des minuscules, des chiffres et des symboles.
+
+### Conservez vos confirmations
+
+Après chaque démarche, conservez la confirmation ou le numéro de dossier. Cela vous permet de suivre votre dossier et de prouver que vous avez fait votre démarche si nécessaire.
+
+## Conclusion
+
+Les démarches administratives en ligne peuvent sembler compliquées au premier abord, mais elles deviennent simples une fois que vous comprenez le processus. Avec ce guide, vous avez tous les outils pour gérer vos impôts, votre retraite, vos allocations et votre sécurité sociale en toute confiance.
+
+N'oubliez pas : si vous avez besoin d'aide, vous n'êtes pas seul. Les administrations proposent des services d'assistance, et des professionnels comme nous sommes là pour vous accompagner dans chaque étape.`,
+  },
   "securite-numerique-seniors": {
     title: "Sécurité Numérique pour les Seniors : Se Protéger en Ligne sans Panique",
     date: "8 mars 2026",
     readTime: "10 min",
     category: "Sécurité numérique",
-    image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/blog-securite-numerique.jpg",
-    content: `# Sécurité Numérique pour les Seniors : Se Protéger en Ligne sans Panique
+    image: "/images/blog/securite-numerique.jpg",
+    content: `![Illustration Sécurité Numérique](/images/blog/securite-numerique.jpg)
+
+# Sécurité Numérique pour les Seniors : Se Protéger en Ligne sans Panique
 
 ## Introduction
 
@@ -70,8 +151,7 @@ Chez **Les Petits Papiers Faciles**, nous sommes là pour vous aider à naviguer
     date: "7 mars 2026",
     readTime: "8 min",
     category: "Accompagnement numérique",
-    image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/blog-autonomie-numerique.jpg",
+    image: "/images/blog/autonomie-numerique.jpg",
     content: `# L'Autonomie Numérique pour les Seniors : Un Enjeu de Liberté et de Dignité
 
 ## Introduction
@@ -163,8 +243,7 @@ Chez **Les Petits Papiers Faciles**, nous croyons fermement que chacun peut deve
     date: "5 mars 2026",
     readTime: "7 min",
     category: "Aide administrative",
-    image:
-      "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/blog-organisation-papiers.jpg",
+    image: "/images/blog/organisation-papiers.jpg",
     content: `# L'Art d'Organiser ses Papiers : Gagner en Sérénité au Quotidien
 
 ## Pourquoi s'organiser ?
@@ -229,10 +308,10 @@ Chez **Les Petits Papiers Faciles**, nous vous aidons à mettre en place ce syst
 };
 
 export default function BlogArticlePage() {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const pageRef = useRef<HTMLDivElement>(null);
 
-  const article = id ? BLOG_ARTICLES[id] : null;
+  const article = slug ? BLOG_ARTICLES[slug] : null;
 
   useEffect(() => {
     if (article) {

@@ -81,7 +81,7 @@ export default function HomePage() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(105deg, oklch(0.22 0.04 145 / 0.82) 0%, oklch(0.30 0.07 145 / 0.65) 50%, oklch(0.22 0.04 145 / 0.40) 100%)",
+              "linear-gradient(105deg, oklch(0.42 0.08 145 / 0.70) 0%, oklch(0.48 0.10 145 / 0.55) 50%, oklch(0.42 0.08 145 / 0.35) 100%)",
           }}
         />
 
@@ -101,11 +101,11 @@ export default function HomePage() {
             </div>
 
             <h1
-              className="text-5xl md:text-6xl font-semibold leading-tight mb-3"
+              className="text-4xl md:text-5xl font-semibold leading-tight mb-3"
               style={{
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
                 color: "oklch(0.97 0.01 80)",
-                fontSize: "clamp(2.5rem, 8vw, 4.5rem)",
+                fontSize: "clamp(2rem, 6vw, 3.5rem)",
               }}
             >
               Vos démarches administratives et numériques expliquées simplement,{" "}
@@ -215,6 +215,13 @@ export default function HomePage() {
                 border: "2px solid oklch(0.30 0.07 145 / 0.15)",
               }}
             >
+              <div className="mb-6 flex justify-center">
+                <img
+                  src="/img/illu-admin-modern.png"
+                  alt="Aide administrative"
+                  className="w-48 h-48 object-contain transition-transform duration-300 hover:scale-110 hover:-translate-y-2"
+                />
+              </div>
               <div
                 className="flex items-center gap-3 mb-6"
                 style={{ color: "oklch(0.45 0.08 145)" }}
@@ -268,6 +275,13 @@ export default function HomePage() {
                 border: "2px solid oklch(0.30 0.07 145 / 0.15)",
               }}
             >
+              <div className="mb-6 flex justify-center">
+                <img
+                  src="/img/illu-digital-modern.png"
+                  alt="Accompagnement numérique"
+                  className="w-48 h-48 object-contain transition-transform duration-300 hover:scale-110 hover:-translate-y-2"
+                />
+              </div>
               <div
                 className="flex items-center gap-3 mb-6"
                 style={{ color: "oklch(0.45 0.08 145)" }}
@@ -376,6 +390,52 @@ export default function HomePage() {
                 <span>Structures locales (médiathèques, centres sociaux, résidences seniors)</span>
               </li>
             </ul>
+
+            <div
+              className="p-4 rounded-lg mb-8"
+              style={{
+                backgroundColor: "oklch(0.45 0.08 145 / 0.08)",
+                border: "2px solid oklch(0.45 0.08 145 / 0.20)",
+              }}
+            >
+              <h4
+                className="font-semibold mb-3"
+                style={{
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  color: "oklch(0.45 0.08 145)",
+                }}
+              >
+                📚 Supports Pédagogiques Inclus :
+              </h4>
+              <ul
+                className="space-y-2 text-sm"
+                style={{
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  color: "oklch(0.30 0.07 145 / 0.85)",
+                }}
+              >
+                <li className="flex items-start gap-2">
+                  <span style={{ color: "oklch(0.45 0.08 145)" }}>✓</span>
+                  <span>Fiches pratiques à emporter</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span style={{ color: "oklch(0.45 0.08 145)" }}>✓</span>
+                  <span>Guides illustrés étape par étape</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span style={{ color: "oklch(0.45 0.08 145)" }}>✓</span>
+                  <span>Ressources numériques accessibles</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span style={{ color: "oklch(0.45 0.08 145)" }}>✓</span>
+                  <span>Exercices pratiques et mises en situation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span style={{ color: "oklch(0.45 0.08 145)" }}>✓</span>
+                  <span>Support post-atelier par email ou téléphone</span>
+                </li>
+              </ul>
+            </div>
 
             <Link
               href="/contact"
@@ -558,8 +618,216 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── SECTION : CONFIDENTIALITÉ & AVANTAGES FISCAUX ── */}
+      <section
+        className="py-20 reveal"
+        style={{
+          backgroundColor: "oklch(0.42 0.06 145 / 0.08)",
+        }}
+      >
+        <div className="container">
+          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            {/* CONFIDENTIALITÉ */}
+            <div
+              className="p-8 rounded-lg"
+              style={{
+                backgroundColor: "oklch(0.97 0.01 80)",
+                border: "2px solid oklch(0.45 0.08 145 / 0.20)",
+              }}
+            >
+              <div
+                className="flex items-center gap-3 mb-4"
+                style={{ color: "oklch(0.45 0.08 145)" }}
+              >
+                <Shield size={28} />
+                <h3
+                  className="text-2xl font-semibold"
+                  style={{
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  }}
+                >
+                  Confidentialité Absolue
+                </h3>
+              </div>
+              <p
+                style={{
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  color: "oklch(0.30 0.07 145 / 0.85)",
+                  lineHeight: "1.8",
+                }}
+              >
+                Vos documents personnels (impôts, retraite, allocations, courriers sensibles) sont traités avec le plus grand respect et la plus stricte confidentialité. <strong>Aucune information ne sera jamais partagée</strong> en dehors de votre accompagnement.
+              </p>
+              <div
+                className="mt-4 p-4 rounded"
+                style={{
+                  backgroundColor: "oklch(0.97 0.01 80)",
+                  border: "1px solid oklch(0.45 0.08 145 / 0.15)",
+                }}
+              >
+                <p
+                  className="text-sm font-semibold"
+                  style={{
+                    fontFamily: "'Source Sans 3', sans-serif",
+                    color: "oklch(0.45 0.08 145)",
+                  }}
+                >
+                  ✓ Professionnel agréé Services à la Personne
+                </p>
+              </div>
+            </div>
+
+            {/* CRÉDIT D'IMPÔT */}
+            <div
+              className="p-8 rounded-lg"
+              style={{
+                backgroundColor: "oklch(0.97 0.01 80)",
+                border: "2px solid oklch(0.45 0.08 145 / 0.20)",
+              }}
+            >
+              <div
+                className="flex items-center gap-3 mb-4"
+                style={{ color: "oklch(0.45 0.08 145)" }}
+              >
+                <FileCheck size={28} />
+                <h3
+                  className="text-2xl font-semibold"
+                  style={{
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  }}
+                >
+                  Crédit d'Impôt 50%
+                </h3>
+              </div>
+              <p
+                style={{
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  color: "oklch(0.30 0.07 145 / 0.85)",
+                  lineHeight: "1.8",
+                }}
+              >
+                Grâce au statut Services à la Personne, <strong>l'État rembourse 50% de vos dépenses</strong>. Si vous payez 42€, vous ne débourserez réellement que 21€ après le crédit d'impôt.
+              </p>
+              <div
+                className="mt-4 p-4 rounded"
+                style={{
+                  backgroundColor: "oklch(0.97 0.01 80)",
+                  border: "1px solid oklch(0.45 0.08 145 / 0.15)",
+                }}
+              >
+                <p
+                  className="text-sm font-semibold"
+                  style={{
+                    fontFamily: "'Source Sans 3', sans-serif",
+                    color: "oklch(0.45 0.08 145)",
+                  }}
+                >
+                  ✓ Applicable à tous (imposables ou non)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── SECTION : TESTIMONIALS ── */}
       <Testimonials />
+
+      {/* ── SECTION : BLOG PREVIEW ── */}
+      <section className="py-20 reveal" style={{ backgroundColor: "oklch(0.97 0.01 80)" }}>
+        <div className="container">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+              <h2
+                className="text-4xl md:text-5xl font-semibold mb-4"
+                style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  color: "oklch(0.45 0.08 145)",
+                }}
+              >
+                Derniers articles du blog
+              </h2>
+              <p
+                className="text-lg max-w-2xl"
+                style={{
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  color: "oklch(0.30 0.07 145 / 0.85)",
+                }}
+              >
+                Conseils et astuces pour mieux gérer vos démarches administratives et numériques.
+              </p>
+            </div>
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 font-semibold transition-all hover:gap-3"
+              style={{ color: "oklch(0.45 0.08 145)", fontFamily: "'Source Sans 3', sans-serif" }}
+            >
+              Voir tout le blog <ArrowRight size={20} />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                id: "demarches-administratives-en-ligne",
+                title: "Démarches Administratives en Ligne",
+                excerpt: "Impôts, retraite, allocations... Un guide pratique pour accomplir vos démarches simplement.",
+                image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/senior-demarches-administratives-mVEcWQmH4En93N4KYNSVNT.webp",
+                category: "Démarches"
+              },
+              {
+                id: "securite-numerique-seniors",
+                title: "Sécurité Numérique pour les Seniors",
+                excerpt: "Découvrez comment reconnaître les arnaques et naviguer en ligne en toute confiance.",
+                image: "/images/blog/securite-numerique.jpg",
+                category: "Sécurité"
+              },
+              {
+                id: "autonomie-numerique-seniors",
+                title: "L'Autonomie Numérique",
+                excerpt: "Pourquoi maîtriser les outils numériques transforme la vie des seniors au quotidien.",
+                image: "/images/blog/autonomie-numerique.jpg",
+                category: "Autonomie"
+              }
+            ].map((post) => (
+              <Link key={post.id} href={`/blog/${post.id}`}>
+                <article
+                  className="group cursor-pointer rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 h-full flex flex-col"
+                  style={{ backgroundColor: "white", border: "1px solid oklch(0.90 0.02 80)" }}
+                >
+                  <div className="h-48 overflow-hidden">
+                    <img
+                      src={post.image}
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col">
+                    <span
+                      className="text-xs font-bold uppercase tracking-wider mb-2"
+                      style={{ color: "oklch(0.45 0.08 145)" }}
+                    >
+                      {post.category}
+                    </span>
+                    <h3
+                      className="text-xl font-semibold mb-3 group-hover:text-[oklch(0.45_0.08_145)] transition-colors"
+                      style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+                    >
+                      {post.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center gap-2 text-sm font-bold" style={{ color: "oklch(0.45 0.08 145)" }}>
+                      Lire l'article <ArrowRight size={16} />
+                    </div>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ── SECTION : CTA FINAL ── */}
       <section

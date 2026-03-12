@@ -12,6 +12,7 @@ import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import CookieBanner from "./components/CookieBanner";
 import AudioPlayer from "./components/AudioPlayer";
+import { FloatingGuide } from "./components/FloatingGuide";
 
 // Pages
 import HomePage from "./pages/Home";
@@ -31,12 +32,15 @@ import BlogPage from "./pages/Blog";
 import BlogArticlePage from "./pages/BlogArticle";
 import FAQPage from "./pages/FAQ";
 import PaymentPage from "./pages/PaymentPage";
+import AdminPaymentPage from "./pages/AdminPayment";
+import ChecklistRDVPage from "./pages/ChecklistRDV";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
+      <FloatingGuide />
       <main className="flex-1">
         <Switch>
           <Route path="/" component={HomePage} />
@@ -47,10 +51,12 @@ function Router() {
           <Route path="/avantage-fiscal" component={AvantageFiscalPage} />
           <Route path="/contact" component={ContactPage} />
           <Route path="/rendez-vous" component={RendezVousPage} />
+          <Route path="/checklist-rdv" component={ChecklistRDVPage} />
           <Route path="/admin/rendez-vous" component={AdminRendezVousPage} />
           <Route path="/blog" component={BlogPage} />
           <Route path="/blog/:slug" component={BlogArticlePage} />
           <Route path="/faq" component={FAQPage} />
+          <Route path="/admin/paiements" component={AdminPaymentPage} />
           <Route path="/payment/:token" component={PaymentPage} />
           <Route path="/mentions-legales" component={MentionsLegalesPage} />
           <Route path="/confidentialite" component={ConfidentialitePage} />

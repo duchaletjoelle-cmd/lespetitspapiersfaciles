@@ -28,19 +28,19 @@ export default function SEPAPaymentQR({
   const generateQRCode = async (amountToUse: number) => {
     try {
       setLoading(true);
-      // Données SEPA au format BCD
+      // Données SEPA au format BCD (EPC QR Code)
       const sepaData = [
         "BCD", // Service tag
         "002", // Version
         "1", // Encoding (UTF-8)
         "SCT", // Identification
-        "", // BIC (optionnel)
-        "Sandra Duchalet", // Beneficiary name
+        "BFBKFRP1", // BIC (Banque Populaire)
+        "DUCHALET SANDRA", // Beneficiary name
         "FR7616218000014012110249729", // IBAN
         `EUR${amountToUse.toFixed(2)}`, // Amount
         "", // Purpose code
         `RDV-${appointmentId.substring(0, 12)}`, // Structured reference
-        "Séance d'accompagnement numérique", // Unstructured remittance
+        "Les Petits Papiers Faciles", // Unstructured remittance
         "", // Beneficiary to payer information
       ].join("\n");
 

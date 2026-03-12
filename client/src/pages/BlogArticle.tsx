@@ -20,6 +20,51 @@ const BLOG_ARTICLES: Record<
     content: string;
   }
 > = {
+  "securite-numerique-seniors": {
+    title: "Sécurité Numérique pour les Seniors : Se Protéger en Ligne sans Panique",
+    date: "8 mars 2026",
+    readTime: "10 min",
+    category: "Sécurité numérique",
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/blog-securite-numerique.jpg",
+    content: `# Sécurité Numérique pour les Seniors : Se Protéger en Ligne sans Panique
+
+## Introduction
+
+Internet offre des opportunités extraordinaires — accès aux services, communication avec la famille, apprentissage — mais il présente aussi des risques réels. Les seniors sont particulièrement ciblés par les arnaqueurs en ligne, non pas parce qu'ils sont moins intelligents, mais parce que les criminels savent qu'ils sont souvent plus confiants et moins familiers avec les pièges numériques.
+
+La bonne nouvelle ? **La sécurité numérique n'est pas compliquée.** Avec quelques règles simples et du bon sens, vous pouvez naviguer sur internet en toute confiance et protéger vos données personnelles et financières.
+
+## Comprendre les Menaces Principales
+
+### Les Arnaques par Email (Phishing)
+
+Le phishing est une technique où les arnaqueurs se font passer pour une organisation de confiance (votre banque, Amazon, la Sécurité Sociale) pour vous voler vos identifiants. Un email de phishing ressemble souvent à un vrai email, avec le logo officiel et un message urgent.
+
+**La règle d'or** : Une vraie banque ou administration ne vous demandera JAMAIS votre mot de passe par email.
+
+### Les Faux Appels Téléphoniques (Tech Support Scams)
+
+Vous recevez un appel téléphonique d'une personne prétendant travailler pour Microsoft, Apple ou votre fournisseur internet. Elle vous dit qu'il y a un virus sur votre ordinateur et vous demande de lui donner accès à distance.
+
+**C'est une arnaque.** Les vraies entreprises ne vous appellent pas de cette façon.
+
+## Les Bonnes Pratiques de Sécurité
+
+### 1. Créer des Mots de Passe Forts
+
+Un bon mot de passe est votre première ligne de défense. Utilisez au moins 12 caractères avec un mélange de majuscules, minuscules, chiffres et symboles.
+
+### 2. Activer l'Authentification à Deux Facteurs (2FA)
+
+L'authentification à deux facteurs ajoute une couche de sécurité supplémentaire. Un code est envoyé à votre téléphone pour confirmer votre identité lors de la connexion.
+
+## Conclusion
+
+La sécurité numérique n'est pas une question de technologie complexe — c'est du bon sens appliqué à internet. En suivant ces règles simples, vous pouvez profiter d'internet en toute confiance, sans peur.
+
+Chez **Les Petits Papiers Faciles**, nous sommes là pour vous aider à naviguer le monde numérique de manière sûre et confiante.`,
+  },
   "autonomie-numerique-seniors": {
     title: "L'Autonomie Numérique pour les Seniors : Un Enjeu de Liberté et de Dignité",
     date: "7 mars 2026",
@@ -112,6 +157,74 @@ L'autonomie numérique n'est pas un luxe — c'est un droit. Elle permet aux sen
 Le chemin vers cette autonomie demande de la patience, de la bienveillance et un accompagnement adapté. Mais les bénéfices — liberté, confiance, connexion, sécurité — en valent largement la peine.
 
 Chez **Les Petits Papiers Faciles**, nous croyons fermement que chacun peut devenir autonome numériquement. Notre mission est d'accompagner les seniors dans ce voyage, étape par étape, sans jugement et avec toute la patience nécessaire. Parce que l'autonomie numérique, c'est la liberté retrouvée.`,
+  },
+  "organisation-papiers-administratifs": {
+    title: "L'Art d'Organiser ses Papiers : Gagner en Sérénité au Quotidien",
+    date: "5 mars 2026",
+    readTime: "7 min",
+    category: "Aide administrative",
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/blog-organisation-papiers.jpg",
+    content: `# L'Art d'Organiser ses Papiers : Gagner en Sérénité au Quotidien
+
+## Pourquoi s'organiser ?
+
+Une bonne organisation administrative n'est pas qu'une question de rangement, c'est avant tout un moyen de libérer son esprit. Savoir exactement où se trouve chaque document important réduit considérablement le stress lié aux échéances et aux démarches imprévues.
+
+L'accumulation de courriers, de dossiers éparpillés et de factures perdues peut rapidement devenir une source de stress majeure. Mais avec un système d'organisation simple et efficace, vous pouvez retrouver la sérénité et maîtriser vos démarches administratives.
+
+## Les étapes clés d'un tri efficace
+
+### 1. Le Grand Déballage
+
+Rassemblez tous vos papiers au même endroit. Oui, tous ! Cela peut sembler intimidant, mais c'est la première étape indispensable pour avoir une vue d'ensemble.
+
+### 2. Le Tri par Catégorie
+
+Organisez vos documents selon ces catégories principales :
+- **Santé** : Ordonnances, résultats d'analyses, cartes de mutuelle
+- **Logement** : Bail, quittances de loyer, factures d'énergie
+- **Banque** : Relevés de compte, chéquiers, contrats bancaires
+- **Impôts** : Avis d'imposition, déclarations, justificatifs
+- **Travail/Retraite** : Bulletins de salaire, contrats, documents de retraite
+
+### 3. L'Élimination
+
+Vérifiez les délais de conservation légaux et jetez ce qui n'est plus nécessaire. Par exemple :
+- Les relevés bancaires : 5 ans
+- Les factures : 2 ans
+- Les contrats d'assurance : durée du contrat + 2 ans
+
+## Nos Astuces pour un Classement Durable
+
+### Utilisez des Chemises de Couleurs
+
+Chaque couleur représente une catégorie. Cela rend le classement intuitif et rapide.
+
+### Étiquetez Clairement
+
+Un dossier bien étiqueté est un dossier qu'on retrouve facilement. Soyez précis dans vos libellés.
+
+### Prévoyez une Bannette "À Traiter"
+
+Tout courrier entrant doit d'abord passer par cette bannette avant d'être classé définitivement.
+
+### Mettez à Jour Régulièrement
+
+Dédier 30 minutes par mois au classement évite l'accumulation.
+
+## Les Bénéfices d'une Bonne Organisation
+
+- **Moins de stress** : Vous savez où trouver vos documents
+- **Gain de temps** : Plus besoin de fouiller partout
+- **Meilleure gestion** : Vous ne ratez plus aucune échéance
+- **Sérénité** : Vous avez le contrôle de votre administration
+
+## Conclusion
+
+L'organisation administrative n'est pas une corvée — c'est un investissement dans votre sérénité. Avec un système simple et régulièrement entretenu, vous pouvez transformer votre relation aux papiers et aux démarches.
+
+Chez **Les Petits Papiers Faciles**, nous vous aidons à mettre en place ce système chez vous, pour que l'administration ne soit plus une corvée mais une routine simple et maîtrisée.`,
   },
 };
 

@@ -18,7 +18,7 @@ const BLOG_ARTICLES = [
     date: "12 mars 2026",
     readTime: "12 min",
     category: "Démarches administratives",
-    image: "/images/blog/demarches-administratives.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/senior-demarches-administratives-mVEcWQmH4En93N4KYNSVNT.webp",
     content: `# Démarches Administratives en Ligne : Un Guide Pratique pour les Seniors
 
 ## Introduction

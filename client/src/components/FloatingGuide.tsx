@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 const messages = [
-  { range: [0, 20], text: "Bienvenue ! 👋 Je suis là pour vous guider.", type: 'general' },
-  { range: [20, 35], text: "Découvrez mes deux types d'accompagnement ! 📚", type: 'general' },
-  { range: [35, 50], text: "L'aide administrative, c'est mon domaine ! 📋", type: 'admin' },
-  { range: [50, 65], text: "L'accompagnement numérique pour tous ! 💻", type: 'digital' },
-  { range: [65, 75], text: "Ateliers en groupe ? Je suis prête ! 🎓", type: 'workshop' },
-  { range: [75, 85], text: "Votre confidentialité est ma priorité ! 🔒", type: 'serenity' },
-  { range: [85, 100], text: "Merci de votre visite ! À bientôt ! 💚", type: 'general' },
+  { range: [0, 20], text: "Bonjour ! Je suis ravie de vous accueillir. Comment puis-je vous aider aujourd'hui ? 👋", type: 'general' },
+  { range: [20, 35], text: "Découvrez nos solutions d'accompagnement sur mesure pour simplifier votre quotidien. 💼", type: 'general' },
+  { range: [35, 50], text: "Besoin d'un coup de main pour vos démarches ? Je m'occupe de votre administratif avec rigueur. 📋", type: 'admin' },
+  { range: [50, 65], text: "Le numérique devient simple ! Je vous accompagne pas à pas dans l'usage de vos outils. 💻", type: 'digital' },
+  { range: [65, 75], text: "Apprenons ensemble ! Nos ateliers en groupe sont conçus pour booster votre autonomie. 🎓", type: 'workshop' },
+  { range: [75, 85], text: "Votre sérénité est ma priorité. Vos données sont traitées avec la plus grande discrétion. 🔒", type: 'serenity' },
+  { range: [85, 100], text: "Merci de votre confiance ! N'hésitez pas à me contacter pour toute question. À très bientôt ! ✨", type: 'general' },
 ];
 
 const qaDatabase = [

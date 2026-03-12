@@ -113,3 +113,7 @@
 - [x] Intégrer le QR code dans la confirmation de rendez-vous
 - [ ] Ajouter le QR code dans l'email de confirmation
 - [x] Corriger le problème de son du lecteur audio (volume augmenté à 95%)
+
+## Montant Personnalisé QR Code (v19)
+- [x] Ajouter un champ de saisie de montant personnalisé dans le composant SEPAPaymentQR
+- [x] Permettre au client de modifier le montant avant de générer le QR code

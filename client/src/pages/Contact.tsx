@@ -335,7 +335,7 @@ export default function ContactPage() {
                     >
                       Merci pour votre message. Je vous répondrai dans les plus
                       brefs délais, généralement sous 24 heures.
-                    <SEPAPaymentQR appointmentId={formState.email} amount={42} showLabel={true} />
+                    <SEPAPaymentQR appointmentId={formState.email} defaultAmount={42} showLabel={true} />
                     </p>
                   </div>
                 ) : (

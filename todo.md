@@ -117,3 +117,8 @@
 ## Montant Personnalisé QR Code (v19)
 - [x] Ajouter un champ de saisie de montant personnalisé dans le composant SEPAPaymentQR
 - [x] Permettre au client de modifier le montant avant de générer le QR code
+
+## Page de Paiement Sécurisée (v20)
+- [x] Créer un système de lien unique pour la page de paiement
+- [x] Créer la page de paiement sécurisée avec QR code SEPA
+- [x] Intégrer le lien unique dans l'email de confirmation

@@ -30,6 +30,7 @@ import AdminRendezVousPage from "./pages/AdminRendezVous";
 import BlogPage from "./pages/Blog";
 import BlogArticlePage from "./pages/BlogArticle";
 import FAQPage from "./pages/FAQ";
+import PaymentPage from "./pages/PaymentPage";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -48,8 +49,9 @@ function Router() {
           <Route path="/rendez-vous" component={RendezVousPage} />
           <Route path="/admin/rendez-vous" component={AdminRendezVousPage} />
           <Route path="/blog" component={BlogPage} />
-          <Route path="/blog/:id" component={BlogArticlePage} />
+          <Route path="/blog/:slug" component={BlogArticlePage} />
           <Route path="/faq" component={FAQPage} />
+          <Route path="/payment/:token" component={PaymentPage} />
           <Route path="/mentions-legales" component={MentionsLegalesPage} />
           <Route path="/confidentialite" component={ConfidentialitePage} />
           <Route path="/cookies" component={CookiesPage} />

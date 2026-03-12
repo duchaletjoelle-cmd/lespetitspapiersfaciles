@@ -165,6 +165,92 @@ export function generateAppointmentConfirmationEmail(data: {
 }
 
 /**
+ * Génère un email de confirmation de rendez-vous avec lien de paiement
+ */
+export function generateAppointmentPaymentEmail(data: {
+  clientName: string;
+  appointmentDate: string;
+  appointmentTime: string;
+  amount: number;
+  paymentLink: string;
+}): string {
+  // Formater la date en format lisible français
+  const dateObj = new Date(data.appointmentDate + "T00:00:00Z");
+  const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = dateObj.toLocaleDateString('fr-FR', options);
+  const capitalizedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+
+  return `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <style>
+          body { font-family: 'Source Sans 3', Arial, sans-serif; color: #333; margin: 0; padding: 0; }
+          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+          .header { background-color: #6b9e7f; color: white; padding: 30px 20px; border-radius: 8px; text-align: center; }
+          .header h1 { margin: 0; font-size: 24px; }
+          .header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+          .content { padding: 30px 20px; background-color: #f9f9f9; border-radius: 8px; margin-top: 20px; }
+          .detail-box { background-color: white; padding: 15px; border-left: 4px solid #6b9e7f; margin: 15px 0; border-radius: 4px; }
+          .detail-label { font-weight: bold; color: #6b9e7f; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+          .detail-value { font-size: 16px; color: #333; margin-top: 5px; }
+          .payment-section { background-color: #e8f5e9; padding: 20px; border-radius: 8px; margin: 20px 0; text-align: center; border: 2px solid #6b9e7f; }
+          .payment-section h3 { margin: 0 0 10px 0; color: #2e7d32; }
+          .payment-button { display: inline-block; background-color: #6b9e7f; color: white; padding: 12px 30px; text-decoration: none; border-radius: 4px; font-weight: bold; margin: 10px 0; }
+          .payment-button:hover { background-color: #5a8a6f; }
+          .amount { font-size: 24px; color: #2e7d32; font-weight: bold; margin: 10px 0; }
+          .footer { text-align: center; margin-top: 30px; font-size: 12px; color: #999; border-top: 1px solid #ddd; padding-top: 20px; }
+          .footer p { margin: 5px 0; }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1>✓ Rendez-vous confirmé</h1>
+            <p>Les Petits Papiers Faciles</p>
+          </div>
+          
+          <div class="content">
+            <p>Bonjour <strong>${data.clientName}</strong>,</p>
+            
+            <p>Merci d'avoir pris rendez-vous avec nous ! Votre rendez-vous est confirmé. Voici les détails :</p>
+            
+            <div class="detail-box">
+              <div class="detail-label">📅 Date</div>
+              <div class="detail-value">${capitalizedDate}</div>
+            </div>
+            
+            <div class="detail-box">
+              <div class="detail-label">🕐 Heure</div>
+              <div class="detail-value">${data.appointmentTime}</div>
+            </div>
+            
+            <div class="payment-section">
+              <h3>Paiement de la séance</h3>
+              <div class="amount">${data.amount.toFixed(2)}€</div>
+              <p style="margin: 10px 0; color: #2e7d32;">Cliquez sur le lien ci-dessous pour accéder à votre page de paiement sécurisée :</p>
+              <a href="${data.paymentLink}" class="payment-button">Accéder à la page de paiement</a>
+              <p style="margin-top: 15px; font-size: 12px; color: #666;">Ce lien est personnel et sécurisé. Il sera valide pendant 30 jours.</p>
+            </div>
+            
+            <p style="margin-top: 20px; line-height: 1.6;">Nous nous réjouissons de vous rencontrer ! Si vous avez des questions ou besoin d'aide avant votre rendez-vous, n'hésitez pas à nous contacter.</p>
+            
+            <p style="margin-top: 20px;">Cordialement,<br><strong>Sandra Duchalet</strong><br>Les Petits Papiers Faciles</p>
+          </div>
+          
+          <div class="footer">
+            <p><strong>Les Petits Papiers Faciles</strong></p>
+            <p>Aide administrative et accompagnement numérique</p>
+            <p>📞 07 50 52 72 27 | 📧 lespetitspapiersfaciles@gmail.com</p>
+          </div>
+        </div>
+      </body>
+    </html>
+  `;
+}
+
+/**
  * Génère un email de confirmation de message de contact
  */
 export function generateContactConfirmationEmail(data: {

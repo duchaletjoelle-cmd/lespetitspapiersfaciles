@@ -122,3 +122,8 @@
 - [x] Créer un système de lien unique pour la page de paiement
 - [x] Créer la page de paiement sécurisée avec QR code SEPA
 - [x] Intégrer le lien unique dans l'email de confirmation
+
+## Article Blog "Démarches Administratives" (v21)
+- [x] Rédiger le guide complet sur les démarches administratives en ligne
+- [x] Intégrer l'article au blog
+- [x] Déployer sur Netlify

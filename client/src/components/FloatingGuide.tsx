@@ -45,11 +45,11 @@ const qaDatabase = [
 
 // Mapping des tenues selon le contexte
 const outfitMapping: Record<string, string> = {
-  'general': '/img/guide-character.png',
-  'admin': '/img/guide-character.png',
-  'digital': '/img/guide-character-digital.png',
-  'workshop': '/img/guide-character-workshop.png',
-  'serenity': '/img/guide-character-serenity.png',
+  'general': '/img/guide-character-new.webp',
+  'admin': '/img/guide-character-new.webp',
+  'digital': '/img/guide-character-new.webp',
+  'workshop': '/img/guide-character-new.webp',
+  'serenity': '/img/guide-character-new.webp',
 };
 
 // Expressions du personnage
@@ -70,7 +70,7 @@ export const FloatingGuide: React.FC = () => {
   const [showQA, setShowQA] = useState(false);
   const [selectedQA, setSelectedQA] = useState<typeof qaDatabase[0] | null>(null);
   const [currentType, setCurrentType] = useState<'admin' | 'digital' | 'general' | 'workshop' | 'serenity'>('general');
-  const [currentOutfit, setCurrentOutfit] = useState('/img/guide-character.png');
+  const [currentOutfit, setCurrentOutfit] = useState('/img/guide-character-new.webp');
   const [currentExpression, setCurrentExpression] = useState(expressions.normal);
   const [waveAnimation, setWaveAnimation] = useState(false);
 

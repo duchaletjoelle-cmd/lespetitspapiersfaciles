@@ -34,6 +34,7 @@ import FAQPage from "./pages/FAQ";
 import PaymentPage from "./pages/PaymentPage";
 import AdminPaymentPage from "./pages/AdminPayment";
 import ChecklistRDVPage from "./pages/ChecklistRDV";
+import ChecklistAdministrativePage from "./pages/ChecklistAdministrative";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -52,6 +53,7 @@ function Router() {
           <Route path="/contact" component={ContactPage} />
           <Route path="/rendez-vous" component={RendezVousPage} />
           <Route path="/checklist-rdv" component={ChecklistRDVPage} />
+          <Route path="/checklist-administrative" component={ChecklistAdministrativePage} />
           <Route path="/admin/rendez-vous" component={AdminRendezVousPage} />
           <Route path="/blog" component={BlogPage} />
           <Route path="/blog/:slug" component={BlogArticlePage} />

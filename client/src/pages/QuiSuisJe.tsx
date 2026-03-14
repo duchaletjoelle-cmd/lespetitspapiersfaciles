@@ -268,18 +268,21 @@ export default function QuiSuisJePage() {
             La première séance est offerte. C'est l'occasion idéale pour se
             rencontrer et voir si mon accompagnement vous correspond.
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded font-semibold text-lg transition-all"
-            style={{
-              backgroundColor: "oklch(0.97 0.01 80)",
-              color: "oklch(0.45 0.08 145)",
-              fontFamily: "'Source Sans 3', sans-serif",
-            }}
-          >
-            Me contacter
-            <ArrowRight size={18} />
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/rendez-vous"
+              className="btn-sage"
+            >
+              Prendre rendez-vous
+            </Link>
+            <Link
+              href="/contact"
+              className="btn-outline-sage"
+            >
+              Me contacter
+              <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
       </section>
     </div>

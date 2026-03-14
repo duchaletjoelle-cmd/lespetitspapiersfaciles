@@ -184,7 +184,7 @@ export const appointmentsRouter = router({
       });
       await sendEmailWithAttachments({
         to: input.clientEmail,
-        subject: `Confirmation de votre rendez-vous - Les Petits Papiers Faciles`,
+        subject: `🎉 Votre rendez-vous est confirmé avec Les Petits Papiers Faciles !`,
         htmlContent: confirmationEmail,
         attachments: [
           {

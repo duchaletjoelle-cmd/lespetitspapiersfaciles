@@ -122,7 +122,8 @@ export function generateAppointmentConfirmationEmail(data: {
           <div class="content">
             <p>Bonjour <strong>${data.clientName}</strong>,</p>
             
-            <p>Merci d'avoir pris rendez-vous avec nous ! Votre rendez-vous est confirmé. Voici les détails :</p>
+            <p>Nous sommes ravis de vous accompagner dans vos démarches. Votre sérénité est notre priorité !</p>
+            <p>Votre rendez-vous est confirmé. Voici les détails :</p>
             
             <div class="detail-box">
               <div class="detail-label">📅 Date</div>
@@ -145,12 +146,13 @@ export function generateAppointmentConfirmationEmail(data: {
             </div>
             
             <div class="cta-section">
-              <p>🙏 Si vous avez besoin d'annuler ou de modifier votre rendez-vous, contactez-nous au plus vite.</p>
+              <p>Besoin de modifier ou d'annuler ? Votre flexibilité est importante pour nous. N'hésitez pas à nous contacter au plus vite pour toute question ou ajustement.</p>
             </div>
             
+            <p style="margin-top: 20px; line-height: 1.6;">Pour optimiser notre rencontre, n'hésitez pas à préparer les documents ou questions que vous souhaitez aborder.</p>
             <p style="margin-top: 20px; line-height: 1.6;">Nous nous réjouissons de vous rencontrer ! Si vous avez des questions ou besoin d'aide avant votre rendez-vous, n'hésitez pas à nous contacter.</p>
             
-            <p style="margin-top: 20px;">Cordialement,<br><strong>Sandra Duchalet</strong><br>Les Petits Papiers Faciles</p>
+            <p style="margin-top: 20px;">Au plaisir de vous rencontrer très bientôt,<br><strong>Sandra Duchalet</strong><br>Les Petits Papiers Faciles</p>
           </div>
           
           <div class="footer">
@@ -214,7 +216,8 @@ export function generateAppointmentPaymentEmail(data: {
           <div class="content">
             <p>Bonjour <strong>${data.clientName}</strong>,</p>
             
-            <p>Merci d'avoir pris rendez-vous avec nous ! Votre rendez-vous est confirmé. Voici les détails :</p>
+            <p>Nous sommes ravis de vous accompagner dans vos démarches. Votre sérénité est notre priorité !</p>
+            <p>Votre rendez-vous est confirmé. Voici les détails :</p>
             
             <div class="detail-box">
               <div class="detail-label">📅 Date</div>
@@ -234,9 +237,10 @@ export function generateAppointmentPaymentEmail(data: {
               <p style="margin-top: 15px; font-size: 12px; color: #666;">Ce lien est personnel et sécurisé. Il sera valide pendant 30 jours.</p>
             </div>
             
+            <p style="margin-top: 20px; line-height: 1.6;">Pour optimiser notre rencontre, n'hésitez pas à préparer les documents ou questions que vous souhaitez aborder.</p>
             <p style="margin-top: 20px; line-height: 1.6;">Nous nous réjouissons de vous rencontrer ! Si vous avez des questions ou besoin d'aide avant votre rendez-vous, n'hésitez pas à nous contacter.</p>
             
-            <p style="margin-top: 20px;">Cordialement,<br><strong>Sandra Duchalet</strong><br>Les Petits Papiers Faciles</p>
+            <p style="margin-top: 20px;">Au plaisir de vous rencontrer très bientôt,<br><strong>Sandra Duchalet</strong><br>Les Petits Papiers Faciles</p>
           </div>
           
           <div class="footer">

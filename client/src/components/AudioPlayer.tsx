@@ -91,6 +91,18 @@ export default function AudioPlayer() {
       className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2"
       style={{ pointerEvents: "none" }}
     >
+      {/* Texte "CLIQUEZ" */}
+      <div
+        className="text-xs font-bold tracking-widest"
+        style={{
+          color: "oklch(0.45 0.08 145)",
+          fontFamily: "'Source Sans 3', sans-serif",
+          pointerEvents: "none",
+        }}
+      >
+        CLIQUEZ
+      </div>
+
       {/* Tooltip */}
       {showTooltip && (
         <div

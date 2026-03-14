@@ -23,9 +23,9 @@ import {
 } from "lucide-react";
 
 const ADMIN_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/services-admin-lpp-RXGUcxaW9vY3r6SGMTExL5.webp";
+  "https://files.manuscdn.com/user_upload_by_module/session_file/310519663084544282/mHoVdcLkVhWOJBtF.jpg";
 const NUMERIQUE_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663076661026/9oMMWuZH2kFyp4yTio8368/services-numerique-lpp-HNRcN8iwKENxYW58fVfJtc.webp";
+  "https://files.manuscdn.com/user_upload_by_module/session_file/310519663084544282/COcHkkxasAncKGJU.jpg";
 
 const adminServices = [
   {

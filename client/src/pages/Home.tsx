@@ -1,7 +1,7 @@
 /* ============================================================
-   Page Accueil — Les Petits Papiers Faciles (v2 améliorée)
-   Structure claire : aide administrative + accompagnement numérique
-   ============================================================ */
+ Page Accueil — Les Petits Papiers Faciles (v2 améliorée)
+ Structure claire : aide administrative + accompagnement numérique
+ ============================================================ */
 
 import { Link } from "wouter";
 import { useEffect, useRef } from "react";
@@ -41,7 +41,7 @@ export default function HomePage() {
     title: "Aide administrative & accompagnement numérique à Hyères | Les Petits Papiers Faciles",
     description: "Aide administrative et accompagnement numérique à domicile à Hyères, Carqueiranne et communes environnantes. Démarches administratives, sécurité en ligne, autonomie numérique pour seniors.",
     url: "https://lespetitspapiersfaciles.fr",
-    keywords: "aide administrative Hyères, accompagnement numérique seniors, démarches administratives Var, assistance papiers Carqueiranne, autonomie numérique, sécurité en ligne",
+    keywords: "aide administrative Hyères, accompagnement numérique seniors Var, démarches administratives Hyères, assistance papiers Carqueiranne, aide numérique Le Pradet, autonomie numérique Var, aide administrative La Crau, accompagnement seniors Toulon, sécurité en ligne seniors, Services à la Personne Var",
     type: "website",
   });
 
@@ -176,7 +176,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SECTION : DEUX TYPES D'AIDE (AIDE ADMINISTRATIVE + ACCOMPAGNEMENT NUMÉRIQUE) ── */}
+      {/* ── SECTION : DEUX TYPES D'AIDE ── */}
       <section
         className="py-20 reveal"
         style={{
@@ -204,11 +204,41 @@ export default function HomePage() {
               }}
             >
               <div className="mb-6 flex justify-center">
-                <img
-                  src="/img/illu-admin-modern.png"
-                  alt="Aide administrative"
-                  className="w-48 h-48 object-contain transition-transform duration-300 hover:scale-110 hover:-translate-y-2"
-                />
+                <div className="w-48 h-48 flex items-center justify-center" dangerouslySetInnerHTML={{__html: `
+<div style="width:192px;height:192px;position:relative;border-radius:12px;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:linear-gradient(145deg,#e8dfc8 0%,#d4c9a8 40%,#c8bc96 100%);"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%, rgba(255,248,220,0.6) 0%, transparent 60%);"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:155px;background:linear-gradient(175deg,#c8b882 0%,#b8a870 30%,#a89860 60%,#988850 100%);border-radius:0 0 12px 12px;box-shadow:inset 0 4px 12px rgba(0,0,0,0.2);"></div>
+  <div style="position:absolute;bottom:50px;left:32px;width:100px;height:120px;background:linear-gradient(160deg,#f0e8d0 0%,#e8dcc0 100%);border-radius:2px;box-shadow:2px 3px 8px rgba(0,0,0,0.15);transform:rotate(4deg);opacity:0.85;"></div>
+  <div style="position:absolute;bottom:54px;left:22px;width:102px;height:125px;background:linear-gradient(160deg,#fdf8ee 0%,#f5edd6 100%);border-radius:2px 10px 2px 2px;box-shadow:3px 4px 12px rgba(0,0,0,0.25);transform:rotate(-3deg);">
+    <div style="position:absolute;top:0;right:0;width:18px;height:18px;background:linear-gradient(225deg,#e0d5b0 50%,#f5edd6 50%);border-radius:0 10px 0 0;"></div>
+    <div style="padding:22px 11px 11px;">
+      <div style="height:3px;border-radius:1px;margin-bottom:9px;background:rgba(59,101,69,0.35);width:70%;"></div>
+      <div style="height:1px;border-radius:1px;margin-bottom:8px;background:rgba(201,168,76,0.5);width:100%;"></div>
+      <div style="height:2px;border-radius:1px;margin-bottom:7px;background:rgba(59,101,69,0.18);width:80%;"></div>
+      <div style="height:2px;border-radius:1px;margin-bottom:7px;background:rgba(59,101,69,0.18);width:60%;"></div>
+      <div style="height:2px;border-radius:1px;margin-bottom:7px;background:rgba(59,101,69,0.18);width:75%;"></div>
+      <div style="height:2px;border-radius:1px;margin-bottom:7px;background:rgba(59,101,69,0.18);width:65%;"></div>
+      <div style="display:flex;align-items:center;gap:5px;margin-top:8px;">
+        <div style="width:11px;height:11px;border:1.5px solid rgba(59,101,69,0.6);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:8px;color:rgba(59,101,69,0.8);">✓</div>
+        <div style="height:2px;border-radius:1px;background:rgba(59,101,69,0.18);width:55%;"></div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:42px;right:14px;width:58px;height:40px;background:linear-gradient(160deg,#f8f2e0 0%,#ede4c8 100%);border-radius:3px;box-shadow:2px 3px 8px rgba(0,0,0,0.2);transform:rotate(6deg);overflow:hidden;">
+    <div style="position:absolute;top:0;left:0;right:0;height:0;border-left:29px solid transparent;border-right:29px solid transparent;border-top:16px solid rgba(201,168,76,0.35);"></div>
+  </div>
+  <div style="position:absolute;top:18px;left:16px;width:42px;height:42px;border-radius:50%;background:radial-gradient(circle,#c9a84c 0%,#b89830 60%,#a88820 100%);box-shadow:0 3px 10px rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;border:2px solid #a88820;">
+    <div style="width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,248,180,0.5);display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:7px;color:rgba(250,246,230,0.9);text-align:center;line-height:1.2;font-style:italic;">Les Petits Papiers</div>
+  </div>
+  <div style="position:absolute;top:42px;right:17px;width:8px;height:105px;transform:rotate(28deg);transform-origin:50% 90%;">
+    <div style="position:absolute;top:0;left:0;right:0;height:19px;background:linear-gradient(180deg,#d4a830 0%,#c9a84c 40%,#b89830 100%);clip-path:polygon(30% 0%,70% 0%,100% 100%,0% 100%);"></div>
+    <div style="position:absolute;top:18px;left:1px;right:1px;height:4px;background:linear-gradient(90deg,#c9a84c,#e8c86a,#c9a84c);border-radius:1px;"></div>
+    <div style="position:absolute;top:21px;left:2px;right:2px;bottom:0;background:linear-gradient(90deg,#1a2a18,#2a3a28,#1a2a18);border-radius:0 0 2px 2px;"></div>
+  </div>
+  <div style="position:absolute;top:0;left:0;right:0;height:95px;background:radial-gradient(ellipse at 40% 10%, rgba(255,252,220,0.5) 0%, transparent 55%);pointer-events:none;"></div>
+</div>
+`}} />
               </div>
               <div
                 className="flex items-center gap-3 mb-6"
@@ -264,11 +294,59 @@ export default function HomePage() {
               }}
             >
               <div className="mb-6 flex justify-center">
-                <img
-                  src="/img/illu-digital-modern.png"
-                  alt="Accompagnement numérique"
-                  className="w-48 h-48 object-contain transition-transform duration-300 hover:scale-110 hover:-translate-y-2"
-                />
+                <div className="w-48 h-48 flex items-center justify-center" dangerouslySetInnerHTML={{__html: `
+<div style="width:192px;height:192px;position:relative;border-radius:12px;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:linear-gradient(145deg,#dde8d5 0%,#c8dcc0 40%,#b8cca8 100%);"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 35% 25%, rgba(240,255,230,0.65) 0%, transparent 60%);"></div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:150px;background:linear-gradient(175deg,#b8d0a8 0%,#a8c098 30%,#98b088 100%);border-radius:0 0 12px 12px;"></div>
+  <div style="position:absolute;top:22px;left:27px;width:104px;height:140px;background:linear-gradient(160deg,#1c2820 0%,#243228 50%,#1c2820 100%);border-radius:10px;box-shadow:4px 6px 18px rgba(0,0,0,0.5);">
+    <div style="position:absolute;top:8px;left:6px;right:6px;bottom:16px;background:linear-gradient(160deg,#e8f4e8 0%,#dceee0 100%);border-radius:6px;overflow:hidden;">
+      <div style="position:absolute;top:0;left:0;width:55%;height:35%;background:linear-gradient(135deg,rgba(255,255,255,0.35) 0%,transparent 70%);border-radius:6px 0 0 0;z-index:2;pointer-events:none;"></div>
+      <div style="position:absolute;top:0;left:0;right:0;height:16px;background:linear-gradient(90deg,#3b6545,#4a7a55);display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:Georgia,serif;font-size:5.5px;color:rgba(240,248,234,0.95);font-style:italic;letter-spacing:0.05em;">✦ Mes démarches ✦</span>
+      </div>
+      <div style="position:absolute;top:20px;left:6px;right:6px;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#3b6545,#5a8a65);display:flex;align-items:center;justify-content:center;font-size:10px;box-shadow:0 2px 4px rgba(0,0,0,0.2);">📧</div>
+          <span style="font-family:Georgia,serif;font-size:4.5px;color:#2a4a30;margin-top:1px;">Email</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#4a7055,#6a9070);display:flex;align-items:center;justify-content:center;font-size:10px;box-shadow:0 2px 4px rgba(0,0,0,0.2);">🏥</div>
+          <span style="font-family:Georgia,serif;font-size:4.5px;color:#2a4a30;margin-top:1px;">Ameli</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#c9a84c,#e0c060);display:flex;align-items:center;justify-content:center;font-size:10px;box-shadow:0 2px 4px rgba(0,0,0,0.2);">📑</div>
+          <span style="font-family:Georgia,serif;font-size:4.5px;color:#2a4a30;margin-top:1px;">Impôts</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#5a7a65,#78a080);display:flex;align-items:center;justify-content:center;font-size:10px;box-shadow:0 2px 4px rgba(0,0,0,0.2);">👴</div>
+          <span style="font-family:Georgia,serif;font-size:4.5px;color:#2a4a30;margin-top:1px;">Retraite</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#3b5a45,#5a7a60);display:flex;align-items:center;justify-content:center;font-size:10px;box-shadow:0 2px 4px rgba(0,0,0,0.2);">📂</div>
+          <span style="font-family:Georgia,serif;font-size:4.5px;color:#2a4a30;margin-top:1px;">Docs</span>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,#b89830,#d4b040);display:flex;align-items:center;justify-content:center;font-size:10px;box-shadow:0 2px 4px rgba(0,0,0,0.2);">⭐</div>
+          <span style="font-family:Georgia,serif;font-size:4.5px;color:#2a4a30;margin-top:1px;">Favoris</span>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:6px;left:6px;right:6px;height:14px;background:#3b6545;border-radius:4px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:Georgia,serif;font-size:5px;color:#f0f8f0;">Valider →</span>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:14px;height:5px;background:rgba(70,100,70,0.5);border-radius:3px;"></div>
+  </div>
+  <svg style="position:absolute;bottom:0;left:0;right:0;width:100%;height:105px;" viewBox="0 0 192 105" preserveAspectRatio="xMidYMax meet">
+    <path d="M24,105 C16,105 8,96 8,86 L8,52 C8,48 11,46 14,48 L14,34 C14,30 18,29 21,31 L21,22 C21,18 25,17 28,19 L28,26 C31,21 36,21 36,27 L36,42 C39,37 45,38 45,46 L45,64 C45,80 40,96 32,103 Z" fill="#d4c8a8" stroke="#b8a888" stroke-width="0.8"/>
+    <path d="M168,105 C176,105 184,96 184,86 L184,52 C184,48 181,46 178,48 L178,34 C178,30 174,29 171,31 L171,22 C171,18 167,17 164,19 L164,26 C161,21 156,21 156,27 L156,42 C153,37 147,38 147,46 L147,64 C147,80 152,96 160,103 Z" fill="#ccc0a0" stroke="#b8a888" stroke-width="0.8"/>
+    <circle cx="96" cy="24" r="5" fill="rgba(201,168,76,0.55)"/>
+    <circle cx="96" cy="24" r="8.5" fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="1"/>
+    <circle cx="96" cy="24" r="12" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="0.8"/>
+  </svg>
+  <div style="position:absolute;top:0;left:0;right:0;height:88px;background:radial-gradient(ellipse at 40% 10%, rgba(240,255,220,0.5) 0%, transparent 55%);pointer-events:none;"></div>
+</div>
+`}} />
               </div>
               <div
                 className="flex items-center gap-3 mb-6"

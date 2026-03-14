@@ -40,6 +40,36 @@ const qaDatabase = [
     question: "📞 Comment vous contacter ?",
     answer: "Appelez-moi au 07 50 52 72 27 ou écrivez à lespetitspapiersfaciles@gmail.com. Je vous répondrai rapidement !",
     icon: "📞"
+  },
+  {
+    id: 'qualite',
+    question: "Comment puis-je être sûr(e) que c'est fait correctement ?",
+    answer: "Avec plus de 20 ans d'expérience en gestion comptable, je vous assure un accompagnement rigoureux et professionnel. Chaque démarche est vérifiée avec soin pour votre tranquillité d'esprit. Votre satisfaction est ma priorité !",
+    icon: "✅"
+  },
+  {
+    id: 'aide-financiere',
+    question: "Est-ce que je peux bénéficier d'une aide financière ?",
+    answer: "Absolument ! Grâce à mon agrément Services à la Personne, vous pouvez bénéficier d'un crédit d'impôt de 50% sur mes prestations. C'est une excellente opportunité de simplifier votre quotidien à moindre coût.",
+    icon: "💸"
+  },
+  {
+    id: 'pas-a-laise-ordi',
+    question: "Je ne suis pas très à l'aise avec l'ordinateur, est-ce un problème ?",
+    answer: "Pas du tout ! Mon approche est basée sur la patience et la pédagogie. Je m'adapte à votre rythme et à votre niveau, pour que l'apprentissage numérique devienne un plaisir et non une contrainte. Ensemble, nous allons lever les blocages !",
+    icon: "💻"
+  },
+  {
+    id: 'gain-temps',
+    question: "Comment puis-je gagner du temps avec vos services ?",
+    answer: "En me confiant vos démarches administratives et numériques, vous libérez un temps précieux pour ce qui compte vraiment pour vous. Fini le stress des papiers, je m'en occupe efficacement !",
+    icon: "⏱️"
+  },
+  {
+    id: 'confidentialite-bis',
+    question: "Mes informations resteront-elles confidentielles ?",
+    answer: "La confidentialité est ma priorité absolue. Toutes vos informations personnelles et documents sensibles sont traités avec la plus grande discrétion et ne sont jamais partagés. Vous pouvez me faire confiance en toute sérénité.",
+    icon: "🔒"
   }
 ];
 
@@ -110,7 +140,7 @@ export const FloatingGuide: React.FC = () => {
     }
   }, [scrollProgress]);
 
-  const verticalPosition = 20 + (scrollProgress / 100) * 60;
+  const verticalPosition = 40 + (scrollProgress / 100) * 40; // Ajusté pour être plus bas et moins de mouvement vertical
   const horizontalOffset = Math.sin(scrollProgress * 0.05) * 20;
 
   const handleCharacterClick = () => {
@@ -122,7 +152,7 @@ export const FloatingGuide: React.FC = () => {
 
   return (
     <div
-      className={`fixed right-8 transition-opacity duration-500 ${
+      className={`fixed right-4 transition-opacity duration-500 ${
         isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
       style={{

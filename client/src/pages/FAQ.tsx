@@ -139,6 +139,29 @@ const faqData = [
       },
     ],
   },
+  {
+    category: "Retraite et Administration 2026",
+    questions: [
+      {
+        id: "q18",
+        question: "Quel est l'âge légal de départ en retraite en 2026 ?",
+        answer:
+          "Suite à la suspension de la réforme, l'âge légal pour les personnes nées entre 1964 et 1968 est fixé entre 62 ans et 9 mois et 63 ans et 9 mois. Le passage aux 64 ans ne concerne désormais que les générations nées à partir de 1969.",
+      },
+      {
+        id: "q19",
+        question: "Ma pension de retraite a-t-elle augmenté en 2026 ?",
+        answer:
+          "Oui, les pensions de retraite de base ont été revalorisées de 0,9 % au 1er janvier 2026 pour compenser l'inflation. Cette hausse est visible sur votre paiement de février.",
+      },
+      {
+        id: "q20",
+        question: "Puis-je travailler tout en étant à la retraite en 2026 ?",
+        answer:
+          "Oui, le cumul emploi-retraite est possible. Il est même totalement libéralisé (sans plafond de revenus) si vous avez plus de 67 ans ou si vous bénéficiez du taux plein. Depuis 2026, cette activité peut vous ouvrir des droits pour une seconde pension.",
+      },
+    ],
+  },
 ];
 
 export default function FAQPage() {

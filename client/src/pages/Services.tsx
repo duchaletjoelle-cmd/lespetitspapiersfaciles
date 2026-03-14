@@ -36,7 +36,12 @@ const adminServices = [
   {
     icon: <Building2 size={22} />,
     title: "Retraite et dossiers administratifs",
-    desc: "Constitution de dossiers de retraite, demandes d'allocations, suivi des courriers avec les organismes (CARSAT, CPAM, CAF…).",
+    desc: "Constitution de dossiers de retraite, demandes d\'allocations, suivi des courriers avec les organismes (CARSAT, CPAM, CAF…). Nouveauté 2026 : je vous informe sur les dernières réglementations France Retraite !",
+  },
+  {
+    icon: <TrendingUp size={22} />,
+    title: "Actualités France Retraite 2026",
+    desc: "Restez informé(e) des dernières évolutions : suspension de la réforme, revalorisation des pensions, cumul emploi-retraite. [En savoir plus](/blog/france-retraite-2026)",
   },
   {
     icon: <Mail size={22} />,

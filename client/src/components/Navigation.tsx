@@ -63,7 +63,7 @@ export default function Navigation() {
                 style={{
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                   color: "oklch(0.94 0.02 80)",
-                  fontStyle: "italic", fontSize: '52px', letterSpacing: '0.05em', lineHeight: '1.1',
+                  fontStyle: "italic", fontSize: '2.5rem', letterSpacing: '0.05em', lineHeight: '1.1',
                 }}
               >
                 Les Petits Papiers
@@ -79,15 +79,15 @@ export default function Navigation() {
               </span>
             </div>
             <span
-              className="font-semibold tracking-wide transition-opacity group-hover:opacity-80 mt-0"
-              style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                color: "oklch(0.94 0.02 80)",
-                fontStyle: "italic",
-                fontSize: "52px", letterSpacing: "0.05em", lineHeight: "1.1",
-                textAlign: "left",
-                marginLeft: "0",
-              }}
+                className="font-semibold tracking-wide transition-opacity group-hover:opacity-80 mt-0"
+                style={{
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  color: "oklch(0.94 0.02 80)",
+                  fontStyle: "italic",
+                  fontSize: "2.5rem", letterSpacing: "0.05em", lineHeight: "1.1",
+                  textAlign: "left",
+                  marginLeft: "0",
+                }}
             >
               Faciles
             </span>
@@ -99,19 +99,7 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 rounded text-sm font-medium transition-all duration-200"
-                style={{
-                  fontFamily: "'Source Sans 3', sans-serif",
-                  color:
-                    location === link.href
-                      ? "oklch(0.94 0.02 80)"
-                      : "oklch(0.82 0.04 145)",
-                  backgroundColor:
-                    location === link.href
-                      ? "oklch(0.42 0.06 145 / 0.6)"
-                      : "transparent",
-                  fontWeight: location === link.href ? "600" : "400",
-                }}
+                className={`nav-link ${location === link.href ? 'nav-link-active' : ''}`}
                 onMouseEnter={(e) => {
                   if (location !== link.href) {
                     (e.target as HTMLElement).style.color = "oklch(0.94 0.02 80)";
@@ -134,12 +122,7 @@ export default function Navigation() {
           <div className="hidden lg:flex items-center gap-2">
             <Link
               href="/rendez-vous"
-              className="flex items-center gap-2 px-4 py-2 rounded text-sm font-semibold transition-all duration-200"
-              style={{
-                fontFamily: "'Source Sans 3', sans-serif",
-                backgroundColor: "oklch(0.94 0.02 80)",
-                color: "oklch(0.45 0.08 145)",
-              }}
+              className="cta-nav-primary"
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.backgroundColor = "oklch(0.88 0.04 145)";
               }}
@@ -152,13 +135,7 @@ export default function Navigation() {
             </Link>
             <a
               href="tel:0750527227"
-              className="flex items-center gap-2 px-3 py-2 rounded text-xs font-semibold transition-all duration-200 whitespace-nowrap"
-              style={{
-                fontFamily: "'Source Sans 3', sans-serif",
-                backgroundColor: "oklch(0.50 0.07 145)",
-                color: "oklch(0.94 0.02 80)",
-                fontSize: "0.75rem",
-              }}
+              className="cta-nav-secondary"
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.backgroundColor = "oklch(0.55 0.07 145)";
               }}
@@ -197,43 +174,21 @@ export default function Navigation() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="px-4 py-3 rounded text-base font-medium transition-all"
-                style={{
-                  fontFamily: "'Source Sans 3', sans-serif",
-                  color:
-                    location === link.href
-                      ? "oklch(0.94 0.02 80)"
-                      : "oklch(0.82 0.04 145)",
-                  backgroundColor:
-                    location === link.href
-                      ? "oklch(0.42 0.06 145 / 0.5)"
-                      : "transparent",
-                  fontWeight: location === link.href ? "600" : "400",
-                }}
+                className={`nav-link ${location === link.href ? 'nav-link-active' : ''} px-4 py-3 text-base`}
               >
                 {link.label}
               </Link>
             ))}
             <Link
               href="/rendez-vous"
-              className="flex items-center gap-2 mt-3 px-4 py-3 rounded font-semibold"
-              style={{
-                fontFamily: "'Source Sans 3', sans-serif",
-                backgroundColor: "oklch(0.94 0.02 80)",
-                color: "oklch(0.45 0.08 145)",
-              }}
+              className="cta-nav-primary mt-3 px-4 py-3"
             >
               <CalendarDays size={16} />
               Prendre rendez-vous
             </Link>
             <a
               href="tel:0750527227"
-              className="flex items-center gap-2 px-4 py-3 rounded font-semibold"
-              style={{
-                fontFamily: "'Source Sans 3', sans-serif",
-                backgroundColor: "oklch(0.50 0.07 145)",
-                color: "oklch(0.94 0.02 80)",
-              }}
+              className="cta-nav-secondary px-4 py-3"
             >
               <Phone size={16} />
               07 50 52 72 27

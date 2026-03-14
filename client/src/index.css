@@ -273,3 +273,45 @@
     box-shadow: 0 -4px 24px oklch(0.22 0.02 65 / 0.3);
   }
 }
+
+
+  /* Navigation Component Styles */
+  .nav-link {
+    @apply px-3 py-2 rounded text-sm font-medium transition-all duration-200;
+    font-family: 'Source Sans 3', sans-serif;
+    color: oklch(0.82 0.04 145);
+  }
+
+  .nav-link:hover {
+    color: oklch(0.94 0.02 80);
+    background-color: oklch(0.42 0.06 145 / 0.4);
+  }
+
+  .nav-link-active {
+    color: oklch(0.94 0.02 80);
+    background-color: oklch(0.42 0.06 145 / 0.6);
+    font-weight: 600;
+  }
+
+  .cta-nav-primary {
+    @apply flex items-center gap-2 px-4 py-2 rounded text-sm font-semibold transition-all duration-200;
+    font-family: 'Source Sans 3', sans-serif;
+    background-color: oklch(0.94 0.02 80);
+    color: oklch(0.45 0.08 145);
+  }
+
+  .cta-nav-primary:hover {
+    background-color: oklch(0.88 0.04 145);
+  }
+
+  .cta-nav-secondary {
+    @apply flex items-center gap-2 px-3 py-2 rounded text-xs font-semibold transition-all duration-200 whitespace-nowrap;
+    font-family: 'Source Sans 3', sans-serif;
+    background-color: oklch(0.50 0.07 145);
+    color: oklch(0.94 0.02 80);
+    font-size: 0.75rem;
+  }
+
+  .cta-nav-secondary:hover {
+    background-color: oklch(0.55 0.07 145);
+  }

@@ -138,26 +138,14 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 href="/rendez-vous"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded font-semibold text-base transition-all"
-                style={{
-                  backgroundColor: "oklch(0.94 0.02 80)",
-                  color: "oklch(0.45 0.08 145)",
-                  fontFamily: "'Source Sans 3', sans-serif",
-                }}
+                className="btn-sage"
               >
                 <CalendarDays size={18} />
                 Prendre rendez-vous
               </Link>
               <Link
                 href="/services"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded font-semibold text-base transition-all"
-                style={{
-                  borderColor: "oklch(0.94 0.02 80 / 0.80)",
-                  color: "oklch(0.97 0.01 80)",
-                  backgroundColor: "oklch(0.94 0.02 80 / 0.12)",
-                  border: "2px solid oklch(0.94 0.02 80 / 0.80)",
-                  fontFamily: "'Source Sans 3', sans-serif",
-                }}
+                className="btn-outline-sage"
               >
                 Découvrir les services
               </Link>

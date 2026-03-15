@@ -35,6 +35,7 @@ import PaymentPage from "./pages/PaymentPage";
 import AdminPaymentPage from "./pages/AdminPayment";
 import ChecklistRDVPage from "./pages/ChecklistRDV";
 import ChecklistAdministrativePage from "./pages/ChecklistAdministrative";
+import FranceRetraite2026Page from "./pages/FranceRetraite2026";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -54,6 +55,7 @@ function Router() {
           <Route path="/rendez-vous" component={RendezVousPage} />
           <Route path="/checklist-rdv" component={ChecklistRDVPage} />
           <Route path="/checklist-administrative" component={ChecklistAdministrativePage} />
+          <Route path="/france-retraite-2026" component={FranceRetraite2026Page} />
           <Route path="/admin/rendez-vous" component={AdminRendezVousPage} />
           <Route path="/blog" component={BlogPage} />
           <Route path="/blog/:slug" component={BlogArticlePage} />

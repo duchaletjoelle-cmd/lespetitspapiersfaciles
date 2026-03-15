@@ -18,6 +18,7 @@ const mainLinks = [
 const secondaryLinks = [
   { href: "/secteur", label: "Secteur" },
   { href: "/avantage-fiscal", label: "Avantage fiscal" },
+  { href: "/france-retraite-2026", label: "France Retraite 2026" },
   { href: "/checklist-administrative", label: "Checklist" },
   { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },

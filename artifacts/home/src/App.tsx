@@ -8,12 +8,11 @@ const queryClient = new QueryClient();
 
 function Home() {
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full flex items-center justify-center bg-white">
       <img
         src={`${import.meta.env.BASE_URL}hero.jpeg`}
         alt="Elegant workspace with roses and laptop"
-        className="w-full h-full object-cover"
-        style={{ minHeight: "100vh" }}
+        className="max-w-full max-h-screen object-contain"
       />
     </div>
   );

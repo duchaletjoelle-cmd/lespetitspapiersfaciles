@@ -25,7 +25,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Installer les dépendances
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile --config.minimumReleaseAge=0
 
       - name: Construire le site
         run: PORT=3000 BASE_PATH="/" pnpm --filter @workspace/home run build

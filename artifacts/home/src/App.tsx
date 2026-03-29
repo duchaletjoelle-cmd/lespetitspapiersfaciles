@@ -26,8 +26,8 @@ function Home() {
   return (
     <div className="min-h-screen bg-white">
 
-      {/* 1. HERO - Photo plein écran + message */}
-      <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+      {/* 1. HERO - Photo + message */}
+      <section className="relative w-full min-h-[75vh] flex items-center justify-center overflow-hidden">
         <img
           src={`${import.meta.env.BASE_URL}hero.jpeg`}
           alt="Bureau élégant avec roses et ordinateur"

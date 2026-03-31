@@ -33,14 +33,19 @@ jobs:
       - name: Build public site only
         run: pnpm --filter @workspace/home run build
 
-      - name: Deploy to IONOS via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.6
-        with:
-          server: ${{ secrets.IONOS_SFTP_SERVER }}
-          username: ${{ secrets.IONOS_SFTP_USERNAME }}
-          password: ${{ secrets.IONOS_SFTP_PASSWORD }}
-          local_path: ./artifacts/home/dist/public/*
-          remote_path: test-fichier-restaurer/
-          sftp_only: true
-          delete_remote_files: false
-          sftpArgs: -o ConnectTimeout=30
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy to IONOS via SFTP mirror
+        env:
+          IONOS_SFTP_SERVER: ${{ secrets.IONOS_SFTP_SERVER }}
+          IONOS_SFTP_USERNAME: ${{ secrets.IONOS_SFTP_USERNAME }}
+          IONOS_SFTP_PASSWORD: ${{ secrets.IONOS_SFTP_PASSWORD }}
+        run: |
+          lftp -u "$IONOS_SFTP_USERNAME","$IONOS_SFTP_PASSWORD" "sftp://$IONOS_SFTP_SERVER:22" <<'EOF'
+          set sftp:auto-confirm yes
+          set net:max-retries 2
+          set net:timeout 30
+          mirror -R --verbose ./artifacts/home/dist/public/ test-fichier-restaurer/
+          bye
+          EOF

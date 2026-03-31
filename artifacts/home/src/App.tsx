@@ -27,23 +27,22 @@ function Navbar() {
 function Home() {
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative w-full min-h-[75vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full min-h-[75vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#dfe8dc]">
         <img
           src={`${import.meta.env.BASE_URL}hero.jpeg`}
           alt="Bureau élégant avec fleurs, ordinateur et carnet"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-contain object-center"
         />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="relative z-10 text-center px-6 max-w-2xl mx-auto">
+        <div className="relative z-10 text-center px-6 max-w-2xl mx-auto bg-black/22 rounded-[2rem] py-8 md:py-10">
           <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
-            Vos démarches administratives<br />simplement et en toute confiance
+            Vos démarches administratives,<br />simplement et en toute confiance
           </h1>
           <p className="text-lg md:text-xl text-rose-100 mb-8 drop-shadow">
             Je vous accompagne pas à pas, avec bienveillance, clarté et confidentialité.
           </p>
           <a
             href="#contact"
-            className="inline-block bg-rose-600 hover:bg-rose-700 text-white font-semibold px-8 py-4 rounded-full text-lg shadow-lg transition-colors duration-200"
+            className="inline-block bg-[#8fa68a] hover:bg-[#7b9276] text-white font-semibold px-8 py-4 rounded-full text-lg shadow-lg transition-colors duration-200"
           >
             👉 Prendre rendez-vous
           </a>

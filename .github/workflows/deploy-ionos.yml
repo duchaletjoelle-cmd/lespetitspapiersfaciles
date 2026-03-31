@@ -46,6 +46,6 @@ jobs:
           set sftp:auto-confirm yes
           set net:max-retries 2
           set net:timeout 30
-          mirror -R --verbose ./artifacts/home/dist/public/ test-fichier-restaurer/
+          mirror -R --verbose ./artifacts/home/dist/public/ /public/
           bye
           EOF

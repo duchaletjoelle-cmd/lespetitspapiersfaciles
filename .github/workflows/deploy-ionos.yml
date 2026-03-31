@@ -40,7 +40,7 @@ jobs:
           username: ${{ secrets.IONOS_SFTP_USERNAME }}
           password: ${{ secrets.IONOS_SFTP_PASSWORD }}
           local_path: ./artifacts/home/dist/public/*
-          remote_path: /test-fichier-restaurer/
+          remote_path: test-fichier-restaurer/
           sftp_only: true
           delete_remote_files: false
           sftpArgs: -o ConnectTimeout=30

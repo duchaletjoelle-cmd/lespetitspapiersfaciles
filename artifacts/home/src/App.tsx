@@ -10,11 +10,10 @@ const queryClient = new QueryClient();
 function Navbar() {
   return (
     <nav className="bg-white border-b border-rose-100 shadow-sm sticky top-0 z-50">
-      <div className="max-w-4xl mx-auto px-4 py-2 flex items-center gap-6">
-        <Link href="/" className="text-rose-700 font-bold text-sm leading-tight hover:text-rose-900 transition-colors" style={{ lineHeight: "1.2" }}>
-          <div>Les Petits</div>
-          <div>Papiers</div>
-          <div>Faciles</div>
+      <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-6">
+        <Link href="/" className="text-rose-700 font-bold hover:text-rose-900 transition-colors" style={{ lineHeight: "1.1" }}>
+          <div style={{ fontSize: "1.1rem", fontWeight: 600 }}>Les Petits Papiers</div>
+          <div style={{ fontSize: "1.5rem", fontWeight: 800, letterSpacing: "0.02em" }}>Faciles</div>
         </Link>
         <Link href="/retraite-2026" className="text-sm text-gray-600 hover:text-rose-700 transition-colors">
           Retraite 2026
@@ -166,3 +165,4 @@ function App() {
 }
 
 export default App;
+

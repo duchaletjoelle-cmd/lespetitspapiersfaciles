@@ -1,4 +1,4 @@
-name: Déploiement sur IONOS # redeploy 2026-05-29
+name: Déploiement sur IONOS
 
 on:
   push:
@@ -30,13 +30,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Build public site only
+      - name: Build public site
         run: pnpm --filter @workspace/home run build
 
       - name: Install lftp
         run: sudo apt-get update && sudo apt-get install -y lftp
 
-      - name: Deploy to IONOS via SFTP mirror
+      - name: Deploy site principal (lespetitspapiersfaciles.fr)
         env:
           IONOS_SFTP_SERVER: ${{ secrets.IONOS_SFTP_SERVER }}
           IONOS_SFTP_USERNAME: ${{ secrets.IONOS_SFTP_USERNAME }}
@@ -47,5 +47,37 @@ jobs:
           set net:max-retries 2
           set net:timeout 30
           mirror -R --verbose ./artifacts/home/dist/public/ /public/
+          bye
+          EOF
+
+      - name: Deploy sous-domaine numerique
+        env:
+          IONOS_SFTP_SERVER: ${{ secrets.IONOS_SFTP_SERVER }}
+          IONOS_SFTP_USERNAME: ${{ secrets.IONOS_SFTP_USERNAME }}
+          IONOS_SFTP_PASSWORD: ${{ secrets.IONOS_SFTP_PASSWORD }}
+          IONOS_NUMERIQUE_PATH: ${{ secrets.IONOS_NUMERIQUE_PATH }}
+        run: |
+          TARGET_PATH="${IONOS_NUMERIQUE_PATH:-/numerique.lespetitspapiersfaciles.fr}"
+          lftp -u "$IONOS_SFTP_USERNAME","$IONOS_SFTP_PASSWORD" "sftp://$IONOS_SFTP_SERVER:22" <<EOF
+          set sftp:auto-confirm yes
+          set net:max-retries 2
+          set net:timeout 30
+          mirror -R --verbose ./artifacts/numerique/ $TARGET_PATH/
+          bye
+          EOF
+
+      - name: Deploy sous-domaine professionnels
+        env:
+          IONOS_SFTP_SERVER: ${{ secrets.IONOS_SFTP_SERVER }}
+          IONOS_SFTP_USERNAME: ${{ secrets.IONOS_SFTP_USERNAME }}
+          IONOS_SFTP_PASSWORD: ${{ secrets.IONOS_SFTP_PASSWORD }}
+          IONOS_PROFESSIONNELS_PATH: ${{ secrets.IONOS_PROFESSIONNELS_PATH }}
+        run: |
+          TARGET_PATH="${IONOS_PROFESSIONNELS_PATH:-/professionnels.lespetitspapiersfaciles.fr}"
+          lftp -u "$IONOS_SFTP_USERNAME","$IONOS_SFTP_PASSWORD" "sftp://$IONOS_SFTP_SERVER:22" <<EOF
+          set sftp:auto-confirm yes
+          set net:max-retries 2
+          set net:timeout 30
+          mirror -R --verbose ./artifacts/professionnels/ $TARGET_PATH/
           bye
           EOF

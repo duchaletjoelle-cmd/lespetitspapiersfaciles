@@ -1,0 +1,21 @@
+{
+  "_note": "Questions à valider / compléter d'après CONTEXTE.md après l'entretien terrain",
+  "metier": "coiffure",
+  "presentation": "Bonjour ! Je suis l'assistant du salon de {prenom_pro}. Je prends vos rendez-vous.",
+  "prenom_pro": "À_REMPLIR",
+  "email_pro": "À_REMPLIR",
+  "telephone_pro": "À_REMPLIR",
+  "objet_mail": "Nouveau rendez-vous coiffure — {nom_client} — {date}",
+  "informations_obligatoires": [
+    {"cle": "nom_client", "label": "Nom du client", "question": "C'est pour quel nom ?"},
+    {"cle": "telephone_client", "label": "Numéro de téléphone", "question": "Votre numéro de téléphone ?"},
+    {"cle": "prestation", "label": "Prestation souhaitée", "question": "Quelle prestation souhaitez-vous ? (coupe, couleur, brushing, soin…)"},
+    {"cle": "disponibilites", "label": "Disponibilités", "question": "Quels jours et créneaux vous conviendraient ?"}
+  ],
+  "informations_facultatives": [
+    {"cle": "longueur_cheveux", "label": "Longueur des cheveux", "question": "Vos cheveux sont longs, mi-longs ou courts ?"},
+    {"cle": "premiere_visite", "label": "Première visite", "question": "C'est votre première fois au salon ?"}
+  ],
+  "sujets_passage_humain": ["prix", "tarif", "combien", "couleur précise", "technique", "conseil"],
+  "message_passage_humain": "Je transmets à {prenom_pro} qui vous rappelle pour confirmer le créneau. Merci !"
+}

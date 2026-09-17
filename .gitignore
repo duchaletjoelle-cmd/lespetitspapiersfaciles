@@ -47,3 +47,12 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Agents IA TPE — secrets et données sensibles
+agents-ia-tpe/.env
+agents-ia-tpe/credentials.json
+agents-ia-tpe/*.json.key
+agents-ia-tpe/logs/*.json
+agents-ia-tpe/__pycache__/
+agents-ia-tpe/**/__pycache__/
+agents-ia-tpe/.pytest_cache/

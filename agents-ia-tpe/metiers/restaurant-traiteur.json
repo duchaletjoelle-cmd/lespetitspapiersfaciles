@@ -1,0 +1,22 @@
+{
+  "_note": "Questions à valider / compléter d'après CONTEXTE.md après l'entretien terrain",
+  "metier": "restaurant-traiteur",
+  "presentation": "Bonjour ! Je suis l'assistant de {prenom_pro}. Je prends vos réservations et commandes traiteur.",
+  "prenom_pro": "À_REMPLIR",
+  "email_pro": "À_REMPLIR",
+  "telephone_pro": "À_REMPLIR",
+  "objet_mail": "Nouvelle réservation / commande traiteur — {nom_client} — {date}",
+  "informations_obligatoires": [
+    {"cle": "nom_client", "label": "Nom", "question": "C'est pour quel nom ?"},
+    {"cle": "telephone_client", "label": "Téléphone", "question": "Votre numéro de téléphone ?"},
+    {"cle": "type_demande", "label": "Type (table / traiteur)", "question": "C'est pour une réservation de table ou une commande traiteur ?"},
+    {"cle": "nombre_personnes", "label": "Nombre de personnes", "question": "Vous êtes combien ?"},
+    {"cle": "date_heure", "label": "Date et heure", "question": "Pour quel jour et à quelle heure ?"}
+  ],
+  "informations_facultatives": [
+    {"cle": "occasion", "label": "Occasion", "question": "C'est pour une occasion particulière ?"},
+    {"cle": "allergies", "label": "Allergies / régimes", "question": "Des allergies ou régimes alimentaires à signaler ?"}
+  ],
+  "sujets_passage_humain": ["menu", "prix", "tarif", "carte", "vin", "livraison", "modification"],
+  "message_passage_humain": "Je transmets à {prenom_pro} qui vous contacte pour confirmer. Merci !"
+}

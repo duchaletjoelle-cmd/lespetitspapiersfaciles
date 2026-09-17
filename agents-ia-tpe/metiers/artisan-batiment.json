@@ -1,0 +1,22 @@
+{
+  "_note": "Questions à valider / compléter d'après CONTEXTE.md après l'entretien terrain",
+  "metier": "artisan-batiment",
+  "presentation": "Bonjour ! Je suis l'assistant de {prenom_pro}. Je prends note de votre demande de devis ou d'intervention.",
+  "prenom_pro": "À_REMPLIR",
+  "email_pro": "À_REMPLIR",
+  "telephone_pro": "À_REMPLIR",
+  "objet_mail": "Nouvelle demande artisan — {nom_client} — {date}",
+  "informations_obligatoires": [
+    {"cle": "nom_client", "label": "Nom", "question": "C'est pour quel nom ?"},
+    {"cle": "telephone_client", "label": "Téléphone", "question": "Votre numéro de téléphone ?"},
+    {"cle": "adresse_chantier", "label": "Adresse du chantier", "question": "L'adresse des travaux ?"},
+    {"cle": "description_travaux", "label": "Travaux à réaliser", "question": "Pouvez-vous me décrire les travaux à réaliser ?"},
+    {"cle": "urgence", "label": "Degré d'urgence", "question": "C'est urgent (fuite, panne…) ou on peut planifier ?"}
+  ],
+  "informations_facultatives": [
+    {"cle": "disponibilites", "label": "Disponibilités", "question": "Quels jours êtes-vous disponible pour qu'on passe ?"},
+    {"cle": "superficie", "label": "Superficie approximative", "question": "Surface approximative concernée ?"}
+  ],
+  "sujets_passage_humain": ["prix", "devis", "tarif", "combien", "diagnostic", "cause", "pourquoi"],
+  "message_passage_humain": "Je transmets à {prenom_pro} qui vous rappelle pour étudier votre demande. Merci !"
+}

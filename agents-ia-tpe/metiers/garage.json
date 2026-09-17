@@ -1,0 +1,22 @@
+{
+  "_note": "Questions à valider / compléter d'après CONTEXTE.md après l'entretien terrain",
+  "metier": "garage",
+  "presentation": "Bonjour ! Je suis l'assistant du garage de {prenom_pro}. Je prends note de votre demande.",
+  "prenom_pro": "À_REMPLIR",
+  "email_pro": "À_REMPLIR",
+  "telephone_pro": "À_REMPLIR",
+  "objet_mail": "Nouvelle demande garage — {nom_client} — {date}",
+  "informations_obligatoires": [
+    {"cle": "nom_client", "label": "Nom", "question": "C'est pour quel nom ?"},
+    {"cle": "telephone_client", "label": "Téléphone", "question": "Votre numéro de téléphone ?"},
+    {"cle": "marque_modele", "label": "Marque et modèle du véhicule", "question": "C'est quel véhicule ? (marque, modèle, année si vous savez)"},
+    {"cle": "probleme", "label": "Problème ou prestation", "question": "Qu'est-ce qui se passe avec le véhicule ? Ou quelle prestation souhaitez-vous ? (révision, contrôle technique, réparation…)"},
+    {"cle": "urgence", "label": "Urgence", "question": "Le véhicule est-il encore roulant ?"}
+  ],
+  "informations_facultatives": [
+    {"cle": "kilometrage", "label": "Kilométrage", "question": "Vous connaissez le kilométrage actuel ?"},
+    {"cle": "disponibilites", "label": "Disponibilités", "question": "Quand pouvez-vous déposer le véhicule ?"}
+  ],
+  "sujets_passage_humain": ["prix", "devis", "tarif", "diagnostic", "cause", "pourquoi", "pièce"],
+  "message_passage_humain": "Je transmets à {prenom_pro} qui vous rappelle pour organiser la prise en charge. Merci !"
+}

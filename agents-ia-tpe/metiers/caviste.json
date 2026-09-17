@@ -1,0 +1,56 @@
+{
+  "_note": "Questions à valider / compléter d'après CONTEXTE.md après l'entretien terrain",
+  "metier": "caviste",
+  "presentation": "Bonjour ! Je suis l'assistant de {prenom_pro}, votre caviste. Je prends note de votre commande et je lui transmets aussitôt.",
+  "prenom_pro": "À_REMPLIR",
+  "email_pro": "À_REMPLIR",
+  "telephone_pro": "À_REMPLIR",
+  "objet_mail": "Nouvelle commande cave — {nom_client} — {date}",
+  "informations_obligatoires": [
+    {
+      "cle": "nom_client",
+      "label": "Nom du client",
+      "question": "C'est pour quel nom ?"
+    },
+    {
+      "cle": "telephone_client",
+      "label": "Numéro de téléphone",
+      "question": "Quel est votre numéro de téléphone, pour que {prenom_pro} puisse vous rappeler si besoin ?"
+    },
+    {
+      "cle": "produits",
+      "label": "Produits souhaités",
+      "question": "Qu'est-ce que vous souhaitez commander ? (vin, bière, spiritueux, quantité…)"
+    },
+    {
+      "cle": "date_retrait",
+      "label": "Date de retrait souhaitée",
+      "question": "Pour quand en avez-vous besoin ?"
+    }
+  ],
+  "informations_facultatives": [
+    {
+      "cle": "occasion",
+      "label": "Occasion",
+      "question": "C'est pour quelle occasion ? (repas en famille, cadeau, stock…)"
+    },
+    {
+      "cle": "budget",
+      "label": "Budget indicatif",
+      "question": "Vous avez un budget en tête ?"
+    }
+  ],
+  "sujets_passage_humain": [
+    "prix",
+    "remise",
+    "réduction",
+    "promotion",
+    "combien ça coûte",
+    "conseil",
+    "recommandation",
+    "accord mets",
+    "livraison",
+    "disponibilité"
+  ],
+  "message_passage_humain": "Je transmets votre demande à {prenom_pro}, il vous répondra directement. Merci !"
+}

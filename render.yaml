@@ -1,0 +1,75 @@
+# Render deployment — Agents IA pour TPE
+# Déploiement : connecter ce repo sur render.com → "New Blueprint"
+# Render lit ce fichier et crée automatiquement les 3 ressources ci-dessous.
+#
+# Architecture :
+#   agents-ia-tpe-web   : serveur Flask (répond aux clients 24h/24)
+#   agents-ia-tpe-cron  : relance quotidienne (script one-shot déclenché par Render)
+#   agents-ia-tpe-db    : PostgreSQL managé par Render
+
+services:
+
+  # ── Serveur web (maillon 1 à 6) ──────────────────────────────────────────
+  - type: web
+    name: agents-ia-tpe-web
+    runtime: python
+    rootDir: agents-ia-tpe
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn reception:app --workers 2 --timeout 60
+    plan: free  # à passer sur "starter" (7$/mois) pour la production client
+    healthCheckPath: /
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: agents-ia-tpe-db
+          property: connectionString
+      - key: OPENROUTER_API_KEY
+        sync: false          # à saisir manuellement dans le dashboard Render
+      - key: OPENROUTER_MODEL
+        value: anthropic/claude-haiku-4-5
+      - key: GOOGLE_SHEET_ID
+        sync: false
+      - key: GOOGLE_CREDENTIALS_JSON
+        sync: false          # coller le contenu du fichier credentials.json
+      - key: BREVO_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: EMAIL_FROM_NAME
+        value: Assistant Les Petits Papiers Faciles
+      - key: METIER
+        value: caviste       # changer pour le métier du pilote
+      - key: RELANCE_SEUIL_HEURES
+        value: "24"
+      - key: PORT
+        value: "8080"
+
+  # ── Relance quotidienne (maillon 7) ──────────────────────────────────────
+  - type: cron
+    name: agents-ia-tpe-cron
+    runtime: python
+    rootDir: agents-ia-tpe
+    buildCommand: pip install -r requirements.txt
+    schedule: "0 7 * * *"   # chaque jour à 7h UTC (9h heure de Paris en été)
+    startCommand: python relance.py
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: agents-ia-tpe-db
+          property: connectionString
+      - key: GOOGLE_SHEET_ID
+        sync: false
+      - key: GOOGLE_CREDENTIALS_JSON
+        sync: false
+      - key: BREVO_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: RELANCE_SEUIL_HEURES
+        value: "24"
+
+databases:
+  - name: agents-ia-tpe-db
+    plan: free               # 1 Go, suffisant pour des milliers de conversations
+    # À passer sur "starter" (7$/mois) pour la production client (backups automatiques)

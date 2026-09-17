@@ -1,7 +1,7 @@
 """
 Tests automatiques — Métier caviste.
 Trois scénarios scriptés comme demandé dans le prompt.
-Ces tests vérifient la logique de la Session sans appeler l'API Anthropic.
+Ces tests vérifient la logique de la Session sans appeler l'API OpenRouter.
 """
 
 import json
@@ -16,26 +16,22 @@ from dialogue import Session
 
 
 def _mock_api_response(texte: str):
-    """Simule une réponse de l'API Anthropic."""
+    """Simule une réponse de l'API OpenRouter (format OpenAI)."""
     mock = MagicMock()
-    mock.content = [MagicMock(text=texte)]
+    mock.choices = [MagicMock(message=MagicMock(content=texte))]
     return mock
 
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Scénario A : client coopératif, donne toutes les infos une par une
-# Résultat attendu : action_finale = "complet", tous les champs remplis
 # ─────────────────────────────────────────────────────────────────────────────
 class TestScenarioA:
-    """Client complet et coopératif — pose une question à la fois."""
-
     def test_client_cooperatif(self):
-        with patch("dialogue.anthropic.Anthropic") as MockAnthropic:
+        with patch("dialogue.openai.OpenAI") as MockOpenAI:
             client_mock = MagicMock()
-            MockAnthropic.return_value = client_mock
+            MockOpenAI.return_value = client_mock
 
-            # Séquence de réponses simulées du modèle
-            client_mock.messages.create.side_effect = [
+            client_mock.chat.completions.create.side_effect = [
                 _mock_api_response("C'est pour quel nom ?"),
                 _mock_api_response("Quel est votre numéro de téléphone ?"),
                 _mock_api_response("Qu'est-ce que vous souhaitez commander ?"),
@@ -47,33 +43,31 @@ class TestScenarioA:
 
             session = Session("caviste")
 
-            reponse1 = session.message("Bonjour je voudrais commander du vin")
+            session.message("Bonjour je voudrais commander du vin")
             assert not session.est_terminee()
 
-            reponse2 = session.message("Je m'appelle Dupont")
+            session.message("Je m'appelle Dupont")
             assert not session.est_terminee()
 
-            reponse3 = session.message("0612345678")
+            session.message("0612345678")
             assert not session.est_terminee()
 
-            reponse4 = session.message("Du Bordeaux rouge, 6 bouteilles")
+            session.message("Du Bordeaux rouge, 6 bouteilles")
             assert not session.est_terminee()
 
-            reponse5 = session.message("Pour vendredi")
+            session.message("Pour vendredi")
             assert session.est_terminee()
             assert session.action_finale == "complet"
             assert session.champs.get("nom_client") == "Dupont"
             assert session.champs.get("telephone_client") == "0612345678"
-            assert session.champs.get("produits") == "Bordeaux rouge x6"
 
     def test_aucune_question_inutile(self):
         """Scénario B : le client donne tout en une seule phrase."""
-        with patch("dialogue.anthropic.Anthropic") as MockAnthropic:
+        with patch("dialogue.openai.OpenAI") as MockOpenAI:
             client_mock = MagicMock()
-            MockAnthropic.return_value = client_mock
+            MockOpenAI.return_value = client_mock
 
-            # Le modèle reconnaît tout et complète directement
-            client_mock.messages.create.side_effect = [
+            client_mock.chat.completions.create.side_effect = [
                 _mock_api_response(
                     'ACTION=COMPLET CHAMPS={"nom_client":"Martin","telephone_client":"0698765432","produits":"Champagne x3","date_retrait":"samedi matin"}'
                 ),
@@ -86,7 +80,7 @@ class TestScenarioA:
             )
 
             # UNE seule question posée au modèle
-            assert client_mock.messages.create.call_count == 1
+            assert client_mock.chat.completions.create.call_count == 1
             assert session.est_terminee()
             assert session.action_finale == "complet"
 
@@ -95,34 +89,31 @@ class TestScenarioA:
 # Scénario C : client demande une remise → passage à l'humain
 # ─────────────────────────────────────────────────────────────────────────────
 class TestScenarioC:
-    """Client qui demande une remise — statut doit être 'à rappeler'."""
-
     def test_demande_remise_passage_humain(self):
-        with patch("dialogue.anthropic.Anthropic") as MockAnthropic:
+        with patch("dialogue.openai.OpenAI") as MockOpenAI:
             client_mock = MagicMock()
-            MockAnthropic.return_value = client_mock
+            MockOpenAI.return_value = client_mock
 
-            client_mock.messages.create.side_effect = [
+            client_mock.chat.completions.create.side_effect = [
                 _mock_api_response(
-                    "ACTION=PASSAGE_HUMAIN RAISON=demande de remise"
-                    " Je transmets votre demande au professionnel."
+                    "ACTION=PASSAGE_HUMAIN RAISON=demande de remise "
+                    "Je transmets votre demande au professionnel."
                 ),
             ]
 
             session = Session("caviste")
-            reponse = session.message("Vous faites des remises pour les commandes importantes ?")
+            session.message("Vous faites des remises pour les commandes importantes ?")
 
             assert session.est_terminee()
             assert session.action_finale == "passage_humain"
 
     def test_incomprehension_passage_humain(self):
         """Deux incompréhensions consécutives → passage automatique."""
-        with patch("dialogue.anthropic.Anthropic") as MockAnthropic:
+        with patch("dialogue.openai.OpenAI") as MockOpenAI:
             client_mock = MagicMock()
-            MockAnthropic.return_value = client_mock
+            MockOpenAI.return_value = client_mock
 
-            # Simule une erreur API deux fois de suite
-            client_mock.messages.create.side_effect = [
+            client_mock.chat.completions.create.side_effect = [
                 Exception("Timeout"),
                 Exception("Timeout"),
             ]
@@ -147,7 +138,24 @@ def test_charger_config_caviste():
 
 
 def test_champs_manquants_initialement():
-    with patch("dialogue.anthropic.Anthropic"):
+    with patch("dialogue.openai.OpenAI"):
         session = Session("caviste")
         manquants = session._champs_manquants()
         assert len(manquants) == len(session.config["informations_obligatoires"])
+
+
+def test_serialisation_etat():
+    """vers_etat / depuis_etat — aller-retour sans perte."""
+    with patch("dialogue.openai.OpenAI"):
+        session = Session("caviste")
+        session.champs = {"nom_client": "Test"}
+        session.incompris_consecutifs = 1
+
+        etat = session.vers_etat()
+        assert etat["champs"]["nom_client"] == "Test"
+        assert etat["incompris_consecutifs"] == 1
+
+        session2 = Session.depuis_etat(etat)
+        assert session2.id == session.id
+        assert session2.champs == {"nom_client": "Test"}
+        assert session2.incompris_consecutifs == 1

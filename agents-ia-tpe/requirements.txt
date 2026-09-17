@@ -1,7 +1,8 @@
-anthropic>=0.34.0
+openai>=1.40.0
 gspread>=6.0.0
 google-auth>=2.29.0
 python-dotenv>=1.0.0
 flask>=3.0.0
+gunicorn>=22.0.0
+psycopg2-binary>=2.9.9
 sib-api-v3-sdk>=7.6.0
-schedule>=1.2.0

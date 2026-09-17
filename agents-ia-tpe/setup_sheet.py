@@ -13,6 +13,7 @@ load_dotenv()
 
 SHEET_ID = os.getenv("GOOGLE_SHEET_ID")
 CREDENTIALS_FILE = os.getenv("GOOGLE_CREDENTIALS_FILE", "credentials.json")
+CREDENTIALS_JSON = os.getenv("GOOGLE_CREDENTIALS_JSON")
 
 METIERS = ["caviste", "boulangerie", "coiffure", "restaurant-traiteur", "artisan bâtiment", "garage"]
 
@@ -36,7 +37,16 @@ SCOPES = [
 
 
 def connect():
-    creds = Credentials.from_service_account_file(CREDENTIALS_FILE, scopes=SCOPES)
+    if CREDENTIALS_JSON:
+        import json
+        creds = Credentials.from_service_account_info(json.loads(CREDENTIALS_JSON), scopes=SCOPES)
+    elif os.path.exists(CREDENTIALS_FILE):
+        creds = Credentials.from_service_account_file(CREDENTIALS_FILE, scopes=SCOPES)
+    else:
+        raise EnvironmentError(
+            "Credentials Google manquants. "
+            "Définir GOOGLE_CREDENTIALS_JSON (cloud) ou GOOGLE_CREDENTIALS_FILE (local)."
+        )
     return gspread.authorize(creds)
 
 

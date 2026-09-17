@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 
 SHEET_ID = os.getenv("GOOGLE_SHEET_ID")
 CREDENTIALS_FILE = os.getenv("GOOGLE_CREDENTIALS_FILE", "credentials.json")
+CREDENTIALS_JSON = os.getenv("GOOGLE_CREDENTIALS_JSON")  # variable cloud (JSON complet en string)
 
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -39,7 +40,16 @@ COLONNES_FICHE = [
 
 
 def _connect():
-    creds = Credentials.from_service_account_file(CREDENTIALS_FILE, scopes=SCOPES)
+    if CREDENTIALS_JSON:
+        info = json.loads(CREDENTIALS_JSON)
+        creds = Credentials.from_service_account_info(info, scopes=SCOPES)
+    elif os.path.exists(CREDENTIALS_FILE):
+        creds = Credentials.from_service_account_file(CREDENTIALS_FILE, scopes=SCOPES)
+    else:
+        raise EnvironmentError(
+            "Credentials Google manquants. "
+            "Définir GOOGLE_CREDENTIALS_JSON (cloud) ou GOOGLE_CREDENTIALS_FILE (local)."
+        )
     return gspread.authorize(creds)
 
 

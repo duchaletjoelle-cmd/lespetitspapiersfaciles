@@ -1,8 +1,7 @@
 """
 Maillons 2 + 3 — Questionner et Compléter.
 Le modèle reçoit le message du client avec la liste des champs obligatoires.
-Il pose UNE seule question à la fois. La boucle continue jusqu'à ce que tous
-les champs soient remplis (ou marqués « non renseigné » si le client refuse).
+Il pose UNE seule question à la fois via OpenRouter (couche modèle interchangeable).
 """
 
 import os
@@ -11,15 +10,26 @@ import uuid
 import logging
 from datetime import datetime
 
-import anthropic
+import openai
 from dotenv import load_dotenv
 
 load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-MODEL = "claude-haiku-4-5-20251001"  # modèle rapide et économique pour les échanges courts
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "anthropic/claude-haiku-4-5")
+
+
+def _make_client():
+    return openai.OpenAI(
+        api_key=OPENROUTER_API_KEY,
+        base_url="https://openrouter.ai/api/v1",
+        default_headers={
+            "HTTP-Referer": "https://lespetitspapiersfaciles.fr",
+            "X-Title": "Assistant LPPF",
+        },
+    )
 
 
 def charger_metier(nom_metier: str) -> dict:
@@ -29,10 +39,9 @@ def charger_metier(nom_metier: str) -> dict:
         return json.load(f)
 
 
-def _prompt_systeme(config: dict, champs_manquants: list, champs_remplis: dict) -> str:
+def _prompt_systeme(config: dict, champs_remplis: dict) -> str:
     """Construit la consigne système envoyée au modèle à chaque tour."""
     prenom = config.get("prenom_pro", "le professionnel")
-    presentation = config["presentation"].format(prenom_pro=prenom)
 
     champs_str = "\n".join(
         f"- {c['cle']} ({c['label']}) : {champs_remplis.get(c['cle'], 'MANQUANT')}"
@@ -66,7 +75,6 @@ def _extraire_action(reponse: str, champs_actuels: dict) -> tuple[str, dict, str
     """
     Parse la réponse du modèle.
     Retourne (action, champs_mis_a_jour, texte_a_afficher).
-    action = "question" | "passage_humain" | "complet"
     """
     if "ACTION=PASSAGE_HUMAIN" in reponse:
         return "passage_humain", champs_actuels, reponse.split("ACTION=PASSAGE_HUMAIN")[0].strip()
@@ -74,8 +82,7 @@ def _extraire_action(reponse: str, champs_actuels: dict) -> tuple[str, dict, str
     if "ACTION=COMPLET" in reponse:
         try:
             debut_json = reponse.index("CHAMPS=") + len("CHAMPS=")
-            champs_json = reponse[debut_json:].strip()
-            champs_nouveaux = json.loads(champs_json)
+            champs_nouveaux = json.loads(reponse[debut_json:].strip())
             return "complet", champs_nouveaux, "Merci, j'ai bien noté tout ça !"
         except (ValueError, json.JSONDecodeError):
             logger.warning("Impossible de parser CHAMPS= dans : %s", reponse[:200])
@@ -87,17 +94,43 @@ def _extraire_action(reponse: str, champs_actuels: dict) -> tuple[str, dict, str
 class Session:
     """Une conversation avec un client."""
 
-    def __init__(self, metier: str):
-        self.id = str(uuid.uuid4())[:8]
-        self.config = charger_metier(metier)
+    def __init__(self, metier: str, session_id: str = None):
+        self.id = session_id or str(uuid.uuid4())[:8]
         self.metier = metier
+        self.config = charger_metier(metier)
         self.historique: list[dict] = []
         self.champs: dict = {}
         self.incompris_consecutifs = 0
         self.action_finale: str = ""
         self.log: list[dict] = []
-        self._client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+        self._client = _make_client()
         logger.info("Session %s démarrée — métier : %s", self.id, metier)
+
+    @classmethod
+    def depuis_etat(cls, etat: dict) -> "Session":
+        """Reconstruit une Session depuis un dict (chargé depuis la base)."""
+        session = cls.__new__(cls)
+        session.id = etat["id"]
+        session.metier = etat["metier"]
+        session.config = charger_metier(etat["metier"])
+        session.historique = etat.get("historique", [])
+        session.champs = etat.get("champs", {})
+        session.incompris_consecutifs = etat.get("incompris_consecutifs", 0)
+        session.action_finale = etat.get("action_finale") or ""
+        session.log = []
+        session._client = _make_client()
+        return session
+
+    def vers_etat(self) -> dict:
+        """Sérialise l'état de la session (pour la base de données)."""
+        return {
+            "id": self.id,
+            "metier": self.metier,
+            "historique": self.historique,
+            "champs": self.champs,
+            "incompris_consecutifs": self.incompris_consecutifs,
+            "action_finale": self.action_finale,
+        }
 
     def _champs_manquants(self) -> list[dict]:
         return [
@@ -115,26 +148,24 @@ class Session:
 
         champs_manquants = self._champs_manquants()
 
-        # Si plus rien à collecter, forcer la clôture
         if not champs_manquants:
             self.action_finale = "complet"
             return "Merci, j'ai bien noté toutes vos informations ! {prenom_pro} vous contacte bientôt.".format(
                 prenom_pro=self.config.get("prenom_pro", "le professionnel")
             )
 
-        systeme = _prompt_systeme(self.config, champs_manquants, self.champs)
+        systeme = _prompt_systeme(self.config, self.champs)
 
         try:
-            reponse_brute = self._client.messages.create(
-                model=MODEL,
+            reponse_brute = self._client.chat.completions.create(
+                model=OPENROUTER_MODEL,
                 max_tokens=512,
-                system=systeme,
-                messages=self.historique,
+                messages=[{"role": "system", "content": systeme}] + self.historique,
             )
-            texte_reponse = reponse_brute.content[0].text
+            texte_reponse = reponse_brute.choices[0].message.content
             self.incompris_consecutifs = 0
         except Exception as e:
-            logger.error("Erreur API Anthropic : %s", e)
+            logger.error("Erreur API OpenRouter : %s", e)
             self.incompris_consecutifs += 1
             texte_reponse = "Je n'ai pas bien compris. Pouvez-vous reformuler ?"
 
@@ -145,7 +176,7 @@ class Session:
             action = "passage_humain"
             texte_affiche = self.config.get(
                 "message_passage_humain",
-                "Je transmets votre demande au professionnel."
+                "Je transmets votre demande au professionnel.",
             ).format(prenom_pro=self.config.get("prenom_pro", "le professionnel"))
 
         if action in ("passage_humain", "complet"):
@@ -166,23 +197,8 @@ class Session:
         return self.action_finale in ("passage_humain", "complet")
 
     def generer_resume(self) -> str:
-        """Résumé court de la demande pour l'e-mail pro."""
         champs = self.champs
         nom = champs.get("nom_client", "")
-        produits = champs.get("produits", champs.get("prestation", champs.get("description_travaux", champs.get("probleme", ""))))
+        produit = champs.get("produits", champs.get("prestation", champs.get("description_travaux", champs.get("probleme", ""))))
         date = champs.get("date_retrait", champs.get("date_heure", champs.get("disponibilites", "")))
-        return f"{nom} — {produits}" + (f" — pour le {date}" if date else "")
-
-    def sauvegarder_log(self, dossier: str = "logs") -> str:
-        """Sauvegarde le journal de la conversation dans logs/."""
-        os.makedirs(dossier, exist_ok=True)
-        chemin = os.path.join(dossier, f"{self.metier}_{self.id}.json")
-        with open(chemin, "w", encoding="utf-8") as f:
-            json.dump({
-                "id": self.id,
-                "metier": self.metier,
-                "action_finale": self.action_finale,
-                "champs": self.champs,
-                "log": self.log,
-            }, f, ensure_ascii=False, indent=2)
-        return chemin
+        return f"{nom} — {produit}" + (f" — pour le {date}" if date else "")

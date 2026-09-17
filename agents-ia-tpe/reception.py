@@ -1,8 +1,8 @@
 """
 Maillon 1 — Recevoir : page web de conversation (mobile d'abord).
-Serveur Flask minimal. Accessible par un lien, hébergeable gratuitement
-(Render, Railway, Fly.io) ou pour quelques euros (VPS).
-Point d'entrée WhatsApp prévu mais non branché en V0.
+Serveur Flask — conçu pour tourner dans le cloud (Render, Railway, VPS).
+Le commerçant peut éteindre son PC : le service reste actif.
+Sessions persistées en PostgreSQL ; fallback mémoire si DATABASE_URL absent (dev local).
 """
 
 import os
@@ -25,20 +25,55 @@ PORT = int(os.getenv("PORT", 8080))
 
 app = Flask(__name__, static_folder="static")
 
-# Sessions actives en mémoire (une par onglet navigateur)
-# En production : remplacer par Redis ou une base légère
-_sessions: dict[str, Session] = {}
+# ── Couche de persistance ─────────────────────────────────────────────────────
+# PostgreSQL si DATABASE_URL est défini (production), sinon dict en mémoire (dev).
+_db_disponible = False
+_sessions_memoire: dict[str, Session] = {}
 
+try:
+    from database import init_db, sauvegarder_session, charger_session, supprimer_session, archiver_conversation
+    init_db()
+    _db_disponible = True
+    logger.info("Persistance : PostgreSQL activée")
+except Exception as e:
+    logger.warning("Persistance : PostgreSQL indisponible (%s) — mode mémoire (dev uniquement)", e)
+
+
+def _charger(session_id: str) -> Session | None:
+    if _db_disponible:
+        etat = charger_session(session_id)
+        return Session.depuis_etat(etat) if etat else None
+    return _sessions_memoire.get(session_id)
+
+
+def _sauvegarder(session: Session) -> None:
+    if _db_disponible:
+        sauvegarder_session(session)
+    else:
+        _sessions_memoire[session.id] = session
+
+
+def _supprimer(session_id: str) -> None:
+    if _db_disponible:
+        supprimer_session(session_id)
+    else:
+        _sessions_memoire.pop(session_id, None)
+
+
+def _archiver(session: Session) -> None:
+    if _db_disponible:
+        archiver_conversation(session)
+
+
+# ── Routes ────────────────────────────────────────────────────────────────────
 
 @app.route("/")
 def index():
-    """Page de chat — fichier statique."""
     return send_from_directory("static", "index.html")
 
 
 @app.route("/message", methods=["POST"])
 def recevoir_message():
-    """Point d'entrée principal : reçoit un message client, retourne la réponse."""
     data = request.get_json(force=True)
     session_id = data.get("session_id")
     texte = data.get("message", "").strip()
@@ -46,36 +81,31 @@ def recevoir_message():
     if not texte:
         return jsonify({"erreur": "Message vide"}), 400
 
-    # Créer ou récupérer la session
-    if session_id not in _sessions:
+    session = _charger(session_id) if session_id else None
+
+    if session is None:
         session = Session(METIER)
-        _sessions[session.id] = session
-        session_id = session.id
         config = charger_metier(METIER)
-        # Premier message = présentation de l'assistant
+        _sauvegarder(session)
         reponse = config["presentation"].format(prenom_pro=config.get("prenom_pro", ""))
-        return jsonify({"session_id": session_id, "reponse": reponse, "termine": False})
+        return jsonify({"session_id": session.id, "reponse": reponse, "termine": False})
 
-    session = _sessions[session_id]
     config = charger_metier(METIER)
-
     reponse = session.message(texte)
     termine = session.est_terminee()
 
     if termine:
-        # Sauvegarder le log
-        session.sauvegarder_log()
+        _archiver(session)
+        _supprimer(session.id)
 
         if session.action_finale == "complet":
-            # Maillon 4 : écrire dans le Sheet
-            numero_ligne = ecrire_fiche(
+            ecrire_fiche(
                 metier=session.metier,
                 champs=session.champs,
                 statut="nouvelle",
                 resume=session.generer_resume(),
                 conversation_id=session.id,
             )
-            # Maillon 5 : e-mail au pro
             envoyer_email_pro(
                 email_pro=config.get("email_pro", ""),
                 prenom_pro=config.get("prenom_pro", ""),
@@ -86,29 +116,23 @@ def recevoir_message():
                 resume=session.generer_resume(),
             )
         elif session.action_finale == "passage_humain":
-            # Maillon 6 : passage à l'humain
             gerer_passage(session, config)
-
-        # Nettoyer la session de la mémoire
-        del _sessions[session_id]
+    else:
+        _sauvegarder(session)
 
     return jsonify({
-        "session_id": session_id,
+        "session_id": session.id,
         "reponse": reponse,
         "termine": termine,
         "action": session.action_finale if termine else None,
     })
 
 
-# --- Point d'entrée WhatsApp (V0 non branché) ---
+# ── Webhook WhatsApp (point d'entrée prévu, non activé en V0) ─────────────────
+
 @app.route("/webhook/whatsapp", methods=["POST", "GET"])
 def webhook_whatsapp():
-    """
-    Prévu pour brancher l'API WhatsApp Business plus tard.
-    En V0 : retourne 200 OK pour éviter les erreurs de configuration Meta.
-    """
     if request.method == "GET":
-        # Vérification du webhook Meta
         token = request.args.get("hub.verify_token", "")
         challenge = request.args.get("hub.challenge", "")
         if token == os.getenv("WHATSAPP_VERIFY_TOKEN", ""):

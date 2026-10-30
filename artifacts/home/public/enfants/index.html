@@ -60,6 +60,20 @@
     .status.soon { background: #f6e4d8; color: #8a3d12; }
     .btn { display: inline-block; margin-top: auto; background: var(--pumpkin); color: #fff; text-decoration: none; font-weight: 600; border-radius: 999px; padding: 10px 18px; text-align: center; }
     .btn:focus-visible, .back:focus-visible { outline: 3px solid var(--night); outline-offset: 2px; }
+    .grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 720px; }
+    .shop { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .shop .card { background: var(--cream); }
+    .shop .card b { color: var(--ink); font-weight: 600; }
+    .kind { font-family: var(--kid); font-size: .85rem; color: var(--night); }
+    .card.ask { background: var(--night); border-color: var(--night); color: #fff; }
+    .card.ask h3 { color: #fff; }
+    .card.ask p { color: #e6dff0; }
+    .learn { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .point { border-left: 3px solid var(--pumpkin); padding-left: 14px; min-width: 0; }
+    .point h3 { font-family: var(--kid); font-weight: 600; font-size: 1.1rem; margin: 0 0 6px; }
+    .point p { margin: 0; color: var(--muted); font-size: .97rem; }
+    .jump { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .jump a { font-weight: 600; font-size: .95rem; color: var(--sage); text-decoration: none; border-bottom: 2px solid currentColor; }
     .ages { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
     .age { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 22px; min-width: 0; }
     .age h3 { font-family: var(--kid); font-weight: 600; margin: 0 0 6px; font-size: 1.25rem; }
@@ -71,10 +85,11 @@
     footer .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
     @media (max-width: 820px) {
       .hero .wrap { grid-template-columns: 1fr; }
-      .grid { grid-template-columns: 1fr; }
+      .grid, .grid.two { grid-template-columns: 1fr; }
+      .learn { grid-template-columns: 1fr 1fr; }
       .sheet { transform: none; max-width: 520px; }
     }
-    @media (max-width: 560px) { .ages { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .ages, .learn { grid-template-columns: 1fr; } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
@@ -100,6 +115,11 @@
             <li><b>Léon</b>, le chien</li>
             <li>le chat au médaillon</li>
           </ul>
+          <nav class="jump" aria-label="Sur cette page">
+            <a href="#livres">Les livres</a>
+            <a href="#boutique">La boutique</a>
+            <a href="#apprendre">Apprendre en s'amusant</a>
+          </nav>
         </div>
         <figure class="sheet" style="margin:0">
           <img src="img/coloriage-mila-amis.png" width="800" height="797" alt="Coloriage en noir et blanc : Mila la petite sorcière, Léo et leurs amis pendant la soirée d'Halloween, avec un chat noir, des citrouilles et une maison hantée.">
@@ -110,9 +130,9 @@
 
     <section id="livres">
       <div class="wrap">
-        <h2>Les livres et créations de Mila</h2>
-        <p class="intro">Le premier livre, « Soirée d'Halloween – C'est TOI qui décides », est disponible sur Amazon. Les autres créations arrivent bientôt.</p>
-        <div class="grid">
+        <h2>Les livres de Mila</h2>
+        <p class="intro">Le premier livre, « Soirée d'Halloween – C'est TOI qui décides », est disponible sur Amazon, en version Kindle et en grand livre broché.</p>
+        <div class="grid two">
           <article class="card">
             <span class="status now">Disponible</span>
             <h3>Soirée d'Halloween – C'est TOI qui décides</h3>
@@ -127,11 +147,80 @@
             <span class="price">15,81 €</span>
             <a class="btn" href="https://www.amazon.fr/s?k=Soir%C3%A9e+d%27Halloween+C%27est+toi+qui+d%C3%A9cides+Duchalet" target="_blank" rel="noopener">Voir sur Amazon</a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="boutique" class="shop">
+      <div class="wrap">
+        <h2>La boutique de Mila</h2>
+        <p class="intro">Des créations sur papier et sur écran, toutes avec les héros des livres. Pour chacune, voici ce que c'est et comment l'utiliser.</p>
+        <div class="grid">
           <article class="card">
             <span class="status soon">Bientôt</span>
-            <h3>Les coloriages de Mila</h3>
-            <p>Un cahier à colorier avec les héros du livre, et une appli pour colorier sur tablette ou téléphone.</p>
+            <span class="kind">Sur papier</span>
+            <h3>Le cahier de coloriage de Mila</h3>
+            <p><b>Ce que c'est :</b> un vrai cahier imprimé, avec Mila, Léo, Enzo, Léon et leurs amis à colorier. Un dessin par page, le verso reste blanc pour que les feutres ne traversent pas.</p>
+            <p><b>Comment on l'utilise :</b> on le commande sur Amazon et on le reçoit chez soi, comme un livre.</p>
           </article>
+          <article class="card">
+            <span class="status soon">Bientôt</span>
+            <span class="kind">À imprimer</span>
+            <h3>Les coloriages à imprimer</h3>
+            <p><b>Ce que c'est :</b> un fichier PDF avec les coloriages de Mila, en version petits (3-5 ans) et grands (6-9 ans).</p>
+            <p><b>Comment on l'utilise :</b> on le reçoit tout de suite après l'achat, et on imprime les pages chez soi, autant de fois qu'on veut.</p>
+          </article>
+          <article class="card">
+            <span class="status soon">Bientôt</span>
+            <span class="kind">Sur tablette et téléphone</span>
+            <h3>L'appli de coloriage de Mila</h3>
+            <p><b>Ce que c'est :</b> une petite appli pour colorier les héros du livre d'un simple toucher, avec une boîte de crayons, une gomme et des « couleurs magiques ».</p>
+            <p><b>Comment on l'utilise :</b> on l'ouvre avec un lien, sur tablette, téléphone ou ordinateur. Rien à installer, aucune publicité.</p>
+          </article>
+          <article class="card">
+            <span class="status soon">Pour Noël</span>
+            <span class="kind">À imprimer</span>
+            <h3>Le calendrier de l'Avent de Mila</h3>
+            <p><b>Ce que c'est :</b> 24 surprises jusqu'à Noël : chaque jour, un morceau d'histoire de Mila, un petit jeu et un défi à faire en famille.</p>
+            <p><b>Comment on l'utilise :</b> on l'imprime, et l'enfant ouvre une case chaque matin de décembre.</p>
+          </article>
+          <article class="card">
+            <span class="status soon">Pour Noël</span>
+            <span class="kind">Personnalisée</span>
+            <h3>La lettre du Père Noël</h3>
+            <p><b>Ce que c'est :</b> une lettre du Père Noël écrite pour votre enfant, avec son prénom et des détails de sa vie.</p>
+            <p><b>Comment on l'utilise :</b> vous donnez quelques informations, vous recevez la lettre prête à imprimer et à glisser sous le sapin.</p>
+          </article>
+          <article class="card ask">
+            <h3>Être prévenu de la sortie</h3>
+            <p>Vous voulez savoir quand une création sort, ou en réserver une pour Noël ? Écrivez-moi, je vous réponds personnellement.</p>
+            <a class="btn" href="/contact">Me contacter</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="apprendre">
+      <div class="wrap">
+        <h2>Apprendre en s'amusant</h2>
+        <p class="intro">Les Petits Papiers Faciles aident les adultes avec leurs papiers et le numérique. L'Atelier de Mila fait la même chose pour les enfants, en douceur : lire, créer et utiliser les écrans de façon active.</p>
+        <div class="learn">
+          <div class="point">
+            <h3>Lire en étant acteur</h3>
+            <p>Dans les histoires de Mila, c'est l'enfant qui choisit la suite. Il relit, compare les fins possibles, et prend goût à la lecture.</p>
+          </div>
+          <div class="point">
+            <h3>Colorier pour se concentrer</h3>
+            <p>Choisir ses couleurs, rester dans les zones, finir son dessin : le coloriage fait travailler la précision de la main et la patience.</p>
+          </div>
+          <div class="point">
+            <h3>Des écrans utiles</h3>
+            <p>Les applis de l'Atelier n'ont ni publicité ni vidéos sans fin. L'enfant crée quelque chose, puis il pose la tablette.</p>
+          </div>
+          <div class="point">
+            <h3>Partager en famille</h3>
+            <p>Les défis du calendrier et les histoires à choix se vivent à plusieurs : on lit ensemble, on décide ensemble.</p>
+          </div>
         </div>
       </div>
     </section>

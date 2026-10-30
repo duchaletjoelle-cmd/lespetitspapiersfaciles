@@ -66,6 +66,15 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href="/enfants/"
+                  className="hover:text-white transition-colors"
+                  style={{ textDecoration: "none", color: "oklch(0.75 0.02 72)" }}
+                >
+                  Et pour les enfants
+                </a>
+              </li>
             </ul>
           </div>
 

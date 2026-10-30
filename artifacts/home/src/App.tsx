@@ -34,6 +34,21 @@ function Navbar() {
     );
   };
 
+  // Page statique servie à part (public/enfants), donc lien classique et non routeur
+  const kidsLink = (
+    <a
+      href="/enfants/"
+      className="text-sm font-semibold transition-colors"
+      style={{
+        fontFamily: "'Source Sans 3', sans-serif",
+        color: "oklch(0.30 0.04 72)",
+        textDecoration: "none",
+      }}
+    >
+      Et pour les enfants
+    </a>
+  );
+
   return (
     <header
       className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm"
@@ -74,6 +89,7 @@ function Navbar() {
           {navLink("/", "Accueil")}
           {navLink("/rendez-vous", "Prendre rendez-vous")}
           {navLink("/contact", "Contact")}
+          {kidsLink}
           <a
             href="tel:0750527227"
             className="btn-sage"
@@ -104,6 +120,7 @@ function Navbar() {
           <div className="pt-4">{navLink("/", "Accueil")}</div>
           {navLink("/rendez-vous", "Prendre rendez-vous")}
           {navLink("/contact", "Contact")}
+          {kidsLink}
           <a
             href="tel:0750527227"
             className="btn-sage"
